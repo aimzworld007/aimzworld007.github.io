@@ -1,0 +1,266 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ainul Islam — Document Controller</title>  <!-- Bootstrap & icons -->  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- AOS for scroll animations -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <!-- Typed.js will be used for hero text -->  <style>
+    :root{
+      --primary:#1f4d9a; /* deep blue to match CV */
+      --accent:#e9eefb;
+      --muted:#6c757d;
+    }
+    body{font-family: 'Segoe UI', Roboto, Arial, sans-serif; color:#263238; background:#fff}
+    /* Navbar */
+    .navbar{box-shadow:0 2px 6px rgba(16,24,40,.06)}
+
+    /* Hero */
+    .hero{background:linear-gradient(90deg,var(--primary),#2b6fb5); color:#fff; padding:50px 0}
+    .hero .profile{width:140px;height:140px;border-radius:10px;border:6px solid rgba(255,255,255,.12);object-fit:cover}
+    .hero h1{font-weight:700;letter-spacing:1px}
+    .typed-cursor{opacity:1}
+
+    /* Section title */
+    .section-title{display:flex;align-items:center;margin-bottom:18px}
+    .section-title h3{margin:0;font-size:1.1rem;font-weight:700}
+    .section-title .line{flex:1;height:2px;background:var(--primary);margin-left:12px;border-radius:2px}
+
+    /* Two-column resume look */
+    .resume-row{display:flex;gap:30px}
+    .col-left{flex:1}
+    .col-right{flex:1}
+
+    /* Cards for Education/Cert */
+    .info-card{background:var(--accent);border-radius:8px;padding:14px;margin-bottom:10px;border-left:6px solid var(--primary)}
+
+    /* Skills badges */
+    .skill-badge{display:inline-block;margin:6px 6px 6px 0;padding:8px 12px;border-radius:8px;background:#f3f7ff;color:var(--primary);font-weight:600;border:1px solid rgba(31,77,154,.08)}
+
+    /* Skill bars */
+    .skill-track{background:#eef3ff;border-radius:14px;padding:6px;margin-bottom:10px}
+    .skill-fill{height:14px;border-radius:10px;background:var(--primary);display:block}
+
+    /* Timeline bullets */
+    .timeline-item{margin-bottom:18px}
+    .timeline-item h5{margin-bottom:6px}
+
+    footer{background:#f8f9fa;padding:18px 0;text-align:center;margin-top:30px;color:var(--muted)}
+
+    /* Responsive */
+    @media(max-width:900px){
+      .resume-row{flex-direction:column}
+      .hero{text-align:center}
+      .hero .profile{margin:0 auto}
+    }
+  </style></head>
+<body>  <!-- NAV -->  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Ainul Islam</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>  <!-- HERO -->  <header class="hero">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap">
+      <div class="d-flex align-items-center gap-4">
+        <img src="photo.jpg" alt="Ainul Islam" class="profile shadow-sm">
+        <div>
+          <h1 class="mb-1">AINUL ISLAM</h1>
+          <div class="fw-600 mb-2">
+            <span id="typed-text" style="font-weight:600"></span>
+          </div>
+          <div class="text-white-50 small">
+            <i class="fa fa-map-marker-alt"></i> Sharjah, U.A.E &nbsp; • &nbsp;
+            <i class="fa fa-envelope"></i> <a href="mailto:Aimctgbd@gmail.com" class="text-white">Aimctgbd@gmail.com</a> &nbsp; • &nbsp;
+            <i class="fa fa-phone"></i> +971 52 284 9291
+          </div>
+        </div>
+      </div><div class="text-end mt-3 mt-md-0">
+    <a href="your-cv.pdf" class="btn btn-outline-light me-2" download><i class="fa fa-download"></i> Download CV</a>
+    <a href="https://linkedin.com/in/aimzworld007" target="_blank" class="btn btn-light"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  </div>
+</div>
+
+  </header>  <!-- MAIN -->  <main class="container my-5"><!-- ABOUT / OBJECTIVE -->
+<section id="about" class="mb-5" data-aos="fade-up">
+  <div class="section-title">
+    <h3>Career Objective</h3>
+    <div class="line"></div>
+  </div>
+  <p>Customer-focused professional with 3+ years' experience in administrative, IT, and client support roles in the UAE. Skilled in handling customer queries, documentation, and complaint resolution within deadlines. Strong communication, typing, and multitasking abilities with a proven commitment to confidentiality, punctuality, and teamwork.</p>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="mb-5" data-aos="fade-up">
+  <div class="section-title"><h3>Professional Experience</h3><div class="line"></div></div>
+
+  <div class="resume-row">
+    <div class="col-left">
+      <div class="timeline-item">
+        <h5 class="fw-bold">Typist & IT Executive <span class="text-muted">— Habat Al Rimal Typing, Sharjah</span></h5>
+        <div class="text-muted small mb-2">Jan 2025 – Present</div>
+        <ul>
+          <li>Process legal/visa documents accurately and on time</li>
+          <li>Assist customers with UAE government transactions while ensuring confidentiality</li>
+          <li>Provide IT support, data entry, and customer-facing assistance</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h5 class="fw-bold">Filing Clerk <span class="text-muted">— Al Mutawakil Typing Services, Abu Dhabi</span></h5>
+        <div class="text-muted small mb-2">Jul 2021 – Feb 2022</div>
+        <ul>
+          <li>Organized and updated records and legal documents</li>
+          <li>Supported data entry, typing, and customer documentation needs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-right">
+      <div class="timeline-item">
+        <h5 class="fw-bold">Administration Manager <span class="text-muted">— Al Rashidya Gas Trading LLC, Dubai</span></h5>
+        <div class="text-muted small mb-2">Jun 2023 – Jan 2025</div>
+        <ul>
+          <li>Resolved customer and supplier complaints professionally</li>
+          <li>Supervised staff and ensured compliance in documentation/logistics</li>
+          <li>Maintained client relationships with clear, courteous communication</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h5 class="fw-bold">IT Executive <span class="text-muted">— Metrix Corporation, Chittagong</span></h5>
+        <div class="text-muted small mb-2">Jan 2014 – Dec 2016</div>
+        <ul>
+          <li>Delivered IT support and troubleshooting under pressure</li>
+          <li>Ensured smooth operations across multiple departments</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & CERTIFICATIONS -->
+<section id="education" class="mb-5" data-aos="fade-up">
+  <div class="section-title"><h3>Education & Certifications</h3><div class="line"></div></div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="info-card">
+        <strong>M.Sc. Geography & Environment</strong>
+        <div class="text-muted small">National University of Bangladesh — CGPA: 2.97/4.00</div>
+      </div>
+      <div class="info-card">
+        <strong>B.Sc. Geography & Environment</strong>
+        <div class="text-muted small">National University of Bangladesh — CGPA: 3.02/4.00 (1st Class)</div>
+      </div>
+      <div class="info-card">
+        <strong>1-Year ICT Diploma</strong>
+        <div class="text-muted small">Islami Bank Institute of Technology, Chittagong</div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="info-card">
+        <strong>Certificate of Completion: PHP Course</strong>
+        <div class="text-muted small">SoloLearn — Issued Feb 2016</div>
+      </div>
+      <div class="info-card">
+        <strong>Certificate of Completion: HTML Course</strong>
+        <div class="text-muted small">SoloLearn — Issued Feb 2016</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="mb-5" data-aos="fade-up">
+  <div class="section-title"><h3>Skills</h3><div class="line"></div></div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h6 class="mb-2">Core Skills</h6>
+      <div>
+        <span class="skill-badge">Customer Service</span>
+        <span class="skill-badge">Complaint Resolution</span>
+        <span class="skill-badge">Documentation</span>
+        <span class="skill-badge">Fast Typing</span>
+        <span class="skill-badge">Communication</span>
+        <span class="skill-badge">Time Management</span>
+        <span class="skill-badge">Multitasking</span>
+        <span class="skill-badge">Confidentiality</span>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <h6 class="mb-2">Technical Skills</h6>
+      <div class="mb-2 small text-muted">MS Office</div>
+      <div class="skill-track"><span class="skill-fill" style="width:92%"></span></div>
+      <div class="mb-2 small text-muted">WordPress</div>
+      <div class="skill-track"><span class="skill-fill" style="width:86%"></span></div>
+      <div class="mb-2 small text-muted">HTML / CSS</div>
+      <div class="skill-track"><span class="skill-fill" style="width:80%"></span></div>
+      <div class="mb-2 small text-muted">PHP / MySQL</div>
+      <div class="skill-track"><span class="skill-fill" style="width:74%"></span></div>
+      <div class="mb-2 small text-muted">ICT Tools</div>
+      <div class="skill-track"><span class="skill-fill" style="width:72%"></span></div>
+      <div class="mb-2 small text-muted">Basic Python</div>
+      <div class="skill-track"><span class="skill-fill" style="width:60%"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="mb-5" data-aos="fade-up">
+  <div class="section-title"><h3>Contact</h3><div class="line"></div></div>
+  <div class="row">
+    <div class="col-md-6">
+      <p>If you’d like to get in touch about opportunities or collaborations — the best way is by email or LinkedIn.</p>
+      <ul class="list-unstyled">
+        <li><i class="fa fa-envelope"></i> <a href="mailto:Aimctgbd@gmail.com">Aimctgbd@gmail.com</a></li>
+        <li><i class="fa fa-phone"></i> +971 52 284 9291</li>
+        <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/aimzworld007" target="_blank">linkedin.com/in/aimzworld007</a></li>
+        <li><i class="fa fa-globe"></i> <a href="https://aimnote.wordpress.com" target="_blank">aimnote.wordpress.com</a></li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <!-- Simple contact form (non-functional when served from GitHub Pages without backend) -->
+      <form action="#" onsubmit="event.preventDefault();alert('This contact form needs a backend or use Formspree / Netlify forms to function.');">
+        <div class="mb-2"><input class="form-control" placeholder="Your name" required></div>
+        <div class="mb-2"><input class="form-control" placeholder="Your email" required></div>
+        <div class="mb-2"><textarea class="form-control" rows="3" placeholder="Message" required></textarea></div>
+        <button class="btn btn-primary">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+  </main>  <footer>
+    <div class="container">
+      <small>© 2025 Ainul Islam — Document Controller • Built for GitHub Pages</small>
+    </div>
+  </footer>  <!-- Scripts -->  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>  <script>
+    AOS.init({duration:650,once:true});
+
+    // Typed text in hero
+    new Typed('#typed-text',{strings:['Document Controller','Administrative & IT Support','Customer-focused Professional'],typeSpeed:60,backSpeed:35,backDelay:1200,loop:true});
+
+    // Smooth anchor scrolling
+    document.querySelectorAll('a.nav-link').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault(); const target=document.querySelector(a.getAttribute('href'));
+        if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+  </script></body>
+</html>
