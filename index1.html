@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AINUL ISLAM - Professional Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #333;
+            background-color: #fff;
+        }
+        .resume {
+            width: 8.27in;
+            min-height: 11.69in;
+            margin: 0 auto;
+            padding: 0.3in;
+            box-sizing: border-box;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.2in;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.1in;
+        }
+        .photo-container {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #1a237e;
+        }
+        .photo-placeholder {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+        .name-contact {
+            flex: 1;
+        }
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+            color: #1a237e;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 13px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        .contact-item i {
+            font-size: 14px;
+            margin-right: 3px;
+            color: #3949ab;
+        }
+        .section {
+            margin-bottom: 0.15in;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 0.05in 0;
+            color: #1a237e;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 3px;
+        }
+        .objective {
+            font-size: 14px;
+            line-height: 1.3;
+            margin: 0;
+        }
+        .experience-container {
+            display: flex;
+            gap: 15px;
+        }
+        .experience-column {
+            flex: 1;
+        }
+        .experience-item {
+            margin-bottom: 0.15in;
+        }
+        .job-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin: 0;
+            color: #283593;
+        }
+        .company {
+            font-style: italic;
+            font-size: 14px;
+            margin: 0;
+        }
+        .date {
+            font-size: 13px;
+            color: #555;
+            margin: 0;
+        }
+        .job-details {
+            margin: 0.05in 0 0 0.15in;
+            padding-left: 0.05in;
+        }
+        .job-details li {
+            font-size: 13px;
+            margin-bottom: 0.03in;
+            list-style-type: disc;
+        }
+        .education-item {
+            margin-bottom: 0.08in;
+        }
+        .degree {
+            font-weight: 600;
+            font-size: 16px;
+            margin: 0;
+            color: #283593;
+        }
+        .university {
+            font-size: 14px;
+            margin: 0;
+        }
+        .gpa {
+            font-size: 13px;
+            color: #555;
+            margin: 0;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skill-category {
+            flex: 1 0 45%;
+            margin-bottom: 0.08in;
+        }
+        .skill-category-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin: 0 0 0.03in 0;
+            color: #283593;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .skills-list li {
+            font-size: 13px;
+            background-color: #e8eaf6;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .certification-item {
+            margin-bottom: 0.08in;
+        }
+        .cert-name {
+            font-weight: 600;
+            font-size: 15px;
+            margin: 0;
+            color: #283593;
+        }
+        .cert-issuer {
+            font-size: 13px;
+            margin: 0;
+        }
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .two-column {
+            display: flex;
+            gap: 0.2in;
+            flex-grow: 1;
+        }
+        .column {
+            flex: 1;
+        }
+        .highlight {
+            color: #3949ab;
+            font-weight: 600;
+        }
+        .skill-box {
+            background-color: #f5f7ff;
+            border-radius: 4px;
+            padding: 6px;
+            margin-bottom: 8px;
+            border-left: 3px solid #3949ab;
+        }
+        .skill-box-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin: 0 0 3px 0;
+            color: #283593;
+        }
+        .skill-box-content {
+            font-size: 13px;
+            margin: 0;
+        }
+        .tech-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+        .tech-skill-item {
+            background-color: #e8eaf6;
+            border-radius: 4px;
+            padding: 6px;
+            text-align: center;
+            font-size: 13px;
+        }
+        .cert-box {
+            background-color: #f5f7ff;
+            border-radius: 4px;
+            padding: 6px;
+            margin-bottom: 8px;
+            border-left: 3px solid #3949ab;
+        }
+        .cert-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin: 0 0 3px 0;
+            color: #283593;
+        }
+        .cert-issuer {
+            font-size: 13px;
+            margin: 0;
+        }
+        .merged-skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .merged-skills .skill-box {
+            height: 100%;
+        }
+        .skill-tag {
+            display: inline-block;
+            background-color: #e8eaf6;
+            border-radius: 4px;
+            padding: 3px 6px;
+            margin: 2px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #283593;
+        }
+        .skill-tag.highlight {
+            background-color: #c5cae9;
+            font-weight: 600;
+        }
+        .cert-id {
+            font-size: 11px;
+            color: #666;
+            font-style: italic;
+        }
+        .education-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .education-row {
+            display: flex;
+            gap: 15px;
+        }
+        .education-card {
+            flex: 1;
+            background-color: #f5f7ff;
+            border-radius: 4px;
+            padding: 8px;
+            border-left: 3px solid #3949ab;
+        }
+        .education-card-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin: 0 0 5px 0;
+            color: #283593;
+        }
+        .education-card-subtitle {
+            font-size: 13px;
+            margin: 0;
+        }
+        .education-card-detail {
+            font-size: 12px;
+            color: #555;
+            margin: 0;
+        }
+        .references {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a237e;
+            margin-top: 0.2in;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="photo-container">
+                <div class="photo-placeholder">Photo</div>
+            </div>
+            <div class="name-contact">
+                <h1 class="name">AINUL ISLAM</h1>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sharjah, U.A.E</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Aimctgbd@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+971 52 284 9291</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>Aimnote.wordpress.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span>linkedin.com/in/aimzworld007</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Career Objective Section -->
+            <div class="section">
+                <h2 class="section-title">CAREER OBJECTIVE</h2>
+                <p class="objective">Document Controller and administrative professional with 3+ years of experience in the UAE, specializing in ICP, MOHRE, and DED government applications. Skilled in document control, compliance, visa processing, and customer service.</p>
+            </div>
+
+            <!-- Professional Experience Section -->
+            <div class="section">
+                <h2 class="section-title">PROFESSIONAL EXPERIENCE</h2>
+                <div class="experience-container">
+                    <!-- Left Column -->
+                    <div class="experience-column">
+                        <div class="experience-item">
+                            <h3 class="job-title">Typist / Document Controller</h3>
+                            <p class="company">Abu Dhabi & Sharjah</p>
+                            <p class="date">Jul 2021 – Present</p>
+                            <ul class="job-details">
+                                <li>Managed UAE government applications (ICP, MOHRE, DED, Tas-heel, Emirates ID)</li>
+                                <li>Handled documentation workflows, visa processing, and direct customer service</li>
+                                <li>Provided support in IATA-approved flight ticket booking systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column -->
+                    <div class="experience-column">
+                        <div class="experience-item">
+                            <h3 class="job-title">Administration Manager</h3>
+                            <p class="company">Dubai</p>
+                            <p class="date">Jun 2023 – Jan 2025</p>
+                            <ul class="job-details">
+                                <li>Supervised documentation workflows, compliance, and customer documentation handling</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <h3 class="job-title">IT Executive</h3>
+                            <p class="company">Bangladesh</p>
+                            <p class="date">Jan 2014 – Dec 2016</p>
+                            <ul class="job-details">
+                                <li>Delivered IT support, documentation, and troubleshooting across multiple departments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education and Certifications Section - 2 Columns -->
+            <div class="section">
+                <div class="two-column">
+                    <!-- Left Column - Education -->
+                    <div class="column">
+                        <h2 class="section-title">EDUCATION</h2>
+                        <div class="education-container">
+                            <div class="education-card">
+                                <h3 class="education-card-title">M.Sc. Geography & Environment</h3>
+                                <p class="education-card-subtitle">National University of Bangladesh</p>
+                                <p class="education-card-detail">CGPA: 2.97/4.00</p>
+                            </div>
+                            <div class="education-card">
+                                <h3 class="education-card-title">B.Sc. Geography & Environment</h3>
+                                <p class="education-card-subtitle">National University of Bangladesh</p>
+                                <p class="education-card-detail">CGPA: 3.02/4.00 – 1st Class</p>
+                            </div>
+                            <div class="education-card">
+                                <h3 class="education-card-title">1-Year ICT Diploma</h3>
+                                <p class="education-card-subtitle">Islami Bank Institute of Technology</p>
+                                <p class="education-card-detail">Chittagong</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column - Certifications -->
+                    <div class="column">
+                        <h2 class="section-title">CERTIFICATIONS</h2>
+                        <div class="cert-box">
+                            <h3 class="cert-title">Certificate of Completion: PHP Course</h3>
+                            <p class="cert-issuer">Sololearn • Issued Feb 2016</p>
+                            <p class="cert-id">Credential ID: CT-S4NGPDRA</p>
+                        </div>
+                        
+                        <div class="cert-box">
+                            <h3 class="cert-title">Certificate of Completion: HTML Course</h3>
+                            <p class="cert-issuer">Sololearn • Issued Feb 2016</p>
+                            <p class="cert-id">Credential ID: CT-LWZGFQLU</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Section - 2 Columns -->
+            <div class="section">
+                <h2 class="section-title">SKILLS</h2>
+                <div class="two-column">
+                    <!-- Left Column - Core Skills -->
+                    <div class="column">
+                        <div class="skill-box">
+                            <h3 class="skill-box-title">CORE SKILLS</h3>
+                            <div>
+                                <span class="skill-tag highlight">Document Control</span>
+                                <span class="skill-tag highlight">UAE Government Portals</span>
+                                <span class="skill-tag highlight">Customer Service</span>
+                                <span class="skill-tag">Compliance</span>
+                                <span class="skill-tag">Visa Processing</span>
+                                <span class="skill-tag">Documentation</span>
+                                <span class="skill-tag">Flight Ticketing</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column - Technical Skills -->
+                    <div class="column">
+                        <div class="skill-box">
+                            <h3 class="skill-box-title">TECHNICAL SKILLS</h3>
+                            <div>
+                                <span class="skill-tag highlight">ICP/MOHRE/DED</span>
+                                <span class="skill-tag highlight">AI</span>
+                                <span class="skill-tag highlight">GitHub</span>
+                                <span class="skill-tag">IT Tools</span>
+                                <span class="skill-tag">Tas-heel</span>
+                                <span class="skill-tag">Emirates ID</span>
+                                <span class="skill-tag">IATA Portals</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- References Section -->
+            <div class="references">
+                References: Upon Request
+            </div>
+        </div>
+    </div>
+</body>
+</html>
