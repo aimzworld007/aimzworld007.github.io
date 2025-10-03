@@ -123,7 +123,3 @@ Works in all modern browsers:
 - **Optimized Images**: External links for photos
 - **Minimal Dependencies**: Only essential CDN resources
 - **Cached Resources**: Browser caching for better performance
-
----
-
-**Ready to use in seconds! Just download and open in your browser.**
