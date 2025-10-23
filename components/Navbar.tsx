@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
 
       const sections = ['home', 'about', 'skills', 'portfolio', 'services', 'contact'];
       let currentSection = 'home';
@@ -33,26 +33,21 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-dark/70 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <a href="#home" className="text-2xl font-bold text-light hover:text-primary transition-colors">
-            AINUL ISLAM
-          </a>
-          <div className="hidden md:flex items-center space-x-4">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4' : 'py-6'}`}>
+       <div className={`transition-all duration-300 mx-auto max-w-max p-2 rounded-full ${isScrolled ? 'bg-background/80 backdrop-blur-sm shadow-neumorphic-raised' : 'bg-transparent'}`}>
+          <div className="flex items-center space-x-2">
             {navLinks.map(link => (
               <a 
                 key={link.href} 
                 href={link.href} 
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center gap-2 ${activeSection === link.href.substring(1) ? 'text-white bg-primary' : 'text-medium hover:text-light hover:bg-white/10'}`}
+                className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2 ${activeSection === link.href.substring(1) ? 'text-primary shadow-neumorphic-pressed' : 'text-text-medium hover:text-text-dark'}`}
               >
                 {link.icon}
-                {link.text}
+                <span className="hidden sm:inline">{link.text}</span>
               </a>
             ))}
           </div>
-        </div>
-      </div>
+       </div>
     </nav>
   );
 };

@@ -24,7 +24,6 @@ import {
   IconCodeBracket,
   IconCog
 } from './components/icons';
-import ParticlesBackground from './components/ParticlesBackground';
 import Navbar from './components/Navbar';
 import PortfolioCard from './components/PortfolioCard';
 import { PortfolioProject } from './types';
@@ -66,7 +65,7 @@ const useAnimateOnScroll = (): [React.RefObject<HTMLDivElement>, boolean] => {
 const AnimatedSection: React.FC<{children: React.ReactNode, id: string}> = ({ children, id }) => {
   const [ref, isVisible] = useAnimateOnScroll();
   return (
-    <section id={id} ref={ref} className={`py-16 md:py-20 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+    <section id={id} ref={ref} className={`py-20 md:py-24 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
       {children}
     </section>
   );
@@ -78,9 +77,8 @@ const App: React.FC = () => {
 
   return (
     <>
-      <ParticlesBackground />
       <Navbar />
-      <div className="relative z-10 max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+      <div className="relative max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
         
         {/* Home Section */}
         <section id="home" className="min-h-screen flex items-center justify-center animate-fade-in">
@@ -93,15 +91,15 @@ const App: React.FC = () => {
              <Section title="About Me" icon={<IconUser />}>
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
                    <div className='lg:col-span-3'>
-                      <h3 className="text-2xl font-semibold text-light mb-4">Career Objective</h3>
-                      <p className="text-lg text-medium mb-8">
+                      <h3 className="text-2xl font-semibold text-text-dark mb-4">Career Objective</h3>
+                      <p className="text-lg text-text-medium mb-8">
                         {personalData.careerObjective}
                       </p>
                       
-                      <h3 className="text-2xl font-semibold text-light mb-4 flex items-center">
+                      <h3 className="text-2xl font-semibold text-text-dark mb-4 flex items-center">
                         <IconAcademicCap className="mr-3 text-primary" /> Education
                       </h3>
-                      <div className="space-y-4">
+                      <div className="space-y-6">
                         {education.map((edu, index) => (
                           <EducationCard key={index} education={edu} />
                         ))}
@@ -109,10 +107,10 @@ const App: React.FC = () => {
                    </div>
                    <div className='lg:col-span-2 space-y-8'>
                       <div>
-                        <h3 className="text-2xl font-semibold text-light flex items-center mb-4">
+                        <h3 className="text-2xl font-semibold text-text-dark flex items-center mb-4">
                            <IconSparkles className="mr-3 text-primary" /> Certifications
                         </h3>
-                        <div className="space-y-4">
+                        <div className="space-y-6">
                           {certifications.map((cert, index) => (
                             <CertificationCard key={index} certification={cert} />
                           ))}
@@ -128,20 +126,20 @@ const App: React.FC = () => {
             <Section title="My Skills" icon={<IconWrenchScrewdriver />}>
               <div className="space-y-8">
                   <div>
-                    <h3 className="text-2xl font-semibold text-light flex items-center mb-4">
+                    <h3 className="text-2xl font-semibold text-text-dark flex items-center mb-4">
                       <IconStar className="mr-3 text-primary" /> Core Skills
                     </h3>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-4">
                       {coreSkills.map((skill, index) => (
                         <SkillBadge key={index} skill={skill} />
                       ))}
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold text-light flex items-center mb-4">
+                    <h3 className="text-2xl font-semibold text-text-dark flex items-center mb-4">
                       <IconCodeBracket className="mr-3 text-primary" /> Technical Skills
                     </h3>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-4">
                       {technicalSkills.map((skill, index) => (
                         <SkillBadge key={index} skill={skill} />
                       ))}

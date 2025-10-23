@@ -20,48 +20,42 @@ export const portfolioProjects: PortfolioProject[] = [
     description: "A comprehensive system for managing UAE government applications across various portals.",
     imageUrl: "https://images.unsplash.com/photo-1556742502-ec7c0e2f34b1?q=80&w=800&auto=format&fit=crop",
     technologies: ["ICP", "MOHRE", "DED", "Tas-heel"],
-    details: "Developed and managed workflows for handling diverse government applications, ensuring compliance and efficiency. The system streamlined visa processing, Emirates ID applications, and other critical documentation services.",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    details: "Developed and managed workflows for handling diverse government applications, ensuring compliance and efficiency. The system streamlined visa processing, Emirates ID applications, and other critical documentation services."
   },
   {
     title: "Corporate Compliance & Licensing",
     description: "Managed government relations and documentation for company licensing and permits.",
     imageUrl: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop",
     technologies: ["Regulatory Adherence", "Documentation", "PRO"],
-    details: "Liaised with various UAE government departments including MOHRE, DED, Immigration, and Labor to process employee visas, permits, and ensure full regulatory adherence for the company.",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    details: "Liaised with various UAE government departments including MOHRE, DED, Immigration, and Labor to process employee visas, permits, and ensure full regulatory adherence for the company."
   },
   {
     title: "Digital Archiving Solution",
     description: "Implemented document scanning and digital archiving procedures for a typing service.",
     imageUrl: "https://images.unsplash.com/photo-1521737852577-684897f092a2?q=80&w=800&auto=format&fit=crop",
     technologies: ["Filing Systems", "Document Retrieval", "Accuracy"],
-    details: "Organized and maintained both physical and electronic filing systems. Managed document retrieval and distribution for internal departments, and processed legal documents with high accuracy.",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    details: "Organized and maintained both physical and electronic filing systems. Managed document retrieval and distribution for internal departments, and processed legal documents with high accuracy."
   },
    {
     title: "News Portal Development",
     description: "Developed and managed a local news portal, Ctgnewstoday.",
     imageUrl: "https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=800&auto=format&fit=crop",
     technologies: ["HTML/CSS/PHP", "MySQL", "Content Management"],
-    details: "Led the development of a dynamic news portal. While currently inactive, this project involved creating a full-stack solution for news publishing and management.",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    details: "Led the development of a dynamic news portal. While currently inactive, this project involved creating a full-stack solution for news publishing and management."
   },
   {
     title: "Hospital Database Software",
     description: "Created custom database software for hospitals, clinics, and Chittagong Port.",
     imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
     technologies: ["Database Design", "Software Development", "Healthcare IT"],
-    details: "Designed and implemented a database system to manage patient records and administrative data for healthcare facilities and port authorities, improving data accessibility and efficiency.",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    details: "Designed and implemented a database system to manage patient records and administrative data for healthcare facilities and port authorities, improving data accessibility and efficiency."
   },
   {
     title: "Result Publishing Software",
     description: "Designed a result publishing system for Chittagong Medical College.",
     imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop",
     technologies: ["Software Design", "Education Tech", "IT Support"],
-    details: "Developed a specialized software to publish academic results for a medical college, providing reliable and timely information to students and faculty. Also provided IT support across departments.",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    details: "Developed a specialized software to publish academic results for a medical college, providing reliable and timely information to students and faculty. Also provided IT support across departments."
   }
 ];
 
@@ -95,13 +89,15 @@ export const certifications: Certification[] = [
     name: "PHP Course Completion",
     issuer: "Sololearn",
     date: "Issued Feb 2016",
-    credentialId: "CT-S4NGPDRA"
+    credentialId: "CT-S4NGPDRA",
+    credentialUrl: "https://www.sololearn.com/certificates/CT-S4NGPDRA"
   },
   {
     name: "HTML Course Completion",
     issuer: "Sololearn",
     date: "Issued Feb 2016",
-    credentialId: "CT-LWZGFQLU"
+    credentialId: "CT-LWZGFQLU",
+    credentialUrl: "https://www.sololearn.com/certificates/CT-LWZGFQLU"
   }
 ];
 

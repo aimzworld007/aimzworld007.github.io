@@ -7,12 +7,22 @@ interface CertificationCardProps {
 
 const CertificationCard: React.FC<CertificationCardProps> = ({ certification }) => {
   return (
-    <div className="bg-white/5 backdrop-blur-md p-4 rounded-lg border-l-4 border-primary transform transition-all duration-300 hover:bg-white/10 hover:-translate-y-1 hover:shadow-lg">
-      <h3 className="font-bold text-md text-light">{certification.name}</h3>
-      <p className="text-sm text-primary font-medium">{certification.issuer} • {certification.date}</p>
-      {certification.credentialId && <p className="text-xs text-medium mt-1">ID: {certification.credentialId}</p>}
+    <div className="bg-background p-6 rounded-2xl shadow-neumorphic-raised transition-shadow duration-300 hover:shadow-neumorphic-pressed">
+      <h3 className="font-bold text-lg text-text-dark">{certification.name}</h3>
+      <p className="text-base text-primary font-medium">{certification.issuer} • {certification.date}</p>
+      {certification.credentialId && (
+        <p className="text-xs text-text-medium mt-1">
+          {certification.credentialUrl ? (
+            <a href={certification.credentialUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors font-semibold">
+              ID: {certification.credentialId}
+            </a>
+          ) : (
+            `ID: ${certification.credentialId}`
+          )}
+        </p>
+      )}
       {certification.credentialIds && certification.credentialIds.map((id, index) => (
-        <p key={index} className="text-xs text-medium mt-1">ID: {id}</p>
+        <p key={index} className="text-xs text-text-medium mt-1">ID: {id}</p>
       ))}
     </div>
   );
