@@ -1,4 +1,3 @@
-// Fix: Import 'React' to use the React.ReactNode type.
 import React from 'react';
 
 export interface PersonalData {
@@ -10,6 +9,8 @@ export interface PersonalData {
   phone: string;
   website: string;
   linkedin: string;
+  github: string;
+  facebook: string;
   careerObjective: string;
 }
 

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 const navLinks = [
   { href: '#about', text: 'About', iconSrc: "https://cdn.lordicon.com/wmwqvixz.json" },
-  { href: '#resume', text: 'Resume', iconSrc: "https://cdn.lordicon.com/frjgvxce.json" },
+  { href: '#resume', text: 'Experience', iconSrc: "https://cdn.lordicon.com/frjgvxce.json" },
+  { href: '#education', text: 'Education', iconSrc: "https://cdn.lordicon.com/wxnxiano.json" },
   { href: '#portfolio', text: 'Portfolio', iconSrc: "https://cdn.lordicon.com/sbiheqdr.json" },
   { href: '#contact', text: 'Contact', iconSrc: "https://cdn.lordicon.com/rhvddzym.json" },
 ];
@@ -12,7 +13,7 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'resume', 'portfolio', 'contact'];
+      const sections = ['about', 'resume', 'education', 'portfolio', 'contact'];
       let currentSection = 'about';
 
       for (const sectionId of sections) {
@@ -50,11 +51,11 @@ const Navbar: React.FC = () => {
                 key={link.href} 
                 href={link.href} 
                 aria-label={link.text}
-                className={`group relative w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300 transform hover:scale-110 ${isActive ? 'bg-primary text-white' : 'text-light-text-medium dark:text-text-medium hover:bg-light-background dark:hover:bg-background'}`}
+                className={`group relative w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300 transform hover:scale-110 ${isActive ? 'bg-primary text-white shadow-lg dark:shadow-glow' : 'text-light-text-medium dark:text-text-medium hover:bg-light-background dark:hover:bg-background'}`}
               >
                 <lord-icon
                     src={link.iconSrc}
-                    trigger="hover"
+                    trigger="loop-on-hover"
                     colors={`primary:${isActive ? '#ffffff' : '#00a896'}`}
                     style={{width:'28px', height:'28px'}}>
                 </lord-icon>

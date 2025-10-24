@@ -74,7 +74,7 @@ const AnimatedContent: React.FC<{children: React.ReactNode, className?: string}>
 
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
@@ -135,30 +135,18 @@ const App: React.FC = () => {
               </Section>
             </AnimatedSection>
             
-            {/* Resume Section */}
+            {/* Experience Section */}
             <AnimatedSection id="resume">
-              <Section title="Resume" backgroundTitle="RESUME">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                    <div>
-                      <h3 className="text-3xl font-bold text-light-text-dark dark:text-text-dark mb-8 flex items-center">
-                        <i className="fa-solid fa-briefcase mr-3 text-primary"></i> Experience
-                      </h3>
-                      <div className="space-y-8 border-l-2 border-light-border dark:border-border pl-8 relative">
-                         {experiences.map((exp, index) => (
-                           <ExperienceCard key={index} experience={exp} />
-                         ))}
-                      </div>
-                    </div>
-                     <div>
-                      <h3 className="text-3xl font-bold text-light-text-dark dark:text-text-dark mb-8 flex items-center">
-                        <i className="fa-solid fa-graduation-cap mr-3 text-primary"></i> Education
-                      </h3>
-                      <div className="space-y-8 border-l-2 border-light-border dark:border-border pl-8 relative">
-                        {education.map((edu, index) => (
-                          <EducationCard key={index} education={edu} />
-                        ))}
-                      </div>
-                    </div>
+              <Section title="Experience & Skills" backgroundTitle="RESUME">
+                <div>
+                  <h3 className="text-3xl font-bold text-light-text-dark dark:text-text-dark mb-8 flex items-center">
+                    <i className="fa-solid fa-briefcase mr-3 text-primary"></i> Experience
+                  </h3>
+                  <div className="space-y-8 border-l-2 border-light-border dark:border-border pl-8 relative">
+                      {experiences.map((exp, index) => (
+                        <ExperienceCard key={index} experience={exp} />
+                      ))}
+                  </div>
                 </div>
 
                 <div className="mt-16">
@@ -181,6 +169,34 @@ const App: React.FC = () => {
                         </div>
                       </div>
                   </div>
+                </div>
+              </Section>
+            </AnimatedSection>
+
+            {/* Education Section */}
+            <AnimatedSection id="education">
+              <Section title="Education & Certifications" backgroundTitle="EDUCATION">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div>
+                      <h3 className="text-3xl font-bold text-light-text-dark dark:text-text-dark mb-8 flex items-center">
+                        <i className="fa-solid fa-graduation-cap mr-3 text-primary"></i> Education
+                      </h3>
+                      <div className="space-y-8 border-l-2 border-light-border dark:border-border pl-8 relative">
+                        {education.map((edu, index) => (
+                          <EducationCard key={index} education={edu} />
+                        ))}
+                      </div>
+                    </div>
+                     <div>
+                      <h3 className="text-3xl font-bold text-light-text-dark dark:text-text-dark mb-8 flex items-center">
+                        <i className="fa-solid fa-certificate mr-3 text-primary"></i> Certifications
+                      </h3>
+                      <div className="space-y-8">
+                        {certifications.map((cert, index) => (
+                          <CertificationCard key={index} certification={cert} />
+                        ))}
+                      </div>
+                    </div>
                 </div>
               </Section>
             </AnimatedSection>

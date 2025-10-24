@@ -6,22 +6,17 @@ interface ThemeSwitcherProps {
 }
 
 const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ theme, toggleTheme }) => {
-  const sunIcon = "https://cdn.lordicon.com/ppyvfomi.json";
-  const moonIcon = "https://cdn.lordicon.com/uiakkykh.json";
-  const iconSrc = theme === 'dark' ? sunIcon : moonIcon;
-
   return (
     <button
       onClick={toggleTheme}
-      className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium rounded-full hover:text-primary transition-colors duration-300 z-10"
-      aria-label="Toggle theme"
+      className="w-12 h-12 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-primary hover:bg-primary/10 transition-colors"
+      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
       <lord-icon
-        key={iconSrc} // Use key to force re-render on change
-        src={iconSrc}
-        trigger="hover,click"
-        colors={`primary:${theme === 'dark' ? '#f9d71c' : '#4a5568'},secondary:${'#00a896'}`}
-        style={{width:'28px', height:'28px'}}>
+          src={theme === 'dark' ? "https://cdn.lordicon.com/skkahocq.json" : "https://cdn.lordicon.com/soseozvi.json"}
+          trigger="hover"
+          colors={theme === 'dark' ? 'primary:#f9d71c' : 'primary:#4a5568'}
+          style={{width:'28px', height:'28px'}}>
       </lord-icon>
     </button>
   );

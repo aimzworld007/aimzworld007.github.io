@@ -3,40 +3,65 @@ import { PersonalData, Experience, Education, Certification, Skill, PortfolioPro
 
 export const personalData: PersonalData = {
   name: "AINUL ISLAM",
-  title: "Document Controller | PRO",
+  title: "Document Controller | PRO (Public Relations Officer)",
   photoUrl: "https://aimzworld007.github.io/photo.jpg",
   location: "Sharjah, U.A.E",
   email: "Aimctgbd@gmail.com",
   phone: "+971 52 284 9291",
   website: "https://aimzworld007.github.io",
   linkedin: "https://linkedin.com/in/aimzworld007",
-  careerObjective: "As an accomplished Document Controller and PRO with extensive experience in the UAE, I specialize in navigating the complexities of government portals such as ICP, MOHRE, and DED. My expertise lies in efficiently managing a high volume of government applications, including employee visas, permits, and Emirates ID processes, ensuring full regulatory compliance. I am adept at liaising with various government departments and providing exceptional customer service to resolve inquiries and facilitate smooth transactions. With a background that also includes web development and IT support, I bring a unique blend of technical proficiency and administrative excellence to my roles. I am now seeking a challenging position where I can apply my diverse skill set to contribute to a dynamic organization's success."
+  github: "https://github.com/aimzworld007",
+  facebook: "https://facebook.com/aimzworld007",
+  careerObjective: "Document Controller and administrative professional with 4 years of experience in the UAE, specializing in ICP, MOHRE, and DED government applications. Skilled in document control, compliance, visa processing, and customer service."
 };
 
 export const experiences: Experience[] = [
   {
-    title: "Document Controller & PRO",
-    company: "Management of Government transactions Center",
+    title: "PRO & Document Controller",
+    company: "Habat Al Rimal Typing",
     location: "Sharjah, U.A.E",
-    date: "2020 - Present",
+    date: "March 2023 - Present",
     isCurrent: true,
     responsibilities: [
-      "Process diverse government applications via ICP, MOHRE, DED, and Tas-heel portals.",
-      "Manage employee visas, permits, and Emirates ID processes.",
-      "Liaise with government departments to ensure regulatory compliance.",
-      "Provide customer service and handle client inquiries regarding government services.",
+      "Managed UAE government applications (ICP, MOHRE, DED, Tas-heel, Emirates ID)",
+      "Handled documentation workflows, visa processing, and direct customer service",
+      "Provided support in IATA-approved flight ticket booking systems",
     ]
   },
   {
-    title: "Web Developer & IT Support",
-    company: "Freelance & Various Projects",
-    location: "Chittagong, Bangladesh",
-    date: "2016 - 2020",
+    title: "Filing Clerk",
+    company: "Al Mutawakkil Typing Services",
+    location: "Abu Dhabi, U.A.E",
+    date: "Jul 2021 - Feb 2023",
     responsibilities: [
-      "Developed and managed a local news portal using HTML, CSS, PHP, and MySQL.",
-      "Created custom database software for hospitals, clinics, and Chittagong Port.",
-      "Designed a result publishing system for Chittagong Medical College.",
-      "Provided IT support and troubleshooting for various departments.",
+      "Organized and maintained physical and electronic filing systems",
+      "Managed document retrieval and distribution for internal departments",
+      "Processed legal documents and government forms with accuracy",
+      "Implemented document scanning and digital archiving procedures",
+    ]
+  },
+  {
+    title: "Administration Manager / PRO",
+    company: "Al Rashidya Gas Trading",
+    location: "Dubai, U.A.E",
+    date: "Jan 2019 - Jun 2021",
+    responsibilities: [
+       "Managed all government relations and documentation for company licensing and permits",
+       "Liaised with various UAE government departments (MOHRE, DED, Immigration, Labor)",
+       "Processed employee visas, permits, and documentation requirements",
+       "Handled company compliance matters and ensured regulatory adherence",
+    ]
+  },
+  {
+    title: "IT Executive",
+    company: "Metrix Corporation",
+    location: "Chittagong, Bangladesh",
+    date: "Jan 2016 - Dec 2018",
+    responsibilities: [
+      "Developed news portal Ctgnewstoday (currently inactive)",
+      "Created database software for hospitals/clinics and Chittagong Port",
+      "Designed result publishing software for Chittagong Medical College",
+      "Provided IT support and troubleshooting across multiple departments",
     ]
   }
 ];
@@ -95,9 +120,9 @@ export const education: Education[] = [
 export const certifications: Certification[] = [
   {
     name: "MS Office & Excel Training",
-    issuer: "Muktopaath",
+    issuer: "Muktopaath - Authorized Bangladesh Online Training",
     date: "N/A",
-    credentialIds: ["MC-R382468C33122681150F", "MC-S382468T583314B152T"]
+    credentialIds: ["MC-R382468C3312268I150F", "MC-S382468T583314B152T"]
   },
   {
     name: "PHP Course Completion",
