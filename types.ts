@@ -16,7 +16,7 @@ export interface PersonalData {
 export interface Experience {
   title: string;
   company: string;
-  location: string;
+  location:string;
   date: string;
   isCurrent?: boolean;
   responsibilities: string[];
@@ -29,7 +29,7 @@ export interface Education {
 }
 
 export interface Certification {
-  name: string;
+  name:string;
   issuer: string;
   date: string;
   credentialId?: string;
@@ -53,5 +53,5 @@ export interface PortfolioProject {
 export interface Service {
   title: string;
   description: string;
-  icon: React.ReactNode;
+  icon: string;
 }

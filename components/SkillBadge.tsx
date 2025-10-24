@@ -7,7 +7,7 @@ interface SkillBadgeProps {
 
 const SkillBadge: React.FC<SkillBadgeProps> = ({ skill }) => {
   return (
-    <span className="bg-background text-text-dark text-sm font-semibold px-4 py-2 rounded-lg shadow-neumorphic-raised hover:shadow-neumorphic-pressed transition-shadow duration-300 cursor-default">
+    <span className="bg-light-background dark:bg-card-background text-light-text-medium dark:text-text-medium text-base font-medium px-4 py-2 rounded-lg cursor-default border border-light-border dark:border-border transition-all duration-300 hover:border-primary hover:text-primary hover:-translate-y-1 hover:scale-105">
       {skill.name}
     </span>
   );

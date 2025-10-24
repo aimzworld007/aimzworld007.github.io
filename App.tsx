@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import Header from './components/Header';
+import React, { useState, useEffect } from 'react';
+import ProfileSidebar from './components/Header'; // Renamed Header to ProfileSidebar conceptually
 import Section from './components/Section';
 import EducationCard from './components/EducationCard';
 import CertificationCard from './components/CertificationCard';
 import SkillBadge from './components/SkillBadge';
+import ExperienceCard from './components/ExperienceCard';
 import { 
   personalData, 
   education, 
@@ -11,26 +12,15 @@ import {
   coreSkills, 
   technicalSkills,
   portfolioProjects,
-  services
+  services,
+  experiences
 } from './constants';
-import { 
-  IconUser, 
-  IconBriefcase, 
-  IconAcademicCap, 
-  IconSparkles, 
-  IconWrenchScrewdriver, 
-  IconStar,
-  IconAtSymbol,
-  IconCodeBracket,
-  IconCog
-} from './components/icons';
 import Navbar from './components/Navbar';
 import PortfolioCard from './components/PortfolioCard';
 import { PortfolioProject } from './types';
 import PortfolioModal from './components/PortfolioModal';
 import ServiceCard from './components/ServiceCard';
 import ContactForm from './components/ContactForm';
-import Footer from './components/Footer';
 
 
 const useAnimateOnScroll = (): [React.RefObject<HTMLDivElement>, boolean] => {
@@ -62,124 +52,158 @@ const useAnimateOnScroll = (): [React.RefObject<HTMLDivElement>, boolean] => {
   return [ref, isVisible];
 };
 
-const AnimatedSection: React.FC<{children: React.ReactNode, id: string}> = ({ children, id }) => {
+const AnimatedSection: React.FC<{children: React.ReactNode, id: string, noBorder?: boolean}> = ({ children, id, noBorder = false }) => {
   const [ref, isVisible] = useAnimateOnScroll();
+  const borderClass = noBorder ? '' : 'border-b border-light-border dark:border-border';
   return (
-    <section id={id} ref={ref} className={`py-20 md:py-24 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+    <section id={id} ref={ref} className={`py-20 transition-all duration-1000 ease-out ${borderClass} ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
       {children}
     </section>
+  );
+};
+
+const AnimatedContent: React.FC<{children: React.ReactNode, className?: string}> = ({ children, className }) => {
+  const [ref, isVisible] = useAnimateOnScroll();
+  return (
+    <div ref={ref} className={`transition-all duration-700 ease-out ${className} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      {children}
+    </div>
   );
 };
 
 
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
+  const [theme, setTheme] = useState('dark');
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
+  };
 
   return (
     <>
-      <Navbar />
-      <div className="relative max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+      <div className="bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium">
         
-        {/* Home Section */}
-        <section id="home" className="min-h-screen flex items-center justify-center animate-fade-in">
-          <Header data={personalData} />
-        </section>
+        {/* Hamburger Menu Button for Mobile */}
+        <button
+            onClick={() => setSidebarOpen(true)}
+            className="fixed top-6 left-6 z-50 lg:hidden w-12 h-12 flex items-center justify-center bg-light-card-background dark:bg-card-background rounded-full shadow-lg text-primary transition-transform duration-300 active:scale-95"
+            aria-label="Open sidebar"
+        >
+            <i className="fa-solid fa-bars text-xl"></i>
+        </button>
+
+        <ProfileSidebar 
+          data={personalData} 
+          theme={theme} 
+          toggleTheme={toggleTheme} 
+          isOpen={isSidebarOpen}
+          setIsOpen={setSidebarOpen}
+        />
+        <Navbar />
         
-        <main>
-          {/* About Section */}
-          <AnimatedSection id="about">
-             <Section title="About Me" icon={<IconUser />}>
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-                   <div className='lg:col-span-3'>
-                      <h3 className="text-2xl font-semibold text-text-dark mb-4">Career Objective</h3>
-                      <p className="text-lg text-text-medium mb-8">
-                        {personalData.careerObjective}
-                      </p>
-                      
-                      <h3 className="text-2xl font-semibold text-text-dark mb-4 flex items-center">
-                        <IconAcademicCap className="mr-3 text-primary" /> Education
+        <main className="lg:ml-[30%] lg:pr-[8%]">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          
+            {/* About Section */}
+            <AnimatedSection id="about">
+              <Section title="About Me" backgroundTitle='ABOUT'>
+                  <div className='space-y-16'>
+                      <AnimatedContent>
+                          <p className="text-xl text-light-text-medium dark:text-text-medium mb-12 max-w-4xl">
+                            {personalData.careerObjective}
+                          </p>
+                      </AnimatedContent>
+                       <AnimatedContent className="delay-200">
+                          <h3 className="text-3xl font-bold text-light-text-dark dark:text-text-dark mb-8">What I Do</h3>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {services.map((service, index) => (
+                              <ServiceCard key={index} service={service} />
+                            ))}
+                          </div>
+                      </AnimatedContent>
+                  </div>
+              </Section>
+            </AnimatedSection>
+            
+            {/* Resume Section */}
+            <AnimatedSection id="resume">
+              <Section title="Resume" backgroundTitle="RESUME">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div>
+                      <h3 className="text-3xl font-bold text-light-text-dark dark:text-text-dark mb-8 flex items-center">
+                        <i className="fa-solid fa-briefcase mr-3 text-primary"></i> Experience
                       </h3>
-                      <div className="space-y-6">
+                      <div className="space-y-8 border-l-2 border-light-border dark:border-border pl-8 relative">
+                         {experiences.map((exp, index) => (
+                           <ExperienceCard key={index} experience={exp} />
+                         ))}
+                      </div>
+                    </div>
+                     <div>
+                      <h3 className="text-3xl font-bold text-light-text-dark dark:text-text-dark mb-8 flex items-center">
+                        <i className="fa-solid fa-graduation-cap mr-3 text-primary"></i> Education
+                      </h3>
+                      <div className="space-y-8 border-l-2 border-light-border dark:border-border pl-8 relative">
                         {education.map((edu, index) => (
                           <EducationCard key={index} education={edu} />
                         ))}
                       </div>
-                   </div>
-                   <div className='lg:col-span-2 space-y-8'>
+                    </div>
+                </div>
+
+                <div className="mt-16">
+                  <h3 className="text-3xl font-bold text-light-text-dark dark:text-text-dark mb-8">My Skills</h3>
+                   <div className="space-y-12">
                       <div>
-                        <h3 className="text-2xl font-semibold text-text-dark flex items-center mb-4">
-                           <IconSparkles className="mr-3 text-primary" /> Certifications
-                        </h3>
-                        <div className="space-y-6">
-                          {certifications.map((cert, index) => (
-                            <CertificationCard key={index} certification={cert} />
+                        <h4 className="text-xl font-semibold text-light-text-dark dark:text-text-dark mb-4">Core Skills</h4>
+                        <div className="flex flex-wrap gap-3">
+                          {coreSkills.map((skill, index) => (
+                            <SkillBadge key={index} skill={skill} />
                           ))}
                         </div>
                       </div>
-                   </div>
+                      <div>
+                        <h4 className="text-xl font-semibold text-light-text-dark dark:text-text-dark mb-4">Technical Skills</h4>
+                        <div className="flex flex-wrap gap-3">
+                          {technicalSkills.map((skill, index) => (
+                            <SkillBadge key={index} skill={skill} />
+                          ))}
+                        </div>
+                      </div>
+                  </div>
                 </div>
               </Section>
-          </AnimatedSection>
-          
-          {/* Skills Section */}
-          <AnimatedSection id="skills">
-            <Section title="My Skills" icon={<IconWrenchScrewdriver />}>
-              <div className="space-y-8">
-                  <div>
-                    <h3 className="text-2xl font-semibold text-text-dark flex items-center mb-4">
-                      <IconStar className="mr-3 text-primary" /> Core Skills
-                    </h3>
-                    <div className="flex flex-wrap gap-4">
-                      {coreSkills.map((skill, index) => (
-                        <SkillBadge key={index} skill={skill} />
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-text-dark flex items-center mb-4">
-                      <IconCodeBracket className="mr-3 text-primary" /> Technical Skills
-                    </h3>
-                    <div className="flex flex-wrap gap-4">
-                      {technicalSkills.map((skill, index) => (
-                        <SkillBadge key={index} skill={skill} />
-                      ))}
-                    </div>
-                  </div>
-              </div>
-            </Section>
-          </AnimatedSection>
+            </AnimatedSection>
 
-          {/* Portfolio Section */}
-          <AnimatedSection id="portfolio">
-            <Section title="Portfolio" icon={<IconBriefcase />}>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {portfolioProjects.map((project, index) => (
-                  <PortfolioCard key={index} project={project} onClick={() => setSelectedProject(project)} />
-                ))}
-              </div>
-            </Section>
-          </AnimatedSection>
+            {/* Portfolio Section */}
+            <AnimatedSection id="portfolio">
+              <Section title="Portfolio" backgroundTitle="WORKS">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {portfolioProjects.map((project, index) => (
+                    <PortfolioCard key={index} project={project} onClick={() => setSelectedProject(project)} />
+                  ))}
+                </div>
+              </Section>
+            </AnimatedSection>
 
-           {/* Services Section */}
-           <AnimatedSection id="services">
-            <Section title="Services" icon={<IconCog />}>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {services.map((service, index) => (
-                  <ServiceCard key={index} service={service} />
-                ))}
-              </div>
-            </Section>
-          </AnimatedSection>
-
-          {/* Contact Section */}
-          <AnimatedSection id="contact">
-            <Section title="Get In Touch" icon={<IconAtSymbol />}>
-              <ContactForm />
-            </Section>
-          </AnimatedSection>
-
+            {/* Contact Section */}
+            <AnimatedSection id="contact" noBorder>
+              <Section title="Contact" backgroundTitle="CONTACT">
+                <ContactForm />
+              </Section>
+            </AnimatedSection>
+          </div>
         </main>
-        <Footer />
       </div>
 
       {selectedProject && (

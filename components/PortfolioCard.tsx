@@ -9,15 +9,13 @@ interface PortfolioCardProps {
 const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onClick }) => {
   return (
     <div 
-      className="group bg-background rounded-2xl p-4 shadow-neumorphic-raised cursor-pointer transition-shadow duration-300 hover:shadow-neumorphic-pressed"
+      className="group relative bg-light-card-background dark:bg-card-background rounded-xl cursor-pointer overflow-hidden shadow-card border border-light-border dark:border-border"
       onClick={onClick}
     >
-      <div className="rounded-lg overflow-hidden mb-4">
-        <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
-      </div>
-      <div>
-        <h3 className="text-xl font-bold text-text-dark mb-1">{project.title}</h3>
-        <p className="text-sm text-text-medium">{project.description}</p>
+      <img src={project.imageUrl} alt={project.title} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
+      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+          <span className="text-sm text-primary font-medium">{project.technologies.join(', ')}</span>
+          <h3 className="text-2xl font-bold text-text-dark mt-1">{project.title}</h3>
       </div>
     </div>
   );
