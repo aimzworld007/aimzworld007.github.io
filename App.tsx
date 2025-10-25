@@ -34,12 +34,19 @@ export default function App() {
     if (savedTheme) {
       return savedTheme;
     }
-    // If no theme is saved, check user's system preference
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    // If no theme is saved, default to light mode
+    return 'light';
   });
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
   const [isScrollButtonVisible, setIsScrollButtonVisible] = useState(false);
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const filteredProjects = activeFilter === 'All'
+    ? portfolioProjects
+    : portfolioProjects.filter(p => p.category === activeFilter);
+  
+  const projectCategories = ['All', ...Array.from(new Set(portfolioProjects.map(p => p.category)))];
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -102,7 +109,12 @@ export default function App() {
         onClick={() => setIsSidebarOpen(true)}
         aria-label="Open sidebar"
       >
-        <i className="fa-solid fa-bars"></i>
+        <lord-icon
+            src="https://cdn.lordicon.com/jxwksgwv.json"
+            trigger="hover"
+            colors="primary:#00a896"
+            style={{width:'28px', height:'28px'}}>
+        </lord-icon>
       </button>
 
       <main className="container mx-auto px-6 lg:px-8 py-20 space-y-36">
@@ -189,15 +201,33 @@ export default function App() {
                         <h3 className="text-2xl font-bold text-light-text-dark dark:text-text-dark mb-8 text-center lg:text-left">Technical Skills</h3>
                         <SkillDonutChart skills={technicalSkills} />
                     </div>
-                    <GithubStats />
                 </div>
             </div>
           </Section>
         </section>
 
+        <section id="github">
+          <Section title="GitHub Stats" backgroundTitle="ACTIVITY">
+              <div className="max-w-4xl mx-auto">
+                <GithubStats />
+              </div>
+          </Section>
+        </section>
+        
         <section id="portfolio">
           <Section title="My Portfolio" backgroundTitle="PROJECTS">
-            <PortfolioSlider projects={portfolioProjects} onProjectClick={handleProjectClick} />
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {projectCategories.map(category => (
+                <button
+                  key={category}
+                  onClick={() => setActiveFilter(category)}
+                  className={`px-5 py-2 text-sm font-semibold rounded-full transition-colors ${activeFilter === category ? 'bg-primary text-white' : 'bg-light-card-background dark:bg-card-background text-light-text-medium dark:text-text-medium hover:bg-primary/10'}`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+            <PortfolioSlider projects={filteredProjects} onProjectClick={handleProjectClick} />
           </Section>
         </section>
 

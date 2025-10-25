@@ -68,6 +68,14 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
                 <i className="fa-solid fa-download"></i>Download CV
             </a>
         </div>
+
+        <div className="mt-8">
+          <div className="flex justify-center space-x-4">
+            <a href={data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-brands fa-linkedin-in text-lg"></i></a>
+            <a href={data.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-brands fa-github text-lg"></i></a>
+            <a href={data.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-brands fa-facebook-f text-lg"></i></a>
+          </div>
+        </div>
         
         <div className="mt-auto pt-6 border-t border-light-border dark:border-border">
             <div className="flex items-center justify-between">

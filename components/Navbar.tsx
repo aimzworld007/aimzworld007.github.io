@@ -53,10 +53,19 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
             <a href={personalData.cvUrl} target="_blank" rel="noopener noreferrer" download="Ainul_Islam_CV.pdf" className="px-4 py-2 border border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white dark:hover:text-text-dark transition-colors text-sm flex items-center gap-2">
                 <i className="fa-solid fa-download"></i>
                 <span>CV</span>
+            </a>
+            <a href={personalData.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-light-text-medium dark:text-text-medium hover:text-primary transition-colors text-xl">
+                <i className="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href={personalData.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-light-text-medium dark:text-text-medium hover:text-primary transition-colors text-xl">
+                <i className="fa-brands fa-github"></i>
+            </a>
+            <a href={personalData.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-light-text-medium dark:text-text-medium hover:text-primary transition-colors text-xl">
+                <i className="fa-brands fa-facebook-f"></i>
             </a>
             <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
         </div>
