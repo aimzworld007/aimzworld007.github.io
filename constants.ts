@@ -1,14 +1,22 @@
 import React from 'react';
-import { PersonalData, Experience, Education, Certification, Skill, PortfolioProject, Service } from './types';
+import { PersonalData, Experience, Education, Certification, Skill, PortfolioProject, Service, ThemeColor } from './types';
 
 export const navLinks = [
-    { href: '#home', text: 'Home' },
-    { href: '#about', text: 'About' },
-    { href: '#experience', text: 'Experience' },
-    { href: '#education', text: 'Education' },
-    { href: '#skills', text: 'Skills' },
-    { href: '#portfolio', text: 'Portfolio' },
-    { href: '#contact', text: 'Contact' },
+    { href: '#home', text: 'Home', icon: 'fa-solid fa-house' },
+    { href: '#about', text: 'About', icon: 'fa-solid fa-user' },
+    { href: '#experience', text: 'Experience', icon: 'fa-solid fa-briefcase' },
+    { href: '#education', text: 'Education', icon: 'fa-solid fa-graduation-cap' },
+    { href: '#skills', text: 'Skills', icon: 'fa-solid fa-code' },
+    { href: '#portfolio', text: 'Portfolio', icon: 'fa-solid fa-layer-group' },
+    { href: '#contact', text: 'Contact', icon: 'fa-solid fa-envelope' },
+];
+
+export const themeColors: ThemeColor[] = [
+  { name: 'Teal', hsl: '174 100% 33%', hslHover: '174 100% 28%' },
+  { name: 'Blue', hsl: '217 91% 60%', hslHover: '217 91% 55%' },
+  { name: 'Purple', hsl: '262 84% 59%', hslHover: '262 84% 54%' },
+  { name: 'Green', hsl: '145 63% 49%', hslHover: '145 63% 44%' },
+  { name: 'Orange', hsl: '25 95% 53%', hslHover: '25 95% 48%' },
 ];
 
 export const personalData: PersonalData = {

@@ -63,3 +63,9 @@ export interface Service {
   description: string;
   icon: string;
 }
+
+export interface ThemeColor {
+  name: string;
+  hsl: string;
+  hslHover: string;
+}

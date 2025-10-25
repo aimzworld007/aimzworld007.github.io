@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { personalData, navLinks } from '../constants';
 import ThemeSwitcher from './ThemeSwitcher';
+import ThemeCustomizer from './ThemeCustomizer';
 
 interface NavbarProps {
   theme: string;
   toggleTheme: () => void;
+  currentPrimaryColor: string;
+  setPrimaryColor: (color: string) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
+const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, currentPrimaryColor, setPrimaryColor }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -47,26 +50,19 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         <ul className="flex items-center space-x-8">
           {navLinks.map(link => (
             <li key={link.href}>
-              <a href={link.href} className={`font-semibold transition-colors ${activeSection === link.href.substring(1) ? 'text-primary' : 'text-light-text-medium dark:text-text-medium hover:text-primary'}`}>
-                {link.text}
+              <a href={link.href} className={`flex items-center gap-2 font-semibold transition-colors ${activeSection === link.href.substring(1) ? 'text-primary' : 'text-light-text-medium dark:text-text-medium hover:text-primary'}`}>
+                <i className={`${link.icon}`}></i>
+                <span>{link.text}</span>
               </a>
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
             <a href={personalData.cvUrl} target="_blank" rel="noopener noreferrer" download="Ainul_Islam_CV.pdf" className="px-4 py-2 border border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white dark:hover:text-text-dark transition-colors text-sm flex items-center gap-2">
                 <i className="fa-solid fa-download"></i>
                 <span>CV</span>
             </a>
-            <a href={personalData.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-light-text-medium dark:text-text-medium hover:text-primary transition-colors text-xl">
-                <i className="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href={personalData.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-light-text-medium dark:text-text-medium hover:text-primary transition-colors text-xl">
-                <i className="fa-brands fa-github"></i>
-            </a>
-            <a href={personalData.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-light-text-medium dark:text-text-medium hover:text-primary transition-colors text-xl">
-                <i className="fa-brands fa-facebook-f"></i>
-            </a>
+            <ThemeCustomizer currentPrimaryColor={currentPrimaryColor} setPrimaryColor={setPrimaryColor} />
             <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
         </div>
       </div>

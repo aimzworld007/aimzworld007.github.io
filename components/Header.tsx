@@ -2,6 +2,7 @@ import React from 'react';
 import { PersonalData } from '../types';
 import ThemeSwitcher from './ThemeSwitcher';
 import { navLinks } from '../constants';
+import ThemeCustomizer from './ThemeCustomizer';
 
 interface ProfileSidebarProps {
   data: PersonalData;
@@ -9,9 +10,11 @@ interface ProfileSidebarProps {
   setIsOpen: (isOpen: boolean) => void;
   theme: string;
   toggleTheme: () => void;
+  currentPrimaryColor: string;
+  setPrimaryColor: (color: string) => void;
 }
 
-export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleTheme }: ProfileSidebarProps) {
+export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleTheme, currentPrimaryColor, setPrimaryColor }: ProfileSidebarProps) {
   return (
     <>
       {/* Backdrop for mobile */}
@@ -49,10 +52,11 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
                     <li key={link.href} className="relative group">
                         <a 
                             href={link.href} 
-                            className="block text-xl font-semibold hover:text-primary transition-all duration-300 transform hover:translate-x-2"
+                            className="flex items-center gap-4 text-xl font-semibold hover:text-primary transition-all duration-300 transform hover:translate-x-2"
                             onClick={() => setIsOpen(false)}
                         >
-                            {link.text}
+                            <i className={`${link.icon} w-6 text-center text-primary/80`}></i>
+                            <span>{link.text}</span>
                         </a>
                         <div className="absolute left-full ml-4 px-3 py-1.5 bg-primary text-white text-xs font-semibold rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
                             {link.text}
@@ -79,8 +83,11 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
         
         <div className="mt-auto pt-6 border-t border-light-border dark:border-border">
             <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold text-light-text-medium dark:text-text-medium">Switch Theme</span>
-                <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
+                <span className="text-sm font-semibold text-light-text-medium dark:text-text-medium">Settings</span>
+                <div className="flex items-center gap-2">
+                    <ThemeCustomizer currentPrimaryColor={currentPrimaryColor} setPrimaryColor={setPrimaryColor} />
+                    <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
+                </div>
             </div>
         </div>
       </header>

@@ -7,7 +7,8 @@ import {
   coreSkills,
   technicalSkills,
   portfolioProjects,
-  services
+  services,
+  themeColors
 } from './constants';
 import { PortfolioProject } from './types';
 import Header from './components/Header';
@@ -22,7 +23,6 @@ import ServiceCard from './components/ServiceCard';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import Typewriter from './components/Typewriter';
-import GithubStats from './components/GithubStats';
 import Timeline from './components/Timeline';
 import SkillProgress from './components/SkillProgress';
 import SkillDonutChart from './components/SkillDonutChart';
@@ -34,9 +34,13 @@ export default function App() {
     if (savedTheme) {
       return savedTheme;
     }
-    // If no theme is saved, default to light mode
     return 'light';
   });
+
+  const [primaryColor, setPrimaryColor] = useState(() => {
+    return localStorage.getItem('primaryColor') || themeColors[0].hsl;
+  });
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
   const [isScrollButtonVisible, setIsScrollButtonVisible] = useState(false);
@@ -56,6 +60,14 @@ export default function App() {
     }
     localStorage.setItem('theme', theme);
   }, [theme]);
+  
+  useEffect(() => {
+    const selectedColor = themeColors.find(c => c.hsl === primaryColor) || themeColors[0];
+    const root = document.documentElement;
+    root.style.setProperty('--color-primary', selectedColor.hsl);
+    root.style.setProperty('--color-primary-hover', selectedColor.hslHover);
+    localStorage.setItem('primaryColor', primaryColor);
+  }, [primaryColor]);
   
   useEffect(() => {
     const toggleVisibility = () => {
@@ -100,9 +112,16 @@ export default function App() {
         setIsOpen={setIsSidebarOpen} 
         theme={theme}
         toggleTheme={toggleTheme}
+        currentPrimaryColor={primaryColor}
+        setPrimaryColor={setPrimaryColor}
       />
       
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar 
+        theme={theme} 
+        toggleTheme={toggleTheme} 
+        currentPrimaryColor={primaryColor}
+        setPrimaryColor={setPrimaryColor}
+      />
       
       <button 
         className="fixed top-6 left-6 z-40 lg:hidden bg-light-card-background dark:bg-card-background w-12 h-12 rounded-full flex items-center justify-center shadow-md text-light-text-dark dark:text-text-dark"
@@ -118,9 +137,15 @@ export default function App() {
       </button>
 
       <main className="container mx-auto px-6 lg:px-8 py-20 space-y-36">
-        <section id="home" className="min-h-[calc(100vh-5rem)] flex items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 text-center lg:text-left">
+        <section id="home" className="min-h-[calc(100vh-5rem)] flex items-center justify-center">
+          <div className="grid grid-cols-1 gap-12 items-center text-center">
+             <div className="order-1 flex justify-center">
+                <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 via-primary/5 to-transparent animate-pulse-border"></div>
+                    <img src={personalData.photoUrl} alt={personalData.name} className="relative w-full h-full object-cover object-top rounded-full shadow-2xl" />
+                </div>
+            </div>
+            <div className="order-2">
               <span className="text-xl font-semibold text-primary">Hello, I'm</span>
                <h1 className="text-6xl md:text-8xl font-signature bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-400 mt-2 mb-4 text-light-text-dark dark:text-text-dark">
                 {personalData.name}
@@ -128,20 +153,14 @@ export default function App() {
               <h2 className="text-2xl md:text-3xl font-bold text-light-text-medium dark:text-text-medium min-h-[2.5rem] md:min-h-[3rem]">
                 <Typewriter text={personalData.title} />
               </h2>
-              <p className="mt-6 max-w-xl mx-auto lg:mx-0">
+              <p className="mt-6 max-w-xl mx-auto">
                 A dedicated and detail-oriented professional with a strong background in document control and public relations within the UAE government sector. Also a passionate self-taught developer.
               </p>
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-8">
+              <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
                 <a href={personalData.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="w-12 h-12 flex items-center justify-center rounded-full bg-light-card-background dark:bg-card-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors shadow-sm border border-light-border dark:border-border"><i className="fa-brands fa-linkedin-in text-lg"></i></a>
                 <a href={personalData.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="w-12 h-12 flex items-center justify-center rounded-full bg-light-card-background dark:bg-card-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors shadow-sm border border-light-border dark:border-border"><i className="fa-brands fa-github text-lg"></i></a>
                 <a href="#contact" className="px-6 py-3 bg-primary text-text-dark font-bold rounded-lg hover:bg-primary-hover transition-colors shadow-lg">Contact Me</a>
               </div>
-            </div>
-            <div className="order-1 lg:order-2 flex justify-center">
-                <div className="relative w-80 h-80 lg:w-96 lg:h-96">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 via-primary/5 to-transparent animate-pulse-border"></div>
-                    <img src={personalData.photoUrl} alt={personalData.name} className="relative w-full h-full object-cover object-top rounded-full shadow-2xl" />
-                </div>
             </div>
           </div>
         </section>
@@ -203,14 +222,6 @@ export default function App() {
                     </div>
                 </div>
             </div>
-          </Section>
-        </section>
-
-        <section id="github">
-          <Section title="GitHub Stats" backgroundTitle="ACTIVITY">
-              <div className="max-w-4xl mx-auto">
-                <GithubStats />
-              </div>
           </Section>
         </section>
         
