@@ -1,9 +1,6 @@
-
-
-
 import React from 'react';
-// FIX: Importing 'types' for its side-effect of augmenting the global JSX namespace. This makes the type definition for the <lord-icon> custom element available.
-import '../types';
+// FIX: Added .ts extension to ensure the import correctly resolves and applies the global type definitions for custom elements.
+import '../types.ts';
 import type { PortfolioProject } from '../types';
 
 interface PortfolioModalProps {
@@ -26,8 +23,8 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ project, onClose }) => 
           <lord-icon
               src="https://cdn.lordicon.com/nqtddedc.json"
               trigger="hover"
-              style={{width:'32px', height:'32px'}}>
-          </lord-icon>
+              style={{width:'32px', height:'32px'}}
+          />
         </button>
         
         <div className="aspect-video w-full bg-light-background dark:bg-background">

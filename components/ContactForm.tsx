@@ -1,9 +1,6 @@
-
-
-
 import React, { useState } from 'react';
-// FIX: Importing 'types' for its side-effect of augmenting the global JSX namespace. This makes the type definition for the <lord-icon> custom element available.
-import '../types';
+// FIX: Added .ts extension to ensure the import correctly resolves and applies the global type definitions for custom elements.
+import '../types.ts';
 
 const ContactForm: React.FC = () => {
   const [status, setStatus] = useState('');
@@ -105,8 +102,8 @@ const ContactForm: React.FC = () => {
                       src="https://cdn.lordicon.com/aycieyht.json"
                       trigger="loop-on-hover"
                       colors="primary:#ffffff"
-                      style={{width:'24px', height:'24px', marginRight: '8px'}}>
-                  </lord-icon>
+                      style={{width:'24px', height:'24px', marginRight: '8px'}}
+                  />
                   {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
               {status && (

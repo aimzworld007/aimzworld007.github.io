@@ -1,9 +1,6 @@
-
-
-
 import React, { useState, useEffect, useRef } from 'react';
-// FIX: Importing 'types' for its side-effect of augmenting the global JSX namespace. This makes the type definition for the <lord-icon> custom element available.
-import '../types';
+// FIX: Added .ts extension to ensure the import correctly resolves and applies the global type definitions for custom elements.
+import '../types.ts';
 import type { Service } from '../types';
 
 interface ServiceCardProps {
@@ -44,8 +41,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
             src={service.icon}
             trigger="hover"
             colors="primary:currentColor"
-            style={{width:'40px', height:'40px'}}>
-        </lord-icon>
+            style={{width:'40px', height:'40px'}}
+        />
       </div>
       <h3 className="text-2xl font-bold text-light-text-dark dark:text-text-dark group-hover:text-primary transition-colors duration-300 mb-3">{service.title}</h3>
       <p className="text-light-text-medium dark:text-text-medium leading-relaxed">{service.description}</p>

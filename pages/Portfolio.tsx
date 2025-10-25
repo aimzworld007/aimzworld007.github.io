@@ -1,11 +1,8 @@
-
-
-
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, doc, getDoc, getDocs, query, orderBy } from 'firebase/firestore';
-// FIX: Importing 'types' for its side-effect of augmenting the global JSX namespace. This makes the type definition for the <lord-icon> custom element available.
-import '../types';
+// FIX: Added .ts extension to ensure the import correctly resolves and applies the global type definitions for custom elements.
+import '../types.ts';
 import type { PersonalData, Experience, Education, Certification, Skill, PortfolioProject, Service } from '../types';
 
 // Import constants as fallback data
@@ -179,8 +176,8 @@ export default function Portfolio() {
                     src="https://cdn.lordicon.com/jxwksgwv.json"
                     trigger="hover"
                     colors="primary:currentColor"
-                    style={{width:'28px', height:'28px'}}>
-                </lord-icon>
+                    style={{width:'28px', height:'28px'}}
+                />
             </button>
 
             <main className="container mx-auto px-6 lg:px-8 pt-24 lg:pt-12 space-y-28 sm:space-y-32 md:space-y-40">
