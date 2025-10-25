@@ -33,11 +33,9 @@ function App() {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
       const storedTheme = window.localStorage.getItem('theme');
-      // Check if system prefers dark mode
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      return storedTheme || (systemPrefersDark ? 'dark' : 'light');
+      return storedTheme || 'light';
     }
-    return 'dark'; // Default theme
+    return 'light'; // Default theme
   });
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
