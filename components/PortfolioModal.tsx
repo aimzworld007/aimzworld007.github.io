@@ -1,6 +1,6 @@
 import React from 'react';
 import type { PortfolioProject } from '../types';
-// FIX: Import 'types.ts' to make the <lord-icon> type definition available.
+// FIX: Import 'types.ts' to make the global JSX type definition for the `<lord-icon>` custom element available, resolving the TypeScript error.
 import '../types.ts';
 
 interface PortfolioModalProps {
@@ -20,12 +20,11 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ project, onClose }) => 
             className="absolute top-4 right-4 text-light-text-medium dark:text-text-light hover:text-primary transition-colors z-20 w-12 h-12 flex items-center justify-center rounded-full bg-light-background/50 dark:bg-background/50 hover:bg-light-background dark:hover:bg-background"
             aria-label="Close project details"
         >
-          {/* FIX: Converted to self-closing tag to prevent JSX parsing errors. */}
           <lord-icon
               src="https://cdn.lordicon.com/nqtddedc.json"
               trigger="hover"
               style={{width:'32px', height:'32px'}}
-          ></lord-icon>
+          />
         </button>
         
         <div className="aspect-video w-full bg-light-background dark:bg-background">

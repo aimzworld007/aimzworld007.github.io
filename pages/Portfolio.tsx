@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, doc, getDoc, getDocs, query, orderBy } from 'firebase/firestore';
 import type { PersonalData, Experience, Education, Certification, Skill, PortfolioProject, Service } from '../types';
-// FIX: Import 'types.ts' to make the <lord-icon> type definition available.
+// FIX: Import 'types.ts' to make the global JSX type definition for the `<lord-icon>` custom element available, resolving the TypeScript error.
 import '../types.ts';
 
 // Import constants as fallback data
@@ -164,13 +164,12 @@ export default function Portfolio() {
             />
 
             <button onClick={() => setSidebarOpen(true)} className="fixed top-5 left-5 z-40 lg:hidden w-12 h-12 bg-light-card-background/80 dark:bg-card-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-primary shadow-md">
-                 {/* FIX: Converted to self-closing tag to prevent JSX parsing errors. */}
                  <lord-icon
                     src="https://cdn.lordicon.com/jxwksgwv.json"
                     trigger="hover"
                     colors="primary:currentColor"
                     style={{width:'28px', height:'28px'}}
-                ></lord-icon>
+                />
             </button>
 
             <main className="container mx-auto px-6 lg:px-8 pt-24 lg:pt-12 space-y-28 sm:space-y-32 md:space-y-40">

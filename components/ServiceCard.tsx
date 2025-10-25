@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { Service } from '../types';
-// FIX: Import 'types.ts' to make the <lord-icon> type definition available.
+// FIX: Import 'types.ts' to make the global JSX type definition for the `<lord-icon>` custom element available, resolving the TypeScript error.
 import '../types.ts';
 
 interface ServiceCardProps {
@@ -37,13 +37,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   return (
     <div ref={ref} className={`group bg-light-card-background dark:bg-card-background p-8 rounded-xl shadow-card transition-all duration-300 border border-light-border dark:border-border hover:border-primary ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
       <div className="text-light-text-medium dark:text-text-medium group-hover:text-primary transition-colors duration-300 mb-5">
-        {/* FIX: Converted to self-closing tag to prevent JSX parsing errors. */}
         <lord-icon
             src={service.icon}
             trigger="hover"
             colors="primary:currentColor"
             style={{width:'40px', height:'40px'}}
-        ></lord-icon>
+        />
       </div>
       <h3 className="text-2xl font-bold text-light-text-dark dark:text-text-dark group-hover:text-primary transition-colors duration-300 mb-3">{service.title}</h3>
       <p className="text-light-text-medium dark:text-text-medium leading-relaxed">{service.description}</p>
