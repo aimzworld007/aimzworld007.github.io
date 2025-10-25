@@ -45,7 +45,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onClick }) => {
       </div>
       
       {/* Content Area */}
-      <div className="p-6">
+      <div className="px-6 pt-4 pb-6">
         <h3 className="text-xl font-bold text-light-text-dark dark:text-text-dark mb-2">
           {project.title}
         </h3>

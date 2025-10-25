@@ -232,7 +232,7 @@ export const services: Service[] = [
   {
     title: "Web & Software Development",
     description: "Passionate about technology, I build custom web applications and dynamic websites in my free time, focusing on solving unique challenges and delivering engaging digital experiences.",
-    icon: "https://cdn.lordicon.com/ddynxtkwidget.json"
+    icon: "https://cdn.lordicon.com/abgtphhr.json"
   },
   {
     title: "IT Support",
