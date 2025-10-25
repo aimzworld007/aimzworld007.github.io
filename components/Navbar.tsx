@@ -58,9 +58,14 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, currentPrimaryColor
           ))}
         </ul>
         <div className="flex items-center gap-4">
-            <a href={personalData.cvUrl} target="_blank" rel="noopener noreferrer" download="Ainul_Islam_CV.pdf" className="px-4 py-2 border border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white dark:hover:text-text-dark transition-colors text-sm flex items-center gap-2">
-                <i className="fa-solid fa-download"></i>
-                <span>CV</span>
+            <a
+              href="/login"
+              className="group w-12 h-12 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-primary hover:bg-primary/10 transition-colors"
+              aria-label="Admin Settings"
+            >
+              <span className="transition-transform duration-300 ease-in-out group-hover:scale-110">
+                <i className="fa-solid fa-gear text-2xl"></i>
+              </span>
             </a>
             <ThemeCustomizer currentPrimaryColor={currentPrimaryColor} setPrimaryColor={setPrimaryColor} />
             <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />

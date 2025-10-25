@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
@@ -115,7 +116,7 @@ const Admin: React.FC = () => {
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 p-6 sm:p-8 md:p-10 overflow-y-auto">
+            <main className="flex-1 p-6 sm:p-8 md:p-10 overflow-y-auto pt-20 lg:pt-10">
                 {renderContent()}
             </main>
         </div>

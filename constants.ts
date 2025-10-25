@@ -7,7 +7,6 @@ export const navLinks = [
     { href: '#experience', text: 'Experience', icon: 'fa-solid fa-briefcase' },
     { href: '#education', text: 'Education', icon: 'fa-solid fa-graduation-cap' },
     { href: '#skills', text: 'Skills', icon: 'fa-solid fa-code' },
-    { href: '#github', text: 'GitHub', icon: 'fa-brands fa-github' },
     { href: '#portfolio', text: 'Portfolio', icon: 'fa-solid fa-layer-group' },
     { href: '#contact', text: 'Contact', icon: 'fa-solid fa-envelope' },
 ];

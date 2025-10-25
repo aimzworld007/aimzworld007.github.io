@@ -1,6 +1,10 @@
+
+
+
 import React, { useState, useEffect, useRef } from 'react';
-// FIX: Remove .ts extension to fix module resolution for global types.
-import { Service } from '../types';
+// FIX: Importing 'types' for its side-effect of augmenting the global JSX namespace. This makes the type definition for the <lord-icon> custom element available.
+import '../types';
+import type { Service } from '../types';
 
 interface ServiceCardProps {
   service: Service;

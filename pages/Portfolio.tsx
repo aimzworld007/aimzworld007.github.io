@@ -1,9 +1,12 @@
+
+
+
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, doc, getDoc, getDocs, query, orderBy } from 'firebase/firestore';
-
-// FIX: Remove .ts extension to fix module resolution for global types.
-import { PersonalData, Experience, Education, Certification, Skill, PortfolioProject, Service } from '../types';
+// FIX: Importing 'types' for its side-effect of augmenting the global JSX namespace. This makes the type definition for the <lord-icon> custom element available.
+import '../types';
+import type { PersonalData, Experience, Education, Certification, Skill, PortfolioProject, Service } from '../types';
 
 // Import constants as fallback data
 import { 
@@ -34,7 +37,6 @@ import ServiceCard from '../components/ServiceCard';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
-import GithubStats from '../components/GithubStats';
 
 // Data state structure
 interface PortfolioData {
@@ -262,15 +264,6 @@ export default function Portfolio() {
                                 <h3 className="text-2xl font-bold mb-8 text-light-text-dark dark:text-text-dark">Technical Skills</h3>
                                 <SkillDonutChart skills={technicalSkills} />
                             </div>
-                        </div>
-                    </Section>
-                </section>
-
-                {/* GitHub Stats Section */}
-                <section id="github">
-                    <Section title="GitHub Stats" backgroundTitle="Activity">
-                        <div className="max-w-3xl mx-auto">
-                            <GithubStats />
                         </div>
                     </Section>
                 </section>

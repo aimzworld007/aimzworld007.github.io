@@ -64,16 +64,11 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
         </nav>
         
         <div className="mt-8">
-            <a href={data.cvUrl} target="_blank" rel="noopener noreferrer" download="Ainul_Islam_CV.pdf" className="w-full flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white dark:hover:text-text-dark transition-colors shadow-sm">
-                <i className="fa-solid fa-download"></i>Download CV
-            </a>
-        </div>
-
-        <div className="mt-8">
           <div className="flex justify-center space-x-4">
             <a href={data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-brands fa-linkedin-in text-lg"></i></a>
             <a href={data.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-brands fa-github text-lg"></i></a>
             <a href={data.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-brands fa-facebook-f text-lg"></i></a>
+            <a href="/login" aria-label="Admin Settings" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-solid fa-gear text-lg"></i></a>
           </div>
         </div>
         
