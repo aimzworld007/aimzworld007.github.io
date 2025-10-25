@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
           <a href={personalData.website} target="_blank" rel="noopener noreferrer" aria-label="Website" className="hover:text-primary transition-colors">
             <i className="fa-solid fa-globe text-2xl"></i>
           </a>
-          <a href={`mailto:${personalData.email}`} aria-label="Email" className="hover:text-primary transition-colors">
+          <a href={`mailto:${personalData.email}`} target="_blank" rel="noopener noreferrer" aria-label="Email" className="hover:text-primary transition-colors">
             <i className="fa-solid fa-envelope text-2xl"></i>
           </a>
         </div>

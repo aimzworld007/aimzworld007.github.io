@@ -80,76 +80,33 @@ export const experiences: Experience[] = [
 
 export const portfolioProjects: PortfolioProject[] = [
   {
-    title: "PDF & Image Tool",
-    description: "A versatile web utility for performing common operations on PDF documents and image files.",
-    imageUrl: "https://images.unsplash.com/photo-1583521214690-73421a1829a9?q=80&w=800&auto=format&fit=crop",
-    technologies: ["JavaScript", "React", "HTML", "CSS"],
-    details: "A user-friendly, browser-based tool for common PDF and image manipulations, designed for quick and easy use without software installation.",
-    liveUrl: "https://pdfimg.netlify.app",
-    category: "Web Application"
-  },
-  {
-    title: "EID Photo Lamination Tool",
-    description: "A specialized tool for preparing and formatting Emirates ID photos for lamination and official use.",
-    imageUrl: "https://images.unsplash.com/photo-1560410065-3676993803f2?q=80&w=800&auto=format&fit=crop",
-    technologies: ["JavaScript", "React", "HTML", "CSS"],
-    details: "This tool simplifies the process of preparing Emirates ID photos by providing easy-to-use formatting and lamination preview options, ensuring compliance with official standards.",
-    liveUrl: "https://eidlemi.netlify.app",
-    category: "Web Application"
-  },
-  {
-    title: "EID Photo Verify",
-    description: "A utility to verify and check the compliance of Emirates ID photos against official requirements.",
-    imageUrl: "https://images.unsplash.com/photo-1556011308-d6aed8548c25?q=80&w=800&auto=format&fit=crop",
-    technologies: ["JavaScript", "HTML", "CSS"],
-    details: "A simple yet effective tool for verifying that Emirates ID photos meet the required specifications for size, background, and quality, helping to prevent application rejections.",
-    liveUrl: "https://iaco.netlify.app/",
-    category: "Web Application"
-  },
-  {
-    title: "ICO Photo Tool",
-    description: "A tool designed for processing and formatting photos for ICA (Identity, Citizenship, Customs & Port Security) applications.",
-    imageUrl: "https://images.unsplash.com/photo-1603957822948-d3e2e0965154?q=80&w=800&auto=format&fit=crop",
-    technologies: ["JavaScript", "HTML", "CSS"],
-    details: "This utility helps users format their personal photos to meet the strict requirements of UAE's ICA portal for visa and identity applications.",
-    liveUrl: "https://icophoto.netlify.app",
-    category: "Web Application"
-  },
-  {
-    title: "Remit BD",
-    description: "A web application to track and calculate currency remittances, specifically for Bangladesh.",
-    imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop",
+    title: "Remittance Calculator BD",
+    description: "A web application to calculate currency remittances to Bangladesh using real-time exchange rates from an API.",
+    imageUrl: "https://i.ibb.co/5WT1jGsz/remitbd.png",
     technologies: ["JavaScript", "API", "HTML", "CSS"],
-    details: "A convenient tool for individuals sending money to Bangladesh, providing up-to-date exchange rates and calculation features to understand the final remittance amount.",
+    details: "A convenient tool for individuals sending money to Bangladesh. It provides up-to-date exchange rates from a live API and calculation features to understand the final remittance amount accurately.",
     liveUrl: "https://remitbd.netlify.app/",
     githubUrl: "https://github.com/aimzworld007/Remittance_Calculator_bd",
     category: "Web Application"
   },
   {
-    title: "Mess Meal Management Tool",
-    description: "A simple tool to help manage and track shared meals and expenses in a communal living arrangement.",
-    imageUrl: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop",
-    technologies: ["JavaScript", "React", "HTML", "CSS"],
-    details: "An application designed to simplify meal management for students or professionals in shared housing. It helps track daily meals, calculate costs, and manage payments fairly among members.",
+    title: "Shared Meal Manager",
+    description: "A web app to simplify meal management for groups, allowing users to track daily meals, calculate costs, and manage payments.",
+    imageUrl: "https://i.ibb.co/ycwhj9tt/logo.jpg",
+    technologies: ["React", "Firebase", "Tailwind CSS"],
+    details: "This project is a web application designed to simplify meal management for groups, such as students in a dormitory or professionals in a shared living space. It allows users to track daily meals, calculate costs, and manage payments using Firebase for real-time data synchronization.",
     liveUrl: "https://messmeal.netlify.app",
+    githubUrl: "https://github.com/aimzworld007/Shared-Meal-Manager",
     category: "Web Application"
   },
   {
     title: "Work Tracking Management",
     description: "A task and project management tool to help individuals and small teams track their work progress.",
-    imageUrl: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop",
-    technologies: ["JavaScript", "React", "Firebase"],
-    details: "A straightforward work tracking system that allows users to create tasks, set deadlines, and monitor the progress of their projects, enhancing productivity and organization.",
+    imageUrl: "https://i.ibb.co/My9ZmHq9/wroktms.png",
+    technologies: ["React", "Firebase", "Tailwind CSS"],
+    details: "A straightforward work tracking system built with React and Firebase. It allows users to create tasks, set deadlines, and monitor the progress of their projects, enhancing productivity and organization with features like user authentication and real-time updates.",
     liveUrl: "https://worktms.netlify.app",
-    category: "Web Application"
-  },
-  {
-    title: "PDF Editor (Under Dev.)",
-    description: "An upcoming powerful, browser-based editor for modifying and annotating PDF documents.",
-    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop",
-    technologies: ["React", "JavaScript", "PDF.js"],
-    details: "Currently under development, this tool aims to provide a comprehensive set of features for editing PDF files directly in the browser, including text editing, annotation, and form filling.",
-    liveUrl: "https://propdf.netlify.app",
+    githubUrl: "https://github.com/aimzworld007/Work-Tracking-management",
     category: "Web Application"
   },
   {
@@ -182,34 +139,11 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     title: "Alumni Association Website",
     description: "A dynamic website for the Alumni Association of the Department of Geography and Environment.",
-    imageUrl: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://raw.githubusercontent.com/aimzworld007/Geography_and_Environment_Department_Alumni_Association/main/img/logo.png",
     technologies: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
     details: "A comprehensive and dynamic website built for the Alumni Association of the Department of Geography and Environment at Government City College, Chittagong. The platform facilitates member registration, event management, and community engagement, serving as a central hub for alumni.",
+    githubUrl: "https://github.com/aimzworld007/Geography_and_Environment_Department_Alumni_Association",
     category: "Web Development"
-  },
-  {
-    title: "Gov Portal Management",
-    description: "System for managing UAE government applications across various portals like ICP, MOHRE, and DED, ensuring efficiency.",
-    imageUrl: "https://images.unsplash.com/photo-1619465538927-a06a21859599?q=80&w=800&auto=format&fit=crop",
-    technologies: ["ICP", "MOHRE", "DED", "Tas-heel"],
-    details: "Developed and managed workflows for handling diverse government applications, ensuring compliance and efficiency. The system streamlined visa processing, Emirates ID applications, and other critical documentation services.",
-    category: "Professional Services"
-  },
-  {
-    title: "Corporate Compliance",
-    description: "Managed government relations and documentation for company licensing, ensuring full regulatory adherence.",
-    imageUrl: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop",
-    technologies: ["Regulatory Adherence", "Documentation", "PRO"],
-    details: "Successfully managed full corporate compliance and PRO services for companies including Alrashidya Gas Trading LLC and Jasmin AC Unit Fix LLC. Liaised with various UAE government departments (MOHRE, DED, Immigration, Labor) to process employee visas, permits, and ensure complete regulatory adherence.",
-    category: "Professional Services"
-  },
-  {
-    title: "Digital Archiving Solution",
-    description: "Implemented digital archiving procedures and managed document retrieval for a high-volume typing service.",
-    imageUrl: "https://images.unsplash.com/photo-1493612276216-ee3925520721?q=80&w=800&auto=format&fit=crop",
-    technologies: ["Filing Systems", "Document Retrieval", "Accuracy"],
-    details: "Organized and maintained both physical and electronic filing systems. Managed document retrieval and distribution for internal departments, and processed legal documents with high accuracy.",
-    category: "Professional Services"
   }
 ];
 

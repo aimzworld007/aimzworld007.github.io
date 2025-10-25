@@ -40,8 +40,8 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onClick }) => {
       </div>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-light-text-dark dark:text-text-dark mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-        <p className="text-light-text-medium dark:text-text-medium text-sm leading-relaxed flex-grow">{project.description}</p>
-        <div className="mt-4 pt-4 border-t border-light-border dark:border-border flex items-center justify-between text-sm font-semibold">
+        <p className="text-light-text-medium dark:text-text-medium text-sm leading-relaxed">{project.description}</p>
+        <div className="mt-auto pt-4 border-t border-light-border dark:border-border flex items-center justify-between text-sm font-semibold">
             <span className="text-light-text-medium dark:text-text-medium">{project.category}</span>
             <span className="flex items-center text-primary">
                 {project.liveUrl ? 'View Live' : 'View Details'}
