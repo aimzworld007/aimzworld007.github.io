@@ -124,14 +124,13 @@ export default function App() {
       />
       
       <button 
-        className="fixed top-6 left-6 z-40 lg:hidden bg-light-card-background dark:bg-card-background w-12 h-12 rounded-full flex items-center justify-center shadow-md text-light-text-dark dark:text-text-dark"
+        className="fixed top-6 left-6 z-40 lg:hidden bg-light-card-background dark:bg-card-background w-12 h-12 rounded-full flex items-center justify-center shadow-md text-primary"
         onClick={() => setIsSidebarOpen(true)}
         aria-label="Open sidebar"
       >
         <lord-icon
             src="https://cdn.lordicon.com/jxwksgwv.json"
             trigger="hover"
-            colors="primary:#00a896"
             style={{width:'28px', height:'28px'}}>
         </lord-icon>
       </button>

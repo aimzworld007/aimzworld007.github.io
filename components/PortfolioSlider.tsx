@@ -62,7 +62,7 @@ const PortfolioSlider: React.FC<PortfolioSliderProps> = ({ projects, onProjectCl
   }, [projects]); // Re-initialize Swiper whenever the projects array changes
 
   return (
-    <div ref={swiperRef} className="swiper w-full !pb-12">
+    <div ref={swiperRef} className="swiper w-full !pb-10">
       <div className="swiper-wrapper">
         {projects.map((project, index) => (
           <div key={`${project.title}-${index}`} className="swiper-slide h-auto">

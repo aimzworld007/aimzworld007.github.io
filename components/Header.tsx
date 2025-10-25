@@ -49,7 +49,7 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
         <nav className="flex-grow">
             <ul className="space-y-4">
                 {navLinks.map(link => (
-                    <li key={link.href} className="relative group">
+                    <li key={link.href}>
                         <a 
                             href={link.href} 
                             className="flex items-center gap-4 text-xl font-semibold hover:text-primary transition-all duration-300 transform hover:translate-x-2"
@@ -58,10 +58,6 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
                             <i className={`${link.icon} w-6 text-center text-primary/80`}></i>
                             <span>{link.text}</span>
                         </a>
-                        <div className="absolute left-full ml-4 px-3 py-1.5 bg-primary text-white text-xs font-semibold rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
-                            {link.text}
-                            <div className="absolute top-1/2 -left-1 transform -translate-y-1/2 w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent border-r-4 border-r-primary"></div>
-                        </div>
                     </li>
                 ))}
             </ul>

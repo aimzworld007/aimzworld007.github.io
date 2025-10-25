@@ -21,7 +21,6 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ project, onClose }) => 
           <lord-icon
               src="https://cdn.lordicon.com/nqtddedc.json"
               trigger="hover"
-              colors="primary:#00a896"
               style={{width:'32px', height:'32px'}}>
           </lord-icon>
         </button>

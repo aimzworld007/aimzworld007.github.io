@@ -34,25 +34,39 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onClick }) => {
   }, []);
 
   const CardContent = (
-    <>
-      <div className="overflow-hidden aspect-[4/3]">
-        <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+    <div className="flex flex-col h-full">
+      {/* Image Container */}
+      <div className="relative w-full aspect-video bg-light-background dark:bg-background overflow-hidden">
+        <img 
+          src={project.imageUrl} 
+          alt={project.title} 
+          className="w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-105"
+        />
       </div>
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-light-text-dark dark:text-text-dark mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-        <p className="text-light-text-medium dark:text-text-medium text-sm leading-relaxed flex-grow">{project.description}</p>
-        <div className="mt-4 pt-4 border-t border-light-border dark:border-border flex items-center justify-between text-sm font-semibold">
-            <span className="text-light-text-medium dark:text-text-medium">{project.category}</span>
-            <span className="flex items-center text-primary">
-                {project.liveUrl ? 'View Live' : 'View Details'}
-                <i className={`fa-solid ${project.liveUrl ? 'fa-arrow-up-right-from-square' : 'fa-arrow-right'} text-xs ml-2`}></i>
-            </span>
+      
+      {/* Content Area */}
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-light-text-dark dark:text-text-dark mb-2">
+          {project.title}
+        </h3>
+        {/* Clamping the description prevents cards from becoming excessively tall. */}
+        <p className="text-sm text-light-text-medium dark:text-text-medium mb-4 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] overflow-hidden">
+          {project.description}
+        </p>
+
+        {/* Card Footer */}
+        <div className="pt-4 border-t border-light-border dark:border-border flex justify-between items-center text-sm">
+            <span className="font-semibold text-primary">{project.category}</span>
+            <div className="font-semibold text-primary hover:text-primary-hover transition-colors flex items-center gap-2">
+                <span>{project.liveUrl ? 'View Live' : 'Details'}</span>
+                <i className={`fa-solid ${project.liveUrl ? 'fa-arrow-up-right-from-square' : 'fa-arrow-right'} text-xs`}></i>
+            </div>
         </div>
       </div>
-    </>
+    </div>
   );
 
-  const commonClasses = `group flex flex-col bg-light-card-background dark:bg-card-background rounded-xl overflow-hidden shadow-card border border-light-border dark:border-border h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`;
+  const commonClasses = `bg-light-card-background dark:bg-card-background rounded-xl overflow-hidden shadow-card border border-light-border dark:border-border h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`;
 
   if (project.liveUrl) {
     return (
@@ -61,7 +75,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onClick }) => {
         href={project.liveUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className={commonClasses}
+        className={`${commonClasses} group`}
         aria-label={`View live project: ${project.title}`}
       >
         {CardContent}
@@ -74,7 +88,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onClick }) => {
       ref={ref}
       role="button"
       tabIndex={0}
-      className={`${commonClasses} cursor-pointer`}
+      className={`${commonClasses} cursor-pointer group`}
       onClick={onClick}
       onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onClick()}
       aria-label={`View details for project: ${project.title}`}
