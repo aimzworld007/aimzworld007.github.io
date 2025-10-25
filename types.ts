@@ -55,6 +55,7 @@ export interface PortfolioProject {
   category: string;
   videoUrl?: string;
   liveUrl?: string;
+  githubUrl?: string;
 }
 
 export interface Service {

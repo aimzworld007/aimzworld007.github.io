@@ -44,21 +44,23 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ project, onClose }) => 
         </div>
         
         <div className="p-8 overflow-y-auto">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-light-text-dark dark:text-text-dark mb-3">
-            {project.liveUrl ? (
-              <a 
-                href={project.liveUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 hover:text-primary transition-colors group"
-              >
-                {project.title}
-                <i className="fa-solid fa-arrow-up-right-from-square text-2xl text-light-text-medium dark:text-text-medium group-hover:text-primary transition-colors"></i>
-              </a>
-            ) : (
-              project.title
-            )}
-          </h2>
+          <div className="flex items-center gap-4 mb-3">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-light-text-dark dark:text-text-dark">
+              {project.title}
+            </h2>
+            <div className="flex items-center gap-3">
+              {project.githubUrl && (
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" title="View Source Code" className="text-light-text-medium dark:text-text-medium hover:text-primary transition-colors">
+                      <i className="fa-brands fa-github text-3xl"></i>
+                  </a>
+              )}
+              {project.liveUrl && (
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" title="View Live Site" className="text-light-text-medium dark:text-text-medium hover:text-primary transition-colors">
+                      <i className="fa-solid fa-arrow-up-right-from-square text-3xl"></i>
+                  </a>
+              )}
+            </div>
+          </div>
           <div className="flex flex-wrap gap-3 mb-6">
             {project.technologies.map((tech, index) => (
               <span key={index} className="bg-light-background dark:bg-background text-primary text-sm font-semibold px-3 py-1 rounded-full">{tech}</span>

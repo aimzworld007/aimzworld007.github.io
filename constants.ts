@@ -122,6 +122,7 @@ export const portfolioProjects: PortfolioProject[] = [
     technologies: ["JavaScript", "API", "HTML", "CSS"],
     details: "A convenient tool for individuals sending money to Bangladesh, providing up-to-date exchange rates and calculation features to understand the final remittance amount.",
     liveUrl: "https://remitbd.netlify.app/",
+    githubUrl: "https://github.com/aimzworld007/Remittance_Calculator_bd",
     category: "Web Application"
   },
   {
@@ -176,6 +177,14 @@ export const portfolioProjects: PortfolioProject[] = [
     technologies: ["HTML", "CSS", "PHP", "MySQL", "WordPress"],
     details: "Led the development of a dynamic news portal. This project involved creating a full-stack solution for news publishing and management, capable of handling high traffic and a large volume of content.",
     liveUrl: "https://ctgnews.net",
+    category: "Web Development"
+  },
+  {
+    title: "Alumni Association Website",
+    description: "A dynamic website for the Alumni Association of the Department of Geography and Environment.",
+    imageUrl: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=800&auto=format&fit=crop",
+    technologies: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
+    details: "A comprehensive and dynamic website built for the Alumni Association of the Department of Geography and Environment at Government City College, Chittagong. The platform facilitates member registration, event management, and community engagement, serving as a central hub for alumni.",
     category: "Web Development"
   },
   {
