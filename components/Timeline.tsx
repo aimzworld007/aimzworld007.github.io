@@ -17,12 +17,15 @@ const Timeline: React.FC<TimelineProps> = ({ children }) => {
           }
 
           const side = index % 2 === 0 ? 'left' : 'right';
-          const icon = child.type.name === 'ExperienceCard' ? 'fa-briefcase' : 'fa-graduation-cap';
+          // FIX: Safely access component name by checking if `child.type` is a function.
+          const componentName = typeof child.type === 'function' ? (child.type as any).name : '';
+          const icon = componentName === 'ExperienceCard' ? 'fa-briefcase' : 'fa-graduation-cap';
           
           return (
             <div className="w-full flex lg:justify-center relative">
               <TimelineDot icon={icon} side={side} />
-              {cloneElement(child, { side })}
+              {/* FIX: Cast child to a type that accepts the `side` prop to resolve cloneElement error. */}
+              {cloneElement(child as React.ReactElement<{ side: 'left' | 'right' }>, { side })}
             </div>
           );
         })}

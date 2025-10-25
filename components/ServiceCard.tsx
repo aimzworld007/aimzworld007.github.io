@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+// FIX: Remove .ts extension to fix module resolution for global types.
 import { Service } from '../types';
 
 interface ServiceCardProps {

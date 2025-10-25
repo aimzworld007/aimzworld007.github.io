@@ -3,10 +3,11 @@ import { PersonalData, Experience, Education, Certification, Skill, PortfolioPro
 
 export const navLinks = [
     { href: '#home', text: 'Home', icon: 'fa-solid fa-house' },
-    { href: '#about', text: 'About', icon: 'fa-solid fa-user' },
+    { href: '#services', text: 'About', icon: 'fa-solid fa-user' },
     { href: '#experience', text: 'Experience', icon: 'fa-solid fa-briefcase' },
     { href: '#education', text: 'Education', icon: 'fa-solid fa-graduation-cap' },
     { href: '#skills', text: 'Skills', icon: 'fa-solid fa-code' },
+    { href: '#github', text: 'GitHub', icon: 'fa-brands fa-github' },
     { href: '#portfolio', text: 'Portfolio', icon: 'fa-solid fa-layer-group' },
     { href: '#contact', text: 'Contact', icon: 'fa-solid fa-envelope' },
 ];
@@ -22,6 +23,12 @@ export const themeColors: ThemeColor[] = [
 export const personalData: PersonalData = {
   name: "Ainul Islam",
   title: "Document Controller | PRO",
+  typewriterPhrases: [
+    "Document Controller",
+    "Public Relations Officer",
+    "IT Enthusiast",
+    "Self-taught Developer"
+  ],
   photoUrl: "https://i.ibb.co/jPVWF02z/my-pic.png",
   location: "Shariah, UAE",
   email: "aimctgbd@gmail.com",
@@ -198,29 +205,49 @@ export const certifications: Certification[] = [
 ];
 
 export const coreSkills: Skill[] = [
-  { name: "Document Control", percentage: 90, icon: "fa-solid fa-file-invoice" },
-  { name: "Public Relations", percentage: 85, icon: "fa-solid fa-bullhorn" },
-  { name: "UAE Government Portals", percentage: 90, icon: "fa-solid fa-landmark-flag" },
-  { name: "Customer Service", percentage: 88, icon: "fa-solid fa-headset" },
-  { name: "Compliance", percentage: 85, icon: "fa-solid fa-gavel" },
-  { name: "Visa Processing", percentage: 90, icon: "fa-solid fa-passport" },
-  { name: "ICA EChannel System", percentage: 80, icon: "fa-solid fa-desktop" },
-  { name: "Amer & Tashsil Service", percentage: 85, icon: "fa-solid fa-concierge-bell" }
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "Document Control", percentage: 90, icon: "fa-solid fa-file-invoice", type: "core" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "Public Relations", percentage: 85, icon: "fa-solid fa-bullhorn", type: "core" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "UAE Government Portals", percentage: 90, icon: "fa-solid fa-landmark-flag", type: "core" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "Customer Service", percentage: 88, icon: "fa-solid fa-headset", type: "core" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "Compliance", percentage: 85, icon: "fa-solid fa-gavel", type: "core" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "Visa Processing", percentage: 90, icon: "fa-solid fa-passport", type: "core" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "ICA EChannel System", percentage: 80, icon: "fa-solid fa-desktop", type: "core" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "Amer & Tashsil Service", percentage: 85, icon: "fa-solid fa-concierge-bell", type: "core" }
 ];
 
 export const technicalSkills: Skill[] = [
-  { name: "HTML5", icon: "fa-brands fa-html5", percentage: 95, color: "#ef4444" },
-  { name: "CSS3", icon: "fa-brands fa-css3-alt", percentage: 90, color: "#3b82f6" },
-  { name: "PHP", icon: "fa-brands fa-php", percentage: 75, color: "#8b5cf6" },
-  { name: "MySQL", icon: "fa-solid fa-database", percentage: 80, color: "#0ea5e9" },
-  { name: "Firebase", icon: "fa-solid fa-database", percentage: 70, color: "#f97316" },
-  { name: "WordPress", icon: "fa-brands fa-wordpress", percentage: 90, color: "#2563eb" },
-  { name: "GitHub", icon: "fa-brands fa-github", percentage: 85, color: "#475569" },
-  { name: "Linux", icon: "fa-brands fa-linux", percentage: 70, color: "#f59e0b" },
-  { name: "Basic Python", icon: "fa-brands fa-python", percentage: 65, color: "#22c55e" },
-  { name: "Artificial Intelligence", icon: "fa-solid fa-robot", percentage: 60, color: "#d946ef" },
-  { name: "Open Office", icon: "fa-solid fa-file-word", percentage: 95, color: "#06b6d4" },
-  { name: "Excel", icon: "fa-solid fa-file-excel", percentage: 95, color: "#10b981" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "HTML5", icon: "fa-brands fa-html5", percentage: 95, color: "#ef4444", type: "technical" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "CSS3", icon: "fa-brands fa-css3-alt", percentage: 90, color: "#3b82f6", type: "technical" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "PHP", icon: "fa-brands fa-php", percentage: 75, color: "#8b5cf6", type: "technical" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "MySQL", icon: "fa-solid fa-database", percentage: 80, color: "#0ea5e9", type: "technical" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "Firebase", icon: "fa-solid fa-database", percentage: 70, color: "#f97316", type: "technical" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "WordPress", icon: "fa-brands fa-wordpress", percentage: 90, color: "#2563eb", type: "technical" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "GitHub", icon: "fa-brands fa-github", percentage: 85, color: "#475569", type: "technical" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "Linux", icon: "fa-brands fa-linux", percentage: 70, color: "#f59e0b", type: "technical" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "Basic Python", icon: "fa-brands fa-python", percentage: 65, color: "#22c55e", type: "technical" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "Artificial Intelligence", icon: "fa-solid fa-robot", percentage: 60, color: "#d946ef", type: "technical" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "Open Office", icon: "fa-solid fa-file-word", percentage: 95, color: "#06b6d4", type: "technical" },
+  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  { name: "Excel", icon: "fa-solid fa-file-excel", percentage: 95, color: "#10b981", type: "technical" },
 ];
 
 export const services: Service[] = [

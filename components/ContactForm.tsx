@@ -1,4 +1,8 @@
+
+
 import React, { useState } from 'react';
+// FIX: Remove .ts extension to fix module resolution for global types.
+import {} from '../types';
 
 const ContactForm: React.FC = () => {
   const [status, setStatus] = useState('');

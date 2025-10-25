@@ -1,4 +1,5 @@
 import React from 'react';
+// FIX: Remove .ts extension to fix module resolution for global types.
 import { PortfolioProject } from '../types';
 
 interface PortfolioModalProps {

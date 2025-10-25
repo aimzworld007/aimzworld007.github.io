@@ -3,7 +3,8 @@ import { Skill } from '../types';
 
 interface SkillProgressProps {
   skill: Skill;
-  percentage: number;
+  // FIX: The 'percentage' prop is redundant as it's available in the 'skill' object.
+  // percentage: number;
 }
 
 const useAnimateOnScroll = (): [React.RefObject<HTMLDivElement>, boolean] => {
@@ -36,9 +37,12 @@ const useAnimateOnScroll = (): [React.RefObject<HTMLDivElement>, boolean] => {
   return [ref, isVisible];
 };
 
-const SkillProgress: React.FC<SkillProgressProps> = ({ skill, percentage }) => {
+// FIX: Remove 'percentage' from props destructuring.
+const SkillProgress: React.FC<SkillProgressProps> = ({ skill }) => {
   const [ref, isVisible] = useAnimateOnScroll();
   const [width, setWidth] = useState(0);
+  // FIX: Get percentage from the skill object, providing a fallback.
+  const percentage = skill.percentage || 0;
 
   useEffect(() => {
     if (isVisible) {

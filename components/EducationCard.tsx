@@ -3,7 +3,8 @@ import { Education } from '../types';
 
 interface EducationCardProps {
   education: Education;
-  side: 'left' | 'right';
+  // FIX: Make the 'side' prop optional to allow rendering within the Timeline component which injects this prop.
+  side?: 'left' | 'right';
 }
 
 const EducationCard: React.FC<EducationCardProps> = ({ education, side }) => {

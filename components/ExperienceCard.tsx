@@ -3,7 +3,8 @@ import { Experience } from '../types';
 
 interface ExperienceCardProps {
   experience: Experience;
-  side: 'left' | 'right';
+  // FIX: Make the 'side' prop optional to allow rendering within the Timeline component which injects this prop.
+  side?: 'left' | 'right';
 }
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience, side }) => {
