@@ -1,7 +1,6 @@
 import React from 'react';
 import type { PortfolioProject } from '../types';
-// FIX: Import 'types.ts' to make the global JSX type definitions for custom elements
-// like 'lord-icon' available in this file, resolving the TypeScript error.
+// Fix: Import 'types.ts' to make the global JSX type definitions for custom elements like 'lord-icon' available in this file, resolving the TypeScript error.
 import '../types';
 
 interface PortfolioModalProps {

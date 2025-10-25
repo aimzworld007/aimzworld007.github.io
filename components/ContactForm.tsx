@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// FIX: Import 'types.ts' to make the global JSX type definitions for custom elements
-// like 'lord-icon' available in this file, resolving the TypeScript error.
+// Fix: Import 'types.ts' to make the global JSX type definitions for custom elements like 'lord-icon' available in this file, resolving the TypeScript error.
 import '../types';
 
 const ContactForm: React.FC = () => {
