@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Service } from '../types';
 
 interface ServiceCardProps {
@@ -6,8 +6,34 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
   return (
-    <div className="group bg-light-card-background dark:bg-card-background p-8 rounded-xl shadow-card transition-all duration-300 border border-light-border dark:border-border hover:border-primary">
+    <div ref={ref} className={`group bg-light-card-background dark:bg-card-background p-8 rounded-xl shadow-card transition-all duration-300 border border-light-border dark:border-border hover:border-primary ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
       <div className="text-light-text-medium dark:text-text-medium group-hover:text-primary transition-colors duration-300 mb-5">
         <lord-icon
             src={service.icon}

@@ -44,13 +44,27 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ project, onClose }) => 
         </div>
         
         <div className="p-8 overflow-y-auto">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-light-text-dark dark:text-text-dark mb-3">{project.title}</h2>
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-light-text-dark dark:text-text-dark mb-3">
+            {project.liveUrl ? (
+              <a 
+                href={project.liveUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 hover:text-primary transition-colors group"
+              >
+                {project.title}
+                <i className="fa-solid fa-arrow-up-right-from-square text-2xl text-light-text-medium dark:text-text-medium group-hover:text-primary transition-colors"></i>
+              </a>
+            ) : (
+              project.title
+            )}
+          </h2>
           <div className="flex flex-wrap gap-3 mb-6">
             {project.technologies.map((tech, index) => (
               <span key={index} className="bg-light-background dark:bg-background text-primary text-sm font-semibold px-3 py-1 rounded-full">{tech}</span>
             ))}
           </div>
-          <p className="text-lg text-light-text-medium dark:text-text-medium leading-relaxed">{project.details}</p>
+          <p className="text-lg text-light-text-medium dark:text-text-medium leading-relaxed whitespace-pre-wrap">{project.details}</p>
         </div>
       </div>
     </div>

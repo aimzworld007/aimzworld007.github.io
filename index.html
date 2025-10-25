@@ -4,9 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ainul Islam - Portfolio</title>
+    <meta name="description" content="A personal portfolio website for Ainul Islam, showcasing professional experience, skills, education, and certifications as a Document Controller and PRO." />
+    <meta name="keywords" content="Ainul Islam, Portfolio, Document Controller, PRO, Public Relations Officer, Web Developer, UAE, Sharjah, Dubai, Resume, CV" />
+    <meta name="author" content="Ainul Islam" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#00a896',
+              'primary-hover': '#009483',
+              'background': '#121212',
+              'card-background': '#1e1e1e',
+              'text-dark': '#ffffff',
+              'text-medium': '#a0a0a0',
+              'text-light': '#6b6b6b',
+              'border': '#2f2f2f',
+              'light-background': '#f8f9fa',
+              'light-card-background': '#ffffff',
+              'light-text-dark': '#212529',
+              'light-text-medium': '#6c757d',
+              'light-border': '#dee2e6',
+            },
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+              signature: ['Great Vibes', 'cursive'],
+            },
+            boxShadow: {
+              'card': '0 4px 6px rgba(0, 0, 0, 0.05)',
+              'glow': '0 0 20px rgba(0, 168, 150, 0.3)',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+              'scale-in': 'scaleIn 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards',
+              'pulse-border': 'pulse-border 2s infinite',
+              'spin-gradient': 'spin-gradient 5s linear infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                'from': { opacity: 0 },
+                'to': { opacity: 1 },
+              },
+              fadeInUp: {
+                'from': { opacity: 0, transform: 'translateY(20px)' },
+                'to': { opacity: 1, transform: 'translateY(0)' },
+              },
+              scaleIn: {
+                'from': { opacity: 0, transform: 'scale(0.5)' },
+                'to': { opacity: 1, transform: 'scale(1)' },
+              },
+              'spin-gradient': {
+                '0%': { transform: 'rotate(0deg)' },
+                '100%': { transform: 'rotate(360deg)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
     <style>
       html {
         scroll-behavior: smooth;
@@ -39,67 +103,35 @@
       .dark ::-webkit-scrollbar-thumb:hover {
         background: #555;
       }
-    </style>
-     <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              // Universal Primary Color
-              primary: '#00a896',
-              'primary-hover': '#008778',
-
-              // Dark Theme Colors
-              background: '#1e1e1e',
-              'card-background': '#252525',
-              'text-dark': '#FFFFFF',
-              'text-medium': '#A0A0A0',
-              'text-light': '#666666',
-              border: '#333333',
-
-              // Light Theme Colors
-              'light-background': '#f8f9fa',
-              'light-card-background': '#ffffff',
-              'light-text-dark': '#212529',
-              'light-text-medium': '#6c757d',
-              'light-text-light': '#adb5bd',
-              'light-border': '#e9ecef',
-            },
-            fontFamily: {
-               sans: ['Poppins', 'sans-serif'],
-            },
-            boxShadow: {
-              'card': '0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07)',
-              'nav': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
-              'glow': '0 0 15px -3px rgb(0 168 150 / 0.3)',
-            },
-            keyframes: {
-              fadeInUp: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-              },
-               slideInLeft: {
-                '0%': { transform: 'translateX(-100%)' },
-                '100%': { transform: 'translateX(0)' },
-              },
-            },
-            animation: {
-              'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
-              'fade-in': 'fadeIn 0.5s ease-out forwards',
-              'slide-in-left': 'slideInLeft 0.5s ease-out forwards',
-            }
-          }
+      @keyframes blink {
+        50% { opacity: 0; }
+      }
+      .typewriter-cursor {
+        animation: blink 1s step-end infinite;
+      }
+      /* Swiper Customization */
+      .swiper-button-next, .swiper-button-prev {
+        color: #00a896 !important;
+        transition: transform 0.2s ease-in-out;
+      }
+       .swiper-button-next:hover, .swiper-button-prev:hover {
+        transform: scale(1.1);
+      }
+      .swiper-pagination-bullet-active {
+        background-color: #00a896 !important;
+      }
+      .swiper {
+        overflow: visible !important; /* Make pagination visible */
+      }
+      @keyframes pulse-border {
+        0% {
+          box-shadow: 0 0 0 0 rgba(0, 168, 150, 0.7);
+        }
+        100% {
+          box-shadow: 0 0 0 20px rgba(0, 168, 150, 0);
         }
       }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    </style>
   <script type="importmap">
 {
   "imports": {
@@ -110,7 +142,7 @@
 }
 </script>
 </head>
-  <body>
+  <body class="bg-light-background dark:bg-background">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

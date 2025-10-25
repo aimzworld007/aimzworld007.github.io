@@ -40,6 +40,9 @@ export interface Certification {
 
 export interface Skill {
   name: string;
+  icon?: string;
+  percentage?: number;
+  color?: string;
 }
 
 export interface PortfolioProject {
@@ -48,7 +51,9 @@ export interface PortfolioProject {
   imageUrl: string;
   technologies: string[];
   details: string;
+  category: string;
   videoUrl?: string;
+  liveUrl?: string;
 }
 
 export interface Service {
