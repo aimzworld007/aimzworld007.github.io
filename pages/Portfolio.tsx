@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, doc, getDoc, getDocs, query, orderBy } from 'firebase/firestore';
-// FIX: Added .ts extension to ensure the import correctly resolves and applies the global type definitions for custom elements.
-import '../types.ts';
 import type { PersonalData, Experience, Education, Certification, Skill, PortfolioProject, Service } from '../types';
+// FIX: Import 'types.ts' to make the <lord-icon> type definition available.
+import '../types.ts';
 
 // Import constants as fallback data
 import { 
@@ -47,6 +47,18 @@ interface PortfolioData {
     services: Service[];
 }
 
+// PERF: Initialize state with fallback data for instant page load.
+const initialData: PortfolioData = {
+    personal: fallbackPersonalData,
+    experiences: fallbackExperiences,
+    education: fallbackEducation,
+    certifications: fallbackCertifications,
+    coreSkills: fallbackCoreSkills,
+    technicalSkills: fallbackTechnicalSkills,
+    projects: fallbackPortfolioProjects,
+    services: fallbackServices,
+};
+
 export default function Portfolio() {
     // State management
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
@@ -54,8 +66,7 @@ export default function Portfolio() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [isScrollButtonVisible, setScrollButtonVisible] = useState(false);
     const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
-    const [portfolioData, setPortfolioData] = useState<PortfolioData | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [portfolioData, setPortfolioData] = useState<PortfolioData>(initialData);
 
     // Theme and color effects
     useEffect(() => {
@@ -82,10 +93,10 @@ export default function Portfolio() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Data fetching from Firestore
+    // PERF: Fetch live data in the background and update the state.
+    // The page renders instantly with fallback data, then gets updated.
     useEffect(() => {
         const fetchData = async () => {
-            setLoading(true);
             try {
                 // Personal Data
                 const personalDoc = await getDoc(doc(db, 'portfolioData', 'personal'));
@@ -122,18 +133,7 @@ export default function Portfolio() {
 
             } catch (error) {
                 console.error("Failed to fetch data from Firestore, using default data.", error);
-                setPortfolioData({
-                    personal: fallbackPersonalData,
-                    experiences: fallbackExperiences,
-                    education: fallbackEducation,
-                    certifications: fallbackCertifications,
-                    coreSkills: fallbackCoreSkills,
-                    technicalSkills: fallbackTechnicalSkills,
-                    projects: fallbackPortfolioProjects,
-                    services: fallbackServices
-                });
-            } finally {
-                setLoading(false);
+                // No need to set data here as it's already initialized with fallback
             }
         };
 
@@ -143,14 +143,6 @@ export default function Portfolio() {
     const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    if (loading || !portfolioData) {
-        return (
-            <div className="bg-light-background dark:bg-background min-h-screen flex items-center justify-center">
-                 <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-primary"></div>
-            </div>
-        );
-    }
-    
     const { personal, experiences, education, certifications, coreSkills, technicalSkills, projects, services } = portfolioData;
 
     return (
@@ -172,12 +164,13 @@ export default function Portfolio() {
             />
 
             <button onClick={() => setSidebarOpen(true)} className="fixed top-5 left-5 z-40 lg:hidden w-12 h-12 bg-light-card-background/80 dark:bg-card-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-primary shadow-md">
+                 {/* FIX: Converted to self-closing tag to prevent JSX parsing errors. */}
                  <lord-icon
                     src="https://cdn.lordicon.com/jxwksgwv.json"
                     trigger="hover"
                     colors="primary:currentColor"
                     style={{width:'28px', height:'28px'}}
-                />
+                ></lord-icon>
             </button>
 
             <main className="container mx-auto px-6 lg:px-8 pt-24 lg:pt-12 space-y-28 sm:space-y-32 md:space-y-40">

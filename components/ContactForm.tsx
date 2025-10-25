@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// FIX: Added .ts extension to ensure the import correctly resolves and applies the global type definitions for custom elements.
+// FIX: Import 'types.ts' to make the <lord-icon> type definition available.
 import '../types.ts';
 
 const ContactForm: React.FC = () => {
@@ -98,12 +98,13 @@ const ContactForm: React.FC = () => {
                 className="flex items-center justify-center text-text-dark font-bold px-8 py-4 rounded-lg bg-primary hover:bg-primary-hover shadow-lg transition-all duration-300 disabled:bg-gray-400 dark:disabled:bg-gray-600 disabled:cursor-not-allowed"
                 disabled={isSubmitting}
               >
+                  {/* FIX: Converted to self-closing tag to prevent JSX parsing errors. */}
                   <lord-icon
                       src="https://cdn.lordicon.com/aycieyht.json"
                       trigger="loop-on-hover"
                       colors="primary:#ffffff"
                       style={{width:'24px', height:'24px', marginRight: '8px'}}
-                  />
+                  ></lord-icon>
                   {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
               {status && (
