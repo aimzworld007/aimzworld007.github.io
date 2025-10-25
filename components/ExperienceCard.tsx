@@ -44,10 +44,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience, side }) => 
   return (
     <div 
       ref={ref} 
-      className={`relative w-full lg:w-1/2 mb-8 ${alignmentClasses} ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+      className={`relative w-full lg:w-1/2 mb-8 ${alignmentClasses} ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
     >
       <div 
-        className={`bg-light-card-background dark:bg-card-background p-6 rounded-xl shadow-card transition-all duration-300 border border-light-border dark:border-border dark:hover:shadow-glow hover:-translate-y-1 ${isVisible ? 'animate-fade-in-up [animation-delay:250ms]' : 'opacity-0'}`}
+        className={`bg-light-card-background dark:bg-card-background p-6 rounded-xl shadow-card transition-all duration-300 border border-light-border dark:border-border dark:hover:shadow-glow hover:-translate-y-1`}
       >
         <div className={`flex flex-col sm:flex-row justify-between items-start mb-2 gap-2 ${contentAlignment} ${side === 'right' ? 'sm:flex-row-reverse' : ''}`}>
           <div className={`${textAlignment}`}>

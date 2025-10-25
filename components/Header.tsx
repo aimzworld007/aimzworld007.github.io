@@ -34,9 +34,15 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
         className={`fixed top-0 left-0 h-full w-[85%] sm:w-[60%] md:w-[45%] bg-light-card-background dark:bg-card-background shadow-2xl z-[60] p-8 flex flex-col transition-transform duration-300 ease-in-out lg:hidden ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
         <div className="flex justify-between items-start mb-8">
-            <h1 className="text-3xl font-extrabold text-light-text-dark dark:text-text-dark">
-                {data.name.split(' ')[0]}<span className="text-primary">.</span>
-            </h1>
+            <div className="flex items-center gap-4">
+                <img src={data.photoUrl} alt={data.name} className="w-14 h-14 rounded-full object-cover border-2 border-primary" />
+                <div>
+                    <h1 className="text-xl font-extrabold text-light-text-dark dark:text-text-dark leading-tight">
+                        {data.name}
+                    </h1>
+                    <p className="text-xs text-light-text-medium dark:text-text-medium">{data.title.split(' | ')[0]}</p>
+                </div>
+            </div>
             <button
                 onClick={() => setIsOpen(false)}
                 className="lg:hidden text-light-text-medium dark:text-text-medium text-2xl"

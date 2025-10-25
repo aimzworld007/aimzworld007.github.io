@@ -35,7 +35,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onClick }) => {
 
   const CardContent = (
     <>
-      <div className="overflow-hidden aspect-video">
+      <div className="overflow-hidden aspect-[4/3]">
         <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
       </div>
       <div className="p-6 flex flex-col flex-grow">

@@ -1,24 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 interface TypewriterProps {
   text: string;
-  speed?: number;
+  typingSpeed?: number;
+  deletingSpeed?: number;
+  pauseDuration?: number;
 }
 
-const Typewriter: React.FC<TypewriterProps> = ({ text, speed = 100 }) => {
+const Typewriter: React.FC<TypewriterProps> = ({ 
+  text, 
+  typingSpeed = 150, 
+  deletingSpeed = 100, 
+  pauseDuration = 2000 
+}) => {
   const [displayedText, setDisplayedText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [currentSpeed, setCurrentSpeed] = useState(typingSpeed);
+
+  const handleType = useCallback(() => {
+    const fullText = text;
+    
+    // Determine the next text state
+    if (isDeleting) {
+      setDisplayedText(currentText => currentText.substring(0, currentText.length - 1));
+      setCurrentSpeed(deletingSpeed);
+    } else {
+      setDisplayedText(currentText => fullText.substring(0, currentText.length + 1));
+      setCurrentSpeed(typingSpeed);
+    }
+
+    // Check for state transitions
+    if (!isDeleting && displayedText === fullText) {
+      // Finished typing, pause then start deleting
+      setCurrentSpeed(pauseDuration);
+      setIsDeleting(true);
+    } else if (isDeleting && displayedText === '') {
+      // Finished deleting, start typing again
+      setIsDeleting(false);
+      setCurrentSpeed(typingSpeed);
+    }
+
+  }, [displayedText, isDeleting, text, typingSpeed, deletingSpeed, pauseDuration]);
 
   useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedText(prevText => prevText + text[currentIndex]);
-        setCurrentIndex(prevIndex => prevIndex + 1);
-      }, speed);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, text, speed]);
+    const timer = setTimeout(handleType, currentSpeed);
+    return () => clearTimeout(timer);
+  }, [handleType, currentSpeed]);
 
   return (
     <span>

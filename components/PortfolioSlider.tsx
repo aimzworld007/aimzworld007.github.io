@@ -25,7 +25,7 @@ const PortfolioSlider: React.FC<PortfolioSliderProps> = ({ projects, onProjectCl
       swiperInstance.current = new Swiper(swiperRef.current, {
         slidesPerView: 1,
         spaceBetween: 30,
-        loop: projects.length > 2, // Loop only if there are enough slides
+        loop: projects.length > 3, // Loop only if there are enough slides for the largest view
         autoplay: {
           delay: 4000,
           disableOnInteraction: false,
@@ -42,6 +42,10 @@ const PortfolioSlider: React.FC<PortfolioSliderProps> = ({ projects, onProjectCl
         breakpoints: {
           768: {
             slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 3,
             spaceBetween: 30,
           },
         },

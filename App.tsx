@@ -27,6 +27,7 @@ import Timeline from './components/Timeline';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import SkillProgress from './components/SkillProgress';
 import SkillDonutChart from './components/SkillDonutChart';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
@@ -39,6 +40,7 @@ export default function App() {
   });
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
+  const [isScrollButtonVisible, setIsScrollButtonVisible] = useState(false);
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -48,6 +50,20 @@ export default function App() {
     }
     localStorage.setItem('theme', theme);
   }, [theme]);
+  
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 400) {
+        setIsScrollButtonVisible(true);
+      } else {
+        setIsScrollButtonVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility);
+
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
 
   const toggleTheme = () => {
     setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
@@ -61,6 +77,13 @@ export default function App() {
 
   const handleCloseModal = () => {
     setSelectedProject(null);
+  };
+  
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   return (
@@ -106,9 +129,9 @@ export default function App() {
               </div>
             </div>
             <div className="order-1 lg:order-2 flex justify-center">
-                <div className="relative w-72 h-72 md:w-96 md:h-96">
-                    <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl"></div>
-                    <img src={personalData.photoUrl} alt={personalData.name} className="relative w-full h-full object-cover rounded-full shadow-2xl border-4 border-light-card-background dark:border-card-background animate-pulse-border" />
+                <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 via-primary/5 to-transparent animate-pulse-border"></div>
+                    <img src={personalData.photoUrl} alt={personalData.name} className="relative w-full h-full object-cover rounded-full shadow-2xl" />
                 </div>
             </div>
           </div>
@@ -196,6 +219,8 @@ export default function App() {
       {selectedProject && (
         <PortfolioModal project={selectedProject} onClose={handleCloseModal} />
       )}
+      
+      <ScrollToTopButton isVisible={isScrollButtonVisible} onClick={handleScrollToTop} />
     </div>
   );
 }

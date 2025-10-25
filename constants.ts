@@ -4,7 +4,7 @@ import { PersonalData, Experience, Education, Certification, Skill, PortfolioPro
 export const personalData: PersonalData = {
   name: "Ainul Islam",
   title: "Document Controller | PRO",
-  photoUrl: "https://aimzworld007.github.io/photo.jpg",
+  photoUrl: "https://i.ibb.co/2344DR3G/pic.jpg",
   location: "Shariah, UAE",
   email: "aimctgbd@gmail.com",
   phone: "+971 52 284 9291",
@@ -247,18 +247,18 @@ export const coreSkills: Skill[] = [
 ];
 
 export const technicalSkills: Skill[] = [
-  { name: "HTML5", icon: "fa-brands fa-html5", percentage: 95, color: "#E34F26" },
-  { name: "CSS3", icon: "fa-brands fa-css3-alt", percentage: 90, color: "#1572B6" },
-  { name: "PHP", icon: "fa-brands fa-php", percentage: 75, color: "#777BB4" },
-  { name: "MySQL", icon: "fa-solid fa-database", percentage: 80, color: "#4479A1" },
-  { name: "Firebase", icon: "fa-solid fa-database", percentage: 70, color: "#FFCA28" },
-  { name: "WordPress", icon: "fa-brands fa-wordpress", percentage: 90, color: "#21759B" },
-  { name: "GitHub", icon: "fa-brands fa-github", percentage: 85, color: "#333333" },
-  { name: "Linux", icon: "fa-brands fa-linux", percentage: 70, color: "#FCC624" },
-  { name: "Basic Python", icon: "fa-brands fa-python", percentage: 65, color: "#3776AB" },
-  { name: "Artificial Intelligence", icon: "fa-solid fa-robot", percentage: 60, color: "#8E44AD" },
-  { name: "Open Office", icon: "fa-solid fa-file-word", percentage: 95, color: "#003366" },
-  { name: "Excel", icon: "fa-solid fa-file-excel", percentage: 95, color: "#217346" },
+  { name: "HTML5", icon: "fa-brands fa-html5", percentage: 95, color: "#ef4444" },
+  { name: "CSS3", icon: "fa-brands fa-css3-alt", percentage: 90, color: "#3b82f6" },
+  { name: "PHP", icon: "fa-brands fa-php", percentage: 75, color: "#8b5cf6" },
+  { name: "MySQL", icon: "fa-solid fa-database", percentage: 80, color: "#0ea5e9" },
+  { name: "Firebase", icon: "fa-solid fa-database", percentage: 70, color: "#f97316" },
+  { name: "WordPress", icon: "fa-brands fa-wordpress", percentage: 90, color: "#2563eb" },
+  { name: "GitHub", icon: "fa-brands fa-github", percentage: 85, color: "#475569" },
+  { name: "Linux", icon: "fa-brands fa-linux", percentage: 70, color: "#f59e0b" },
+  { name: "Basic Python", icon: "fa-brands fa-python", percentage: 65, color: "#22c55e" },
+  { name: "Artificial Intelligence", icon: "fa-solid fa-robot", percentage: 60, color: "#d946ef" },
+  { name: "Open Office", icon: "fa-solid fa-file-word", percentage: 95, color: "#06b6d4" },
+  { name: "Excel", icon: "fa-solid fa-file-excel", percentage: 95, color: "#10b981" },
 ];
 
 export const services: Service[] = [
