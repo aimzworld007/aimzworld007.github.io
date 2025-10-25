@@ -30,7 +30,7 @@ const SkillDonutChart: React.FC<SkillDonutChartProps> = ({ skills }) => {
             strokeWidth={strokeWidth}
             className="text-light-border dark:text-border opacity-50"
           />
-          {skills.map((skill, index) => {
+          {skills.map((skill) => {
             const percentage = skill.percentage || 0;
             const segmentLength = (percentage / totalPercentage) * circumference;
             const offset = (accumulatedPercentage / totalPercentage) * circumference;
@@ -72,7 +72,7 @@ const SkillDonutChart: React.FC<SkillDonutChartProps> = ({ skills }) => {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-        {skills.map((skill, index) => (
+        {skills.map((skill) => (
           <div 
             key={skill.name} 
             className="flex items-center gap-3 cursor-default"

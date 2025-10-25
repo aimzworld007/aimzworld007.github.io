@@ -74,7 +74,22 @@
     <style>
       html {
         scroll-behavior: smooth;
+        /* Responsive font sizing for mobile */
+        font-size: 14px;
       }
+      
+      @media (min-width: 640px) { /* Tailwind 'sm' breakpoint */
+        html {
+          font-size: 15px;
+        }
+      }
+
+      @media (min-width: 1024px) { /* Tailwind 'lg' breakpoint */
+        html {
+          font-size: 16px;
+        }
+      }
+      
       body {
         font-family: 'Poppins', sans-serif;
         -webkit-font-smoothing: antialiased;

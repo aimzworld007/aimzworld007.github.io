@@ -49,8 +49,11 @@ const SkillProgress: React.FC<SkillProgressProps> = ({ skill, percentage }) => {
 
   return (
     <div ref={ref} className="mb-6">
-      <div className="flex justify-between mb-1">
-        <span className="text-base font-semibold text-light-text-dark dark:text-text-dark">{skill.name}</span>
+      <div className="flex justify-between items-center mb-1">
+        <span className="text-base font-semibold text-light-text-dark dark:text-text-dark flex items-center gap-3">
+          {skill.icon && <i className={`${skill.icon} text-primary text-lg w-5 text-center`}></i>}
+          <span>{skill.name}</span>
+        </span>
         <span className="text-sm font-semibold text-primary">{percentage}%</span>
       </div>
       <div className="w-full bg-light-border dark:bg-border rounded-full h-2.5">

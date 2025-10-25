@@ -3,7 +3,7 @@ import { PersonalData, Experience, Education, Certification, Skill, PortfolioPro
 
 export const personalData: PersonalData = {
   name: "Ainul Islam",
-  title: "Document Controller | PRO (Public Relations Officer)",
+  title: "Document Controller | PRO",
   photoUrl: "https://aimzworld007.github.io/photo.jpg",
   location: "Shariah, UAE",
   email: "aimctgbd@gmail.com",
@@ -236,14 +236,14 @@ export const certifications: Certification[] = [
 ];
 
 export const coreSkills: Skill[] = [
-  { name: "Document Control", percentage: 90 },
-  { name: "Public Relations", percentage: 85 },
-  { name: "UAE Government Portals", percentage: 90 },
-  { name: "Customer Service", percentage: 88 },
-  { name: "Compliance", percentage: 85 },
-  { name: "Visa Processing", percentage: 90 },
-  { name: "ICA EChannel System", percentage: 80 },
-  { name: "Amer & Tashsil Service", percentage: 85 }
+  { name: "Document Control", percentage: 90, icon: "fa-solid fa-file-invoice" },
+  { name: "Public Relations", percentage: 85, icon: "fa-solid fa-bullhorn" },
+  { name: "UAE Government Portals", percentage: 90, icon: "fa-solid fa-landmark-flag" },
+  { name: "Customer Service", percentage: 88, icon: "fa-solid fa-headset" },
+  { name: "Compliance", percentage: 85, icon: "fa-solid fa-gavel" },
+  { name: "Visa Processing", percentage: 90, icon: "fa-solid fa-passport" },
+  { name: "ICA EChannel System", percentage: 80, icon: "fa-solid fa-desktop" },
+  { name: "Amer & Tashsil Service", percentage: 85, icon: "fa-solid fa-concierge-bell" }
 ];
 
 export const technicalSkills: Skill[] = [

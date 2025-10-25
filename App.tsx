@@ -24,9 +24,9 @@ import Footer from './components/Footer';
 import Typewriter from './components/Typewriter';
 import GithubStats from './components/GithubStats';
 import Timeline from './components/Timeline';
-import SkillDonutChart from './components/SkillDonutChart';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import SkillProgress from './components/SkillProgress';
+import SkillDonutChart from './components/SkillDonutChart';
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
@@ -116,18 +116,13 @@ export default function App() {
 
         <section id="about">
           <Section title="About Me" backgroundTitle="RESUME">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-              <div className="lg:col-span-3">
-                <h3 className="text-3xl font-bold text-light-text-dark dark:text-text-dark mb-4">Who am I?</h3>
-                <p className="mb-6">{personalData.careerObjective}</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {services.map((service, index) => (
-                    <ServiceCard key={index} service={service} />
-                  ))}
-                </div>
-              </div>
-              <div className="lg:col-span-2">
-                <GithubStats />
+            <div className="max-w-5xl mx-auto">
+              <h3 className="text-3xl font-bold text-light-text-dark dark:text-text-dark mb-4">Who am I?</h3>
+              <p className="mb-8">{personalData.careerObjective}</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {services.map((service, index) => (
+                  <ServiceCard key={index} service={service} />
+                ))}
               </div>
             </div>
           </Section>
@@ -169,11 +164,12 @@ export default function App() {
                         ))}
                     </div>
                 </div>
-                <div>
-                    <h3 className="text-2xl font-bold text-light-text-dark dark:text-text-dark mb-8 text-center lg:text-left">Technical Skills</h3>
-                    <div className="flex justify-center">
+                <div className="space-y-16">
+                    <div>
+                        <h3 className="text-2xl font-bold text-light-text-dark dark:text-text-dark mb-8 text-center lg:text-left">Technical Skills</h3>
                         <SkillDonutChart skills={technicalSkills} />
                     </div>
+                    <GithubStats />
                 </div>
             </div>
           </Section>
