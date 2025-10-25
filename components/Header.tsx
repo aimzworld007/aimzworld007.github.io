@@ -1,6 +1,7 @@
 import React from 'react';
 import { PersonalData } from '../types';
 import ThemeSwitcher from './ThemeSwitcher';
+import { navLinks } from '../constants';
 
 interface ProfileSidebarProps {
   data: PersonalData;
@@ -9,16 +10,6 @@ interface ProfileSidebarProps {
   theme: string;
   toggleTheme: () => void;
 }
-
-const navLinks = [
-    { href: '#home', text: 'Home' },
-    { href: '#about', text: 'About' },
-    { href: '#experience', text: 'Experience' },
-    { href: '#education', text: 'Education' },
-    { href: '#skills', text: 'Skills' },
-    { href: '#portfolio', text: 'Portfolio' },
-    { href: '#contact', text: 'Contact' },
-];
 
 export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleTheme }: ProfileSidebarProps) {
   return (
@@ -35,9 +26,9 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
       >
         <div className="flex justify-between items-start mb-8">
             <div className="flex items-center gap-4">
-                <img src={data.photoUrl} alt={data.name} className="w-14 h-14 rounded-full object-cover border-2 border-primary" />
+                <img src={data.photoUrl} alt={data.name} className="w-14 h-14 rounded-full object-cover object-top border-2 border-primary" />
                 <div>
-                    <h1 className="text-xl font-extrabold text-light-text-dark dark:text-text-dark leading-tight">
+                    <h1 className="text-2xl font-signature text-light-text-dark dark:text-text-dark leading-tight">
                         {data.name}
                     </h1>
                     <p className="text-xs text-light-text-medium dark:text-text-medium">{data.title.split(' | ')[0]}</p>
@@ -58,7 +49,7 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
                     <li key={link.href} className="relative group">
                         <a 
                             href={link.href} 
-                            className="block text-xl font-semibold hover:text-primary transition-all duration-300 transform hover:scale-105"
+                            className="block text-xl font-semibold hover:text-primary transition-all duration-300 transform hover:translate-x-2"
                             onClick={() => setIsOpen(false)}
                         >
                             {link.text}
@@ -71,6 +62,12 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
                 ))}
             </ul>
         </nav>
+        
+        <div className="mt-8">
+            <a href={data.cvUrl} target="_blank" rel="noopener noreferrer" download="Ainul_Islam_CV.pdf" className="w-full flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white dark:hover:text-text-dark transition-colors shadow-sm">
+                <i className="fa-solid fa-download"></i>Download CV
+            </a>
+        </div>
         
         <div className="mt-auto pt-6 border-t border-light-border dark:border-border">
             <div className="flex items-center justify-between">

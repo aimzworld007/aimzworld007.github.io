@@ -11,6 +11,7 @@ export interface PersonalData {
   linkedin: string;
   github: string;
   facebook: string;
+  cvUrl: string;
   careerObjective: string;
 }
 

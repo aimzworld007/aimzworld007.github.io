@@ -1,10 +1,20 @@
 import React from 'react';
 import { PersonalData, Experience, Education, Certification, Skill, PortfolioProject, Service } from './types';
 
+export const navLinks = [
+    { href: '#home', text: 'Home' },
+    { href: '#about', text: 'About' },
+    { href: '#experience', text: 'Experience' },
+    { href: '#education', text: 'Education' },
+    { href: '#skills', text: 'Skills' },
+    { href: '#portfolio', text: 'Portfolio' },
+    { href: '#contact', text: 'Contact' },
+];
+
 export const personalData: PersonalData = {
   name: "Ainul Islam",
   title: "Document Controller | PRO",
-  photoUrl: "https://i.ibb.co/2344DR3G/pic.jpg",
+  photoUrl: "https://i.ibb.co/jPVWF02z/my-pic.png",
   location: "Shariah, UAE",
   email: "aimctgbd@gmail.com",
   phone: "+971 52 284 9291",
@@ -12,6 +22,7 @@ export const personalData: PersonalData = {
   linkedin: "https://linkedin.com/in/aimzworld007",
   github: "https://github.com/aimzworld007",
   facebook: "https://facebook.com/aimzworld007",
+  cvUrl: "https://aimzworld007.github.io/Ainul_islam_cv.pdf",
   careerObjective: "Document Controller and administrative professional with 4 years of experience in the UAE, specializing in ICP, MOHRE, and DED government applications. Skilled in document control, compliance, visa processing, and customer service."
 };
 
