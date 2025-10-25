@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { Service } from '../types';
-// FIX: Import 'types.ts' to make the global JSX type definition for the `<lord-icon>` custom element available, resolving the TypeScript error.
-import '../types.ts';
+// FIX: Import 'types.ts' to make the global JSX type definitions for custom elements
+// like 'lord-icon' available in this file, resolving the TypeScript error.
+import '../types';
 
 interface ServiceCardProps {
   service: Service;

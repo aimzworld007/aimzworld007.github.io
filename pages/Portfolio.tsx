@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, doc, getDoc, getDocs, query, orderBy } from 'firebase/firestore';
 import type { PersonalData, Experience, Education, Certification, Skill, PortfolioProject, Service } from '../types';
-// FIX: Import 'types.ts' to make the global JSX type definition for the `<lord-icon>` custom element available, resolving the TypeScript error.
-import '../types.ts';
+// FIX: Import 'types.ts' to make the global JSX type definitions for custom elements
+// like 'lord-icon' available in this file, resolving the TypeScript error.
+import '../types';
 
 // Import constants as fallback data
 import { 
