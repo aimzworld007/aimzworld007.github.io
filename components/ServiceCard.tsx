@@ -38,7 +38,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         <lord-icon
             src={service.icon}
             trigger="hover"
-            colors="primary:#A0A0A0,secondary:#00a896"
+            colors="primary:currentColor"
             style={{width:'40px', height:'40px'}}>
         </lord-icon>
       </div>
