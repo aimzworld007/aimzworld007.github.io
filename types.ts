@@ -1,3 +1,7 @@
+// FIX: Added a triple-slash directive to explicitly include React's global types.
+// This ensures that our augmentation of JSX.IntrinsicElements merges with React's
+// default HTML element types, resolving errors where standard tags like <div> were not recognized.
+/// <reference types="react" />
 import React from 'react';
 
 // Define a global namespace for custom JSX elements like <lord-icon>
