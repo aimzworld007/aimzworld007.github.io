@@ -96,7 +96,10 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     title: "Remittance Calculator BD",
     description: "A web application to calculate currency remittances to Bangladesh using real-time exchange rates from an API.",
-    imageUrl: "https://i.ibb.co/5WT1jGsz/remitbd.png",
+    image: {
+      src: "https://images.unsplash.com/photo-1565992441121-4367c2967103",
+      alt: "A calculator and currency notes, representing a remittance calculation app."
+    },
     technologies: ["JavaScript", "API", "HTML", "CSS"],
     details: "A convenient tool for individuals sending money to Bangladesh. It provides up-to-date exchange rates from a live API and calculation features to understand the final remittance amount accurately.",
     liveUrl: "https://remitbd.netlify.app/",
@@ -106,7 +109,10 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     title: "Shared Meal Manager",
     description: "A web app to simplify meal management for groups, allowing users to track daily meals, calculate costs, and manage payments.",
-    imageUrl: "https://i.ibb.co/ycwhj9tt/logo.jpg",
+    image: {
+      src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+      alt: "A delicious meal on a plate, representing a shared meal management app."
+    },
     technologies: ["React", "Firebase", "Tailwind CSS"],
     details: "This project is a web application designed to simplify meal management for groups, such as students in a dormitory or professionals in a shared living space. It allows users to track daily meals, calculate costs, and manage payments using Firebase for real-time data synchronization.",
     liveUrl: "https://messmeal.netlify.app",
@@ -116,7 +122,10 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     title: "Work Tracking Management",
     description: "A task and project management tool to help individuals and small teams track their work progress.",
-    imageUrl: "https://i.ibb.co/My9ZmHq9/wroktms.png",
+    image: {
+      src: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b",
+      alt: "A person organizing sticky notes on a wall, representing a work tracking tool."
+    },
     technologies: ["React", "Firebase", "Tailwind CSS"],
     details: "A straightforward work tracking system built with React and Firebase. It allows users to create tasks, set deadlines, and monitor the progress of their projects, enhancing productivity and organization with features like user authentication and real-time updates.",
     liveUrl: "https://worktms.netlify.app",
@@ -126,7 +135,10 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     title: "GirlyMush E-commerce Platform",
     description: "A fully-featured e-commerce website for a fashion and beauty brand, providing a seamless shopping experience.",
-    imageUrl: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop",
+    image: {
+      src: "https://images.unsplash.com/photo-1483985988355-763728e1935b",
+      alt: "A person shopping with bags, representing an e-commerce platform."
+    },
     technologies: ["WordPress", "WooCommerce", "PHP", "CSS"],
     details: "Developed a custom e-commerce platform using WordPress and WooCommerce. The site features a responsive design, secure payment gateway integration, product management, and an intuitive user interface to drive sales and customer engagement.",
     liveUrl: "https://girlymush.com",
@@ -135,7 +147,10 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     title: "CloudSoft Corporate Website",
     description: "A professional corporate website for a cloud software company, showcasing their services and technical expertise.",
-    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
+    image: {
+      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+      alt: "A team of professionals working in a modern office, representing a corporate website."
+    },
     technologies: ["WordPress", "PHP", "MySQL", "JavaScript"],
     details: "Designed and developed a modern, professional website for CloudSoft BD. The site effectively communicates their brand, services, and technical expertise. It features a clean, responsive layout, a portfolio section, and a contact form for lead generation.",
     liveUrl: "https://cloudsoft-bd.com",
@@ -144,7 +159,10 @@ export const portfolioProjects: PortfolioProject[] = [
    {
     title: "CTG News - Online News Portal",
     description: "A dynamic and high-traffic online news portal serving the Chittagong region with up-to-the-minute news.",
-    imageUrl: "https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=800&auto=format&fit=crop",
+    image: {
+      src: "https://images.unsplash.com/photo-1495020689067-958852a7765e",
+      alt: "A stack of newspapers, representing an online news portal."
+    },
     technologies: ["HTML", "CSS", "PHP", "MySQL", "WordPress"],
     details: "Led the development of a dynamic news portal. This project involved creating a full-stack solution for news publishing and management, capable of handling high traffic and a large volume of content.",
     liveUrl: "https://ctgnews.net",
@@ -153,7 +171,10 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     title: "Alumni Association Website",
     description: "A dynamic website for the Alumni Association of the Department of Geography and Environment.",
-    imageUrl: "https://raw.githubusercontent.com/aimzworld007/Geography_and_Environment_Department_Alumni_Association/main/img/logo.png",
+    image: {
+      src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1",
+      alt: "Graduates throwing their caps in the air, representing an alumni association website."
+    },
     technologies: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
     details: "A comprehensive and dynamic website built for the Alumni Association of the Department of Geography and Environment at Government City College, Chittagong. The platform facilitates member registration, event management, and community engagement, serving as a central hub for alumni.",
     githubUrl: "https://github.com/aimzworld007/Geography_and_Environment_Department_Alumni_Association",
@@ -204,48 +225,30 @@ export const certifications: Certification[] = [
 ];
 
 export const coreSkills: Skill[] = [
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  // FIX: Added missing 'type' property to each skill to satisfy the Skill interface.
   { name: "Document Control", percentage: 90, icon: "fa-solid fa-file-invoice", type: "core" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "Public Relations", percentage: 85, icon: "fa-solid fa-bullhorn", type: "core" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "UAE Government Portals", percentage: 90, icon: "fa-solid fa-landmark-flag", type: "core" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "Customer Service", percentage: 88, icon: "fa-solid fa-headset", type: "core" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "Compliance", percentage: 85, icon: "fa-solid fa-gavel", type: "core" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "Visa Processing", percentage: 90, icon: "fa-solid fa-passport", type: "core" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "ICA EChannel System", percentage: 80, icon: "fa-solid fa-desktop", type: "core" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "Amer & Tashsil Service", percentage: 85, icon: "fa-solid fa-concierge-bell", type: "core" }
 ];
 
 export const technicalSkills: Skill[] = [
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
+  // FIX: Added missing 'type' property to each skill to satisfy the Skill interface.
   { name: "HTML5", icon: "fa-brands fa-html5", percentage: 95, color: "#ef4444", type: "technical" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "CSS3", icon: "fa-brands fa-css3-alt", percentage: 90, color: "#3b82f6", type: "technical" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "PHP", icon: "fa-brands fa-php", percentage: 75, color: "#8b5cf6", type: "technical" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "MySQL", icon: "fa-solid fa-database", percentage: 80, color: "#0ea5e9", type: "technical" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "Firebase", icon: "fa-solid fa-database", percentage: 70, color: "#f97316", type: "technical" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "WordPress", icon: "fa-brands fa-wordpress", percentage: 90, color: "#2563eb", type: "technical" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "GitHub", icon: "fa-brands fa-github", percentage: 85, color: "#475569", type: "technical" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "Linux", icon: "fa-brands fa-linux", percentage: 70, color: "#f59e0b", type: "technical" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "Basic Python", icon: "fa-brands fa-python", percentage: 65, color: "#22c55e", type: "technical" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "Artificial Intelligence", icon: "fa-solid fa-robot", percentage: 60, color: "#d946ef", type: "technical" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "Open Office", icon: "fa-solid fa-file-word", percentage: 95, color: "#06b6d4", type: "technical" },
-  // FIX: Added missing 'type' property to satisfy the Skill interface.
   { name: "Excel", icon: "fa-solid fa-file-excel", percentage: 95, color: "#10b981", type: "technical" },
 ];
 

@@ -9,6 +9,11 @@ interface PortfolioModalProps {
 }
 
 const PortfolioModal: React.FC<PortfolioModalProps> = ({ project, onClose }) => {
+  const imageSizes = [600, 800, 1200, 1600];
+  const srcSet = imageSizes
+    .map(size => `${project.image.src}?auto=format&fit=crop&w=${size}&q=80 ${size}w`)
+    .join(', ');
+    
   return (
     <div className="fixed inset-0 bg-light-background/80 dark:bg-background/80 backdrop-blur-sm flex items-center justify-center z-[100] p-4 animate-fade-in" onClick={onClose}>
       <div 
@@ -40,7 +45,13 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ project, onClose }) => 
                     className="w-full h-full"
                 ></iframe>
             ) : (
-                <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover"/>
+                <img 
+                  src={`${project.image.src}?auto=format&fit=crop&w=1200&q=80`}
+                  srcSet={srcSet}
+                  sizes="(min-width: 1024px) 1024px, 100vw"
+                  alt={project.image.alt} 
+                  className="w-full h-full object-cover"
+                />
             )}
         </div>
         

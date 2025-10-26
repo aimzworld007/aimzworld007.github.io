@@ -33,7 +33,7 @@ import ServiceCard from '../components/ServiceCard';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
-import DesktopSidebar from '../components/DesktopSidebar';
+import FloatingThemeControls from '../components/FloatingThemeControls';
 
 // Data state structure
 interface PortfolioData {
@@ -109,7 +109,7 @@ export default function Portfolio() {
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
     return (
-        <div className="bg-light-background dark:bg-background text-light-text-dark dark:text-text-light font-sans leading-relaxed transition-colors duration-300 lg:pr-20">
+        <div className="bg-light-background dark:bg-background text-light-text-dark dark:text-text-light font-sans leading-relaxed transition-colors duration-300">
             <Header
                 data={personal}
                 isOpen={isSidebarOpen}
@@ -120,7 +120,7 @@ export default function Portfolio() {
                 setPrimaryColor={setPrimaryColor}
             />
             <Navbar />
-            <DesktopSidebar 
+            <FloatingThemeControls 
                 theme={theme}
                 toggleTheme={toggleTheme}
                 currentPrimaryColor={primaryColor}
@@ -141,7 +141,7 @@ export default function Portfolio() {
                 />
             </button>
 
-            <main className="container mx-auto px-6 lg:px-8 pt-24 lg:pt-12 space-y-28 sm:space-y-32 md:space-y-40">
+            <main className="container mx-auto px-6 lg:px-8 pt-24 space-y-28 sm:space-y-32 md:space-y-40">
                 {/* Home Section */}
                 <section id="home" className="min-h-[calc(100vh-5rem)] flex items-center justify-center">
                      <div className="text-center">

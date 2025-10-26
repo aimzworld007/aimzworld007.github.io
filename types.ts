@@ -7,15 +7,11 @@ import * as React from 'react';
 
 // Define a global namespace for custom JSX elements like <lord-icon>
 // This prevents TypeScript errors for non-standard HTML tags.
-// FIX: The original augmentation was overwriting React's default JSX.IntrinsicElements.
-// By extending React.JSX.IntrinsicElements, we ensure that all standard HTML element
-// types are preserved, and our custom 'lord-icon' element is added, resolving
-// the widespread "Property does not exist" errors.
+// FIX: Corrected the JSX IntrinsicElements augmentation. By removing the `extends` clause, we leverage TypeScript's declaration merging to add custom elements without overwriting standard HTML tags.
 declare global {
   namespace JSX {
     // Augmenting React's intrinsic elements to add support for the 'lord-icon' custom element.
-    // By extending React's definitions, we ensure all standard HTML tags are included.
-    interface IntrinsicElements extends React.JSX.IntrinsicElements {
+    interface IntrinsicElements {
       'lord-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         src?: string;
         trigger?: string;
@@ -88,7 +84,10 @@ export interface PortfolioProject {
   id?: string;
   title: string;
   description: string;
-  imageUrl: string;
+  image: {
+    src: string; // Base URL from an image service like Unsplash
+    alt: string; // Alt text for accessibility
+  };
   technologies: string[];
   details: string;
   liveUrl?: string;

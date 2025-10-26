@@ -3,6 +3,8 @@ import { PersonalData } from '../types';
 import ThemeSwitcher from './ThemeSwitcher';
 import { navLinks } from '../constants';
 import ThemeCustomizer from './ThemeCustomizer';
+// FIX: Import types.ts for its side-effect of augmenting the global JSX namespace.
+import '../types';
 
 interface ProfileSidebarProps {
   data: PersonalData;

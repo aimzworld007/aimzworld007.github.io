@@ -33,15 +33,23 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onClick }) => {
     };
   }, []);
 
+  const imageSizes = [400, 600, 800, 1200];
+  const srcSet = imageSizes
+    .map(size => `${project.image.src}?auto=format&fit=crop&w=${size}&q=80 ${size}w`)
+    .join(', ');
+
   const CardContent = (
     <div className="flex flex-col h-full">
       {/* Image Container */}
       <div className="relative w-full aspect-video bg-light-background dark:bg-background overflow-hidden">
         <img 
-          src={project.imageUrl} 
-          alt={project.title} 
+          src={`${project.image.src}?auto=format&fit=crop&w=600&q=80`}
+          srcSet={srcSet}
+          sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 90vw"
+          alt={project.image.alt} 
           loading="lazy"
-          className="w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-105"
+          decoding="async"
+          className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
         />
       </div>
       

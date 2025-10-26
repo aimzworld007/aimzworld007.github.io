@@ -25,7 +25,7 @@ const Timeline: React.FC<TimelineProps> = ({ children }) => {
             <div className="w-full flex lg:justify-center relative">
               <TimelineDot icon={icon} side={side} />
               {/* FIX: Cast child to a type that accepts the `side` prop to resolve cloneElement error. */}
-              {cloneElement(child as React.ReactElement<{ side: 'left' | 'right' }>, { side })}
+              {cloneElement(child as React.ReactElement<{ side?: 'left' | 'right' }>, { side })}
             </div>
           );
         })}
