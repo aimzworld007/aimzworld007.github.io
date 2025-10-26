@@ -1,20 +1,74 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🌐 Ainul Islam — Portfolio  
+[➡️ Visit My Website](https://ainulislam.info)
 
-# Run and deploy your AI Studio app
+## 👋 About Me  
+Hi, I’m **Ainul Islam** — a computer expert, developer, and tech enthusiast **based in the UAE (resident)**.  
+I’m passionate about creating smart digital solutions — from web and mobile apps to AI-powered tools and fintech innovations.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/drive/1XUnlppr89JplLb9BDJw0qANTzsPahEbw
+## 🧠 Professional Focus  
+- 💻 **Full-Stack Development** — Modern, responsive apps using React, Next.js, Node.js, and Firebase.  
+- 🧠 **AI Integration** — Building AI-powered tools and assistants with GPT & Gemini APIs.  
+- 💹 **FinTech & Trading Apps** — Real-time trading insights, watchlists, market tracking, and automation.  
+- ☁️ **Cloud & Databases** — Firebase, Appwrite, PocketBase, and Firestore for scalable backend solutions.
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## 🚀 Featured Projects  
 
+### 🔹 [Tradebond App](#)
+> A real-time trading signals app providing insights for commodities, cryptocurrencies, and global markets.  
+> Includes language support (Bangla & English), live widgets, AI-powered analysis, user tiers, and push notifications.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 🔹 [Shared Meal Manager](#)
+> A collaborative expense manager that tracks grocery purchases, deposits, and balances among group members — perfect for shared living setups.
+
+### 🔹 [AinulIslam.info](https://ainulislam.info)
+> My personal portfolio website — showcasing my projects, skills, and tools in a clean, modern, and animated UI.
+
+---
+
+## ⚙️ Tech Stack  
+
+| Category | Tools & Technologies |
+|-----------|----------------------|
+| **Frontend** | React, Next.js, Tailwind CSS, Framer Motion |
+| **Backend** | Firebase, Appwrite, PocketBase, Node.js |
+| **Database** | Firestore, PostgreSQL, SQLite |
+| **AI/ML** | OpenAI GPT, Gemini API |
+| **Hosting** | GitHub Pages, Vercel, Netlify |
+| **Version Control** | Git, GitHub |
+
+---
+
+## 🎯 Site Highlights  
+- ⚡ Fast, responsive portfolio website  
+- 🌙 Dark / Light mode toggle  
+- 🪄 Smooth animations and transitions  
+- 🧩 Projects with live demos & GitHub links  
+- 🤖 Upcoming AI assistant integration  
+
+---
+
+## 📸 Preview  
+![Portfolio Preview](https://i.ibb.co/ycwhj9tt/logo.jpg)  
+*(Replace with your latest screenshot if available)*
+
+---
+
+## 📬 Contact & Connect  
+
+📧 **Email:** [hello@ainulislam.info](mailto:hello@ainulislam.info)  
+🌐 **Website:** [https://ainulislam.info](https://ainulislam.info)  
+💼 **LinkedIn:** [linkedin.com/in/ainulislam](https://linkedin.com/in/ainulislam)  
+🐙 **GitHub:** [github.com/aimzworld007](https://github.com/aimzworld007)  
+
+---
+
+## 📄 License  
+This repository is open-source and distributed under the **MIT License**.
+
+---
+
+⭐ **If you like my work, don’t forget to star this repo!**
