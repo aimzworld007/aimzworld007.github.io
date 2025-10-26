@@ -7,14 +7,10 @@ import type { DetailedHTMLProps, HTMLAttributes, CSSProperties } from 'react';
 
 // Define a global namespace for custom JSX elements like <lord-icon>
 // This prevents TypeScript errors for non-standard HTML tags.
-// FIX: The global JSX namespace augmentation was incorrectly using a `type` alias, which overwrote React's intrinsic element types instead of merging with them.
-// This has been changed to use an `interface`, which correctly merges with React's existing
-// IntrinsicElements interface, ensuring that standard HTML tags are recognized by TypeScript.
 declare global {
   namespace JSX {
     // FIX: Replaced `type` alias with `interface` to correctly merge with React's intrinsic element types.
     // This resolves the issue where standard tags like 'div' were not being recognized.
-    // FIX: Corrected typo from `IntrinisicElements` to `IntrinsicElements`.
     interface IntrinsicElements {
       'lord-icon': DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
         src?: string;
