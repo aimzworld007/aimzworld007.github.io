@@ -97,7 +97,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Remittance Calculator BD",
     description: "A web application to calculate currency remittances to Bangladesh using real-time exchange rates from an API.",
     image: {
-      src: "https://images.unsplash.com/photo-1565992441121-4367c2967103",
+      src: "https://i.ibb.co/5WT1jGsz/remitbd.png",
       alt: "A calculator and currency notes, representing a remittance calculation app."
     },
     technologies: ["JavaScript", "API", "HTML", "CSS"],
@@ -110,7 +110,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Shared Meal Manager",
     description: "A web app to simplify meal management for groups, allowing users to track daily meals, calculate costs, and manage payments.",
     image: {
-      src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+      src: "https://i.ibb.co/ycwhj9tt/logo.jpg",
       alt: "A delicious meal on a plate, representing a shared meal management app."
     },
     technologies: ["React", "Firebase", "Tailwind CSS"],
@@ -123,7 +123,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Work Tracking Management",
     description: "A task and project management tool to help individuals and small teams track their work progress.",
     image: {
-      src: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b",
+      src: "https://i.ibb.co/My9ZmHq9/wroktms.png",
       alt: "A person organizing sticky notes on a wall, representing a work tracking tool."
     },
     technologies: ["React", "Firebase", "Tailwind CSS"],
@@ -172,7 +172,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Alumni Association Website",
     description: "A dynamic website for the Alumni Association of the Department of Geography and Environment.",
     image: {
-      src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1",
+      src: "https://github.com/aimzworld007/Geography_and_Environment_Department_Alumni_Association/blob/main/img/logo.png?raw=true",
       alt: "Graduates throwing their caps in the air, representing an alumni association website."
     },
     technologies: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],

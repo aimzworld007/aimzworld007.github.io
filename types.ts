@@ -14,6 +14,7 @@ declare global {
   namespace JSX {
     // FIX: Replaced `type` alias with `interface` to correctly merge with React's intrinsic element types.
     // This resolves the issue where standard tags like 'div' were not being recognized.
+    // FIX: Corrected typo from `IntrinisicElements` to `IntrinsicElements`.
     interface IntrinsicElements {
       'lord-icon': DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
         src?: string;
