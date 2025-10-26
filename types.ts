@@ -1,6 +1,6 @@
-// This triple-slash directive helps ensure React's global types are included,
-// which is crucial for augmenting the JSX.IntrinsicElements interface.
-/// <reference types="react" />
+// FIX: The triple-slash directive for React (`/// <reference types="react" />`) was removed.
+// It was causing a "Cannot find type definition file for 'react'" error. The import
+// below is sufficient to load the necessary types and resolve the cascade of JSX errors.
 import * as React from 'react';
 
 // Define a global namespace for custom JSX elements like <lord-icon>
