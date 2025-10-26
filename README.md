@@ -23,10 +23,6 @@ I’m passionate about creating smart digital solutions — from web and mobile 
 
 ### 🔹 [Shared Meal Manager](#)
 > A collaborative expense manager that tracks grocery purchases, deposits, and balances among group members — perfect for shared living setups.
-
-### 🔹 [AinulIslam.info](https://ainulislam.info)
-> My personal portfolio website — showcasing my projects, skills, and tools in a clean, modern, and animated UI.
-
 ---
 
 ## ⚙️ Tech Stack  
