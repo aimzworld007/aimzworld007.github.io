@@ -108,6 +108,17 @@ export default function Portfolio() {
     const toggleHighContrast = () => setHighContrast(prev => !prev);
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
+    const handleSmoothScroll = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        event.preventDefault();
+        const targetId = event.currentTarget.getAttribute('href');
+        if (targetId) {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    };
+
     return (
         <div className="bg-light-background dark:bg-background text-light-text-dark dark:text-text-light font-sans leading-relaxed transition-colors duration-300">
             <Header
@@ -159,7 +170,7 @@ export default function Portfolio() {
                             {personal.careerObjective}
                         </p>
                         <div className="mt-8 flex justify-center gap-4">
-                            <a href="#contact" className="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary-hover shadow-lg transition-all">Contact Me</a>
+                            <a href="#contact" onClick={handleSmoothScroll} className="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary-hover shadow-lg transition-all">Contact Me</a>
                             <a href={personal.cvUrl} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-light-card-background dark:bg-card-background font-bold rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 shadow-sm transition-all border border-light-border dark:border-border">View CV</a>
                         </div>
                     </div>

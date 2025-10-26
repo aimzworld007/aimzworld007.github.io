@@ -7,7 +7,9 @@ import * as React from 'react';
 
 // Define a global namespace for custom JSX elements like <lord-icon>
 // This prevents TypeScript errors for non-standard HTML tags.
-// FIX: Corrected the JSX IntrinsicElements augmentation. By removing the `extends` clause, we leverage TypeScript's declaration merging to add custom elements without overwriting standard HTML tags.
+// FIX: The global JSX namespace augmentation was incorrectly using a type alias, which overwrote React's intrinsic element types instead of merging with them.
+// This has been changed to use an interface, which correctly merges with React's existing
+// IntrinsicElements interface, ensuring that standard HTML tags are recognized by TypeScript.
 declare global {
   namespace JSX {
     // Augmenting React's intrinsic elements to add support for the 'lord-icon' custom element.

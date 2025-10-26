@@ -17,6 +17,22 @@ interface ProfileSidebarProps {
 }
 
 export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleTheme, currentPrimaryColor, setPrimaryColor }: ProfileSidebarProps) {
+  const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const targetId = event.currentTarget.getAttribute('href');
+    
+    setIsOpen(false);
+
+    if (targetId) {
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        setTimeout(() => {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }, 300); // Delay to allow sidebar closing animation
+      }
+    }
+  };
+  
   return (
     <>
       {/* Backdrop for mobile */}
@@ -55,7 +71,7 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
                         <a 
                             href={link.href} 
                             className="flex items-center gap-4 text-xl font-semibold hover:text-primary transition-all duration-300 transform hover:translate-x-2"
-                            onClick={() => setIsOpen(false)}
+                            onClick={handleLinkClick}
                         >
                             <i className={`${link.icon} w-6 text-center text-primary/80`}></i>
                             <span>{link.text}</span>
