@@ -55,9 +55,9 @@ I’m passionate about creating smart digital solutions — from web and mobile 
 
 ## 📬 Contact & Connect  
 
-📧 **Email:** [hello@ainulislam.info](mailto:hello@ainulislam.info)  
+📧 **Email:** [hello@ainulislam.info](mailto:aimctgbd@gmail.com)  
 🌐 **Website:** [https://ainulislam.info](https://ainulislam.info)  
-💼 **LinkedIn:** [linkedin.com/in/ainulislam](https://linkedin.com/in/ainulislam)  
+💼 **LinkedIn:** [linkedin.com/in/ainulislam](https://linkedin.com/in/aimzworld007)  
 🐙 **GitHub:** [github.com/aimzworld007](https://github.com/aimzworld007)  
 
 ---
