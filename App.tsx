@@ -4,7 +4,8 @@ import Portfolio from './pages/Portfolio.tsx';
 import Login from './pages/Login.tsx';
 // FIX: Added .tsx extension to imports to be explicit.
 import Admin from './pages/Admin.tsx';
-import AuthWrapper from './components/AuthWrapper';
+// FIX: Added .tsx extension to the import for 'AuthWrapper' for consistency and to prevent potential module resolution issues.
+import AuthWrapper from './components/AuthWrapper.tsx';
 
 // FIX: Inlined the AuthWrapper for the admin page to simplify the component structure
 // and resolve a TypeScript error where the 'children' prop was not being correctly inferred.
