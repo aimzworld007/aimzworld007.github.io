@@ -1,4 +1,5 @@
 import React, { Children, isValidElement, cloneElement, useState, useEffect, useRef } from 'react';
+import ExperienceCard from './ExperienceCard';
 
 interface TimelineProps {
   children: React.ReactNode;
@@ -17,9 +18,8 @@ const Timeline: React.FC<TimelineProps> = ({ children }) => {
           }
 
           const side = index % 2 === 0 ? 'left' : 'right';
-          // FIX: Safely access component name by checking if `child.type` is a function.
-          const componentName = typeof child.type === 'function' ? (child.type as any).name : '';
-          const icon = componentName === 'ExperienceCard' ? 'fa-briefcase' : 'fa-graduation-cap';
+          // FIX: Use direct component type comparison instead of relying on the function's `name` property, which is not reliable after minification.
+          const icon = child.type === ExperienceCard ? 'fa-briefcase' : 'fa-graduation-cap';
           
           return (
             <div className="w-full flex lg:justify-center relative">
