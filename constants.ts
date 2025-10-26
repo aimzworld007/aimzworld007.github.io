@@ -136,7 +136,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "GirlyMush E-commerce Platform",
     description: "A fully-featured e-commerce website for a fashion and beauty brand, providing a seamless shopping experience.",
     image: {
-      src: "https://images.unsplash.com/photo-1483985988355-763728e1935b",
+      src: "https://i0.wp.com/girlymush.com/wp-content/uploads/2025/09/cropped-GGM-Logo1.png",
       alt: "A person shopping with bags, representing an e-commerce platform."
     },
     technologies: ["WordPress", "WooCommerce", "PHP", "CSS"],
@@ -144,28 +144,16 @@ export const portfolioProjects: PortfolioProject[] = [
     liveUrl: "https://girlymush.com",
     category: "Web Development"
   },
-  {
-    title: "CloudSoft Corporate Website",
-    description: "A professional corporate website for a cloud software company, showcasing their services and technical expertise.",
-    image: {
-      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
-      alt: "A team of professionals working in a modern office, representing a corporate website."
-    },
-    technologies: ["WordPress", "PHP", "MySQL", "JavaScript"],
-    details: "Designed and developed a modern, professional website for CloudSoft BD. The site effectively communicates their brand, services, and technical expertise. It features a clean, responsive layout, a portfolio section, and a contact form for lead generation.",
-    liveUrl: "https://cloudsoft-bd.com",
-    category: "Web Development"
-  },
    {
     title: "CTG News - Online News Portal",
     description: "A dynamic and high-traffic online news portal serving the Chittagong region with up-to-the-minute news.",
     image: {
-      src: "https://images.unsplash.com/photo-1495020689067-958852a7765e",
+      src: "https://ctgtv.net/storage/2023/03/site-logo.png",
       alt: "A stack of newspapers, representing an online news portal."
     },
     technologies: ["HTML", "CSS", "PHP", "MySQL", "WordPress"],
     details: "Led the development of a dynamic news portal. This project involved creating a full-stack solution for news publishing and management, capable of handling high traffic and a large volume of content.",
-    liveUrl: "https://ctgnews.net",
+    liveUrl: "https://ctgtv.net",
     category: "Web Development"
   },
   {

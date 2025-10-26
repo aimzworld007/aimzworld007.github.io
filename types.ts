@@ -1,22 +1,22 @@
 // By importing 'react', we ensure its global type definitions, including the original
 // `JSX.IntrinsicElements` interface, are loaded. This allows our `declare global`
 // block to correctly augment the interface via declaration merging.
-// We use `import type` for specific types to avoid including React in the runtime bundle from this file.
-import 'react';
-import type { DetailedHTMLProps, HTMLAttributes, CSSProperties } from 'react';
+import React from 'react';
 
 // Define a global namespace for custom JSX elements like <lord-icon>
 // This prevents TypeScript errors for non-standard HTML tags.
 declare global {
   namespace JSX {
-    // FIX: Replaced `type` alias with `interface` to correctly merge with React's intrinsic element types.
-    // This resolves the issue where standard tags like 'div' were not being recognized.
-    interface IntrinsicElements {
-      'lord-icon': DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
+    // FIX: Corrected JSX type augmentation. The previous implementation was overwriting
+    // React's default types instead of extending them. By extending `React.JSX.IntrinsicElements`,
+    // we add the custom 'lord-icon' type while preserving all standard JSX element types,
+    // resolving all JSX-related compilation errors.
+    interface IntrinsicElements extends React.JSX.IntrinsicElements {
+      'lord-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         src?: string;
         trigger?: string;
         colors?: string;
-        style?: CSSProperties;
+        style?: React.CSSProperties;
       };
     }
   }

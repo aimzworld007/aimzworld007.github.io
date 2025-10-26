@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { PersonalData, Experience, Education, Certification, Skill, PortfolioProject, Service } from '../types';
 // FIX: Added '.ts' extension to the types import to ensure the custom element type definitions are loaded correctly.
 import '../types.ts';
@@ -70,6 +70,7 @@ export default function Portfolio() {
     const [isScrollButtonVisible, setScrollButtonVisible] = useState(false);
     const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
     const { personal, experiences, education, certifications, coreSkills, technicalSkills, projects, services } = initialData;
+    const heroImageRef = useRef<HTMLDivElement>(null);
 
     // Simulate data fetching for loading state demonstration
     useEffect(() => {
@@ -78,6 +79,25 @@ export default function Portfolio() {
         }, 1500); // Simulate a 1.5-second load time
         return () => clearTimeout(timer);
     }, []);
+
+    // Parallax effect for hero image
+    useEffect(() => {
+        if (loading) return;
+
+        const handleParallax = () => {
+            const scrollY = window.scrollY;
+            const heroImage = heroImageRef.current;
+
+            if (heroImage && scrollY < window.innerHeight) {
+                // This creates the parallax effect by moving the element down
+                // as the user scrolls down, making it appear to scroll up slower.
+                heroImage.style.transform = `translateY(${scrollY * 0.3}px)`;
+            }
+        };
+
+        window.addEventListener('scroll', handleParallax, { passive: true });
+        return () => window.removeEventListener('scroll', handleParallax);
+    }, [loading]);
 
     // Theme and color effects
     useEffect(() => {
@@ -179,7 +199,7 @@ export default function Portfolio() {
                         </div>
                     ) : (
                         <div className="text-center animate-fade-in-up">
-                            <div className="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto mb-6">
+                            <div ref={heroImageRef} className="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto mb-6">
                                 <div className="absolute inset-0 rounded-full animate-pulse-border" style={{ animationDelay: '0s' }}></div>
                                 <img src={personal.photoUrl} alt={personal.name} className="relative w-full h-full object-cover object-top rounded-full p-1 bg-light-background dark:bg-background" />
                             </div>
