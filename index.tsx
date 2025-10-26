@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 // This makes the type definition for the <lord-icon> custom element available throughout the app,
 // resolving errors where the custom element was not recognized.
 import './types.ts';
-import App from './App';
+import App from './App.tsx';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
