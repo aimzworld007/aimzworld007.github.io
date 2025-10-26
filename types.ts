@@ -5,7 +5,11 @@ import { Timestamp } from 'firebase/firestore';
 // This prevents TypeScript errors for non-standard HTML tags.
 declare global {
   namespace JSX {
-    interface IntrinsicElements {
+    // FIX: Extend React's intrinsic elements to avoid overwriting them.
+    // This adds support for the <lord-icon> custom element while preserving
+    // built-in types for standard HTML tags like <div>, <p>, etc., resolving
+    // numerous JSX-related TypeScript errors across the application.
+    interface IntrinsicElements extends React.JSX.IntrinsicElements {
       'lord-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         src?: string;
         trigger?: string;

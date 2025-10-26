@@ -7,8 +7,8 @@ import { getStorage } from 'firebase/storage';
 const firebaseConfig = {
   apiKey: "AIzaSyAH0qfoCI4zeAu5FBhHp8aZ20s0eE3h5EE",
   // BEST PRACTICE: Update authDomain to your custom domain after connecting it in Firebase.
-  // Replace 'yourdomain.com' with your actual domain name.
-  authDomain: "ainulislam.info",
+  // Using the default firebaseapp.com domain is more robust if custom domain is not fully configured for auth.
+  authDomain: "ainulislam-6b19c.firebaseapp.com",
   projectId: "ainulislam-6b19c",
   storageBucket: "ainulislam-6b19c.appspot.com",
   messagingSenderId: "831957297839",

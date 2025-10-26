@@ -6,20 +6,18 @@ import Login from './pages/Login.tsx';
 import Admin from './pages/Admin.tsx';
 import AuthWrapper from './components/AuthWrapper';
 
-// FIX: Extracted the admin page into its own component to simplify the main App component's
-// conditional rendering logic. This helps TypeScript's type inference and resolves the error.
-const AdminPage = () => (
-  <AuthWrapper>
-    <Admin />
-  </AuthWrapper>
-);
-
+// FIX: Inlined the AuthWrapper for the admin page to simplify the component structure
+// and resolve a TypeScript error where the 'children' prop was not being correctly inferred.
 export default function App() {
   const { pathname } = window.location;
 
   // A simple router to show different pages based on the URL
   if (pathname.startsWith('/admin')) {
-    return <AdminPage />;
+    return (
+      <AuthWrapper>
+        <Admin />
+      </AuthWrapper>
+    );
   }
 
   if (pathname.startsWith('/login')) {

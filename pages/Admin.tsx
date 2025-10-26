@@ -64,7 +64,9 @@ const Admin: React.FC = () => {
         { id: 'settings', label: 'Settings', icon: 'fa-gear' },
     ];
     
-    const NavLink = ({ id, label, icon }: { id: string; label: string; icon: string; }) => (
+    // FIX: Typed NavLink with React.FC to correctly handle React-specific props like 'key'
+    // and resolve the TypeScript error about 'key' not being a valid prop.
+    const NavLink: React.FC<{ id: string; label: string; icon: string; }> = ({ id, label, icon }) => (
         <li>
             <a 
                 href={`#${id}`}
