@@ -1,16 +1,15 @@
-// FIX: Added a triple-slash directive to explicitly include React's global types.
-// This ensures that our augmentation of JSX.IntrinsicElements merges with React's
-// default HTML element types, resolving errors where standard tags like <div> were not recognized.
+// This triple-slash directive helps ensure React's global types are included,
+// which is crucial for augmenting the JSX.IntrinsicElements interface.
 /// <reference types="react" />
-import React from 'react';
+import * as React from 'react';
 
 // Define a global namespace for custom JSX elements like <lord-icon>
 // This prevents TypeScript errors for non-standard HTML tags.
 declare global {
   namespace JSX {
-    // FIX: Correctly augment React's intrinsic elements to avoid overwriting them.
-    // By redeclaring the interface, TypeScript's declaration merging combines this with
-    // React's default types. The previous 'extends' clause was causing an override.
+    // Augmenting React's intrinsic elements to add support for the 'lord-icon' custom element.
+    // By redeclaring the interface here, TypeScript's declaration merging combines this with
+    // React's default HTML element types (like 'div', 'p', etc.).
     interface IntrinsicElements {
       'lord-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         src?: string;
