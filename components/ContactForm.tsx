@@ -54,26 +54,36 @@ const ContactForm: React.FC = () => {
         className="space-y-8"
       >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <input 
-                type="text" 
-                name="name"
-                placeholder="Your Name" 
-                className={inputStyles} 
-                required 
-                disabled={isSubmitting}
-            />
-            <input 
-                type="email" 
-                name="email"
-                placeholder="Your Email" 
-                className={inputStyles} 
-                required 
-                disabled={isSubmitting}
-            />
+            <div>
+              <label htmlFor="name" className="sr-only">Your Name</label>
+              <input 
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your Name" 
+                  className={inputStyles} 
+                  required 
+                  disabled={isSubmitting}
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="sr-only">Your Email</label>
+              <input 
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Your Email" 
+                  className={inputStyles} 
+                  required 
+                  disabled={isSubmitting}
+              />
+            </div>
           </div>
           <div>
+            <label htmlFor="subject" className="sr-only">Subject</label>
             <input 
                 type="text" 
+                id="subject"
                 name="subject"
                 placeholder="Subject" 
                 className={inputStyles} 
@@ -82,7 +92,9 @@ const ContactForm: React.FC = () => {
             />
           </div>
           <div>
+            <label htmlFor="message" className="sr-only">Your Message</label>
             <textarea 
+                id="message"
                 name="message"
                 placeholder="Your Message" 
                 rows={5} 

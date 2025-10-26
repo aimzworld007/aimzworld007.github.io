@@ -40,6 +40,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onClick }) => {
         <img 
           src={project.imageUrl} 
           alt={project.title} 
+          loading="lazy"
           className="w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-105"
         />
       </div>

@@ -29,7 +29,7 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
       >
         <div className="flex justify-between items-start mb-8">
             <div className="flex items-center gap-4">
-                <img src={data.photoUrl} alt={data.name} className="w-14 h-14 rounded-full object-cover object-top border-2 border-primary" />
+                <img src={data.photoUrl} alt={data.name} loading="lazy" className="w-14 h-14 rounded-full object-cover object-top border-2 border-primary" />
                 <div>
                     <h1 className="text-2xl font-signature text-light-text-dark dark:text-text-dark leading-tight">
                         {data.name}

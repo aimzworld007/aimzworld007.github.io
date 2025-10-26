@@ -1,6 +1,8 @@
-// FIX: The triple-slash directive for React (`/// <reference types="react" />`) was removed.
-// It was causing a "Cannot find type definition file for 'react'" error. The import
-// below is sufficient to load the necessary types and resolve the cascade of JSX errors.
+// FIX: Added a triple-slash directive to explicitly include React's type definitions.
+// This ensures that the global JSX namespace is correctly populated with standard HTML elements
+// (like 'div', 'p', etc.), resolving all "Property ... does not exist on type 'JSX.IntrinsicElements'" errors
+// across the application.
+/// <reference types="react" />
 import * as React from 'react';
 
 // Define a global namespace for custom JSX elements like <lord-icon>
