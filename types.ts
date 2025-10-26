@@ -1,18 +1,21 @@
-// FIX: Added a triple-slash directive to explicitly include React's type definitions.
-// This ensures that the global JSX namespace is correctly populated with standard HTML elements
-// (like 'div', 'p', etc.), resolving all "Property ... does not exist on type 'JSX.IntrinsicElements'" errors
-// across the application.
-/// <reference types="react" />
+// By importing React, we bring its type definitions into the scope of this file.
+// This allows TypeScript to find the original `JSX.IntrinsicElements` interface.
+// Our `declare global` block below can then correctly augment this interface
+// using declaration merging, adding support for custom elements like `<lord-icon>`
+// without overwriting the standard HTML element types (like 'div', 'p', etc.).
 import * as React from 'react';
 
 // Define a global namespace for custom JSX elements like <lord-icon>
 // This prevents TypeScript errors for non-standard HTML tags.
+// FIX: The original augmentation was overwriting React's default JSX.IntrinsicElements.
+// By extending React.JSX.IntrinsicElements, we ensure that all standard HTML element
+// types are preserved, and our custom 'lord-icon' element is added, resolving
+// the widespread "Property does not exist" errors.
 declare global {
   namespace JSX {
     // Augmenting React's intrinsic elements to add support for the 'lord-icon' custom element.
-    // By redeclaring the interface here, TypeScript's declaration merging combines this with
-    // React's default HTML element types (like 'div', 'p', etc.).
-    interface IntrinsicElements {
+    // By extending React's definitions, we ensure all standard HTML tags are included.
+    interface IntrinsicElements extends React.JSX.IntrinsicElements {
       'lord-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         src?: string;
         trigger?: string;

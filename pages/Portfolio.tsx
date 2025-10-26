@@ -33,6 +33,7 @@ import ServiceCard from '../components/ServiceCard';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
+import DesktopSidebar from '../components/DesktopSidebar';
 
 // Data state structure
 interface PortfolioData {
@@ -62,6 +63,7 @@ export default function Portfolio() {
     // State management
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
     const [primaryColor, setPrimaryColor] = useState(localStorage.getItem('primaryColor') || '174 100% 33%');
+    const [isHighContrast, setHighContrast] = useState(localStorage.getItem('highContrast') === 'true');
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [isScrollButtonVisible, setScrollButtonVisible] = useState(false);
     const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
@@ -76,6 +78,16 @@ export default function Portfolio() {
         }
         localStorage.setItem('theme', theme);
     }, [theme]);
+
+    useEffect(() => {
+        if (isHighContrast) {
+            document.documentElement.classList.add('high-contrast');
+            localStorage.setItem('highContrast', 'true');
+        } else {
+            document.documentElement.classList.remove('high-contrast');
+            localStorage.setItem('highContrast', 'false');
+        }
+    }, [isHighContrast]);
 
     useEffect(() => {
         document.documentElement.style.setProperty('--color-primary', primaryColor);
@@ -93,10 +105,11 @@ export default function Portfolio() {
     }, []);
 
     const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
+    const toggleHighContrast = () => setHighContrast(prev => !prev);
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
     return (
-        <div className="bg-light-background dark:bg-background text-light-text-dark dark:text-text-light font-sans leading-relaxed transition-colors duration-300">
+        <div className="bg-light-background dark:bg-background text-light-text-dark dark:text-text-light font-sans leading-relaxed transition-colors duration-300 lg:pr-20">
             <Header
                 data={personal}
                 isOpen={isSidebarOpen}
@@ -106,11 +119,14 @@ export default function Portfolio() {
                 currentPrimaryColor={primaryColor}
                 setPrimaryColor={setPrimaryColor}
             />
-            <Navbar
+            <Navbar />
+            <DesktopSidebar 
                 theme={theme}
                 toggleTheme={toggleTheme}
                 currentPrimaryColor={primaryColor}
                 setPrimaryColor={setPrimaryColor}
+                isHighContrast={isHighContrast}
+                toggleHighContrast={toggleHighContrast}
             />
 
             <button

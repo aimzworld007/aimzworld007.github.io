@@ -161,6 +161,51 @@
           box-shadow: 0 0 0 20px hsl(var(--color-primary) / 0);
         }
       }
+      /* High Contrast Accessibility Mode */
+      .high-contrast,
+      .high-contrast body {
+        background-color: #000 !important;
+        color: #fff !important;
+      }
+      .high-contrast .bg-light-background, .high-contrast .dark\:bg-background,
+      .high-contrast .bg-light-card-background, .high-contrast .dark\:bg-card-background,
+      .high-contrast .bg-light-card-background\/80, .high-contrast .dark\:bg-card-background\/80,
+      .high-contrast .bg-light-background\/50, .high-contrast .dark\:bg-background\/50 {
+        background-color: #000 !important;
+      }
+      .high-contrast h1, .high-contrast h2, .high-contrast h3, .high-contrast p, .high-contrast span, .high-contrast li,
+      .high-contrast .text-light-text-dark, .high-contrast .dark\:text-text-dark,
+      .high-contrast .text-light-text-medium, .high-contrast .dark\:text-text-medium,
+      .high-contrast .text-text-dark {
+        color: #fff !important;
+      }
+      .high-contrast a, .high-contrast button {
+        border: 2px solid yellow !important;
+      }
+      .high-contrast .border, .high-contrast .border-light-border, .high-contrast .dark\:border-border, .high-contrast .border-t, .high-contrast .border-b-2 {
+         border-color: #fff !important;
+      }
+      .high-contrast .text-primary, .high-contrast .hover\:text-primary:hover,
+      .high-contrast i {
+        color: #00ffff !important; /* Cyan for high visibility */
+      }
+       .high-contrast a.hover\:text-primary {
+         text-decoration: underline;
+       }
+      .high-contrast .bg-primary {
+        background-color: #00ffff !important;
+        color: #000 !important;
+      }
+      .high-contrast .bg-primary-hover:hover {
+        background-color: #00ffff !important;
+        filter: brightness(0.9);
+      }
+      .high-contrast .typewriter-cursor {
+        color: #fff !important;
+      }
+      .high-contrast img {
+        filter: grayscale(100%) contrast(200%);
+      }
     </style>
   <script type="importmap">
 {

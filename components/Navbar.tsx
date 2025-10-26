@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { personalData, navLinks } from '../constants';
-import ThemeSwitcher from './ThemeSwitcher';
-import ThemeCustomizer from './ThemeCustomizer';
 
 interface NavbarProps {
-  theme: string;
-  toggleTheme: () => void;
-  currentPrimaryColor: string;
-  setPrimaryColor: (color: string) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, currentPrimaryColor, setPrimaryColor }) => {
+const Navbar: React.FC<NavbarProps> = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -42,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, currentPrimaryColor
   }, []);
 
   return (
-    <nav className={`hidden lg:flex fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-light-card-background/80 dark:bg-card-background/80 backdrop-blur-sm shadow-md h-18' : 'h-20'}`}>
+    <nav className={`hidden lg:flex fixed top-0 left-0 right-20 z-50 transition-all duration-300 ${isScrolled ? 'bg-light-card-background/80 dark:bg-card-background/80 backdrop-blur-sm shadow-md h-18' : 'h-20'}`}>
       <div className="container mx-auto px-6 lg:px-8 flex justify-between items-center">
         <a href="#home" className="text-3xl font-signature text-light-text-dark dark:text-text-dark hover:text-primary transition-colors">
           {personalData.name}
@@ -57,10 +51,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, currentPrimaryColor
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-4">
-            <ThemeCustomizer currentPrimaryColor={currentPrimaryColor} setPrimaryColor={setPrimaryColor} />
-            <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
-        </div>
       </div>
     </nav>
   );

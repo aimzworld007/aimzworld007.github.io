@@ -4,9 +4,10 @@ import { themeColors } from '../constants';
 interface ThemeCustomizerProps {
   currentPrimaryColor: string;
   setPrimaryColor: (color: string) => void;
+  direction?: 'up' | 'left';
 }
 
-const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ currentPrimaryColor, setPrimaryColor }) => {
+const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ currentPrimaryColor, setPrimaryColor, direction = 'up' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const popoverRef = useRef<HTMLDivElement>(null);
 
@@ -22,6 +23,10 @@ const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ currentPrimaryColor, 
     };
   }, []);
 
+  const popoverClasses = direction === 'up'
+    ? "absolute bottom-full right-0 mb-3 w-48 bg-light-card-background dark:bg-card-background rounded-lg shadow-lg border border-light-border dark:border-border p-4 animate-fade-in-up origin-bottom-right"
+    : "absolute top-1/2 -translate-y-1/2 right-full mr-4 w-48 bg-light-card-background dark:bg-card-background rounded-lg shadow-lg border border-light-border dark:border-border p-4 animate-fade-in origin-right";
+
   return (
     <div className="relative" ref={popoverRef}>
       <button
@@ -35,7 +40,7 @@ const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ currentPrimaryColor, 
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-full right-0 mb-3 w-48 bg-light-card-background dark:bg-card-background rounded-lg shadow-lg border border-light-border dark:border-border p-4 animate-fade-in-up origin-bottom-right">
+        <div className={popoverClasses}>
           <p className="text-sm font-semibold text-light-text-dark dark:text-text-dark mb-3">Accent Color</p>
           <div className="grid grid-cols-5 gap-2">
             {themeColors.map((color) => (
