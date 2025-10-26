@@ -58,15 +58,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, currentPrimaryColor
           ))}
         </ul>
         <div className="flex items-center gap-4">
-            <a
-              href="/login"
-              className="group w-12 h-12 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-primary hover:bg-primary/10 transition-colors"
-              aria-label="Admin Settings"
-            >
-              <span className="transition-transform duration-300 ease-in-out group-hover:scale-110">
-                <i className="fa-solid fa-gear text-2xl"></i>
-              </span>
-            </a>
             <ThemeCustomizer currentPrimaryColor={currentPrimaryColor} setPrimaryColor={setPrimaryColor} />
             <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
         </div>

@@ -1,15 +1,13 @@
 import React from 'react';
-import { Timestamp } from 'firebase/firestore';
 
 // Define a global namespace for custom JSX elements like <lord-icon>
 // This prevents TypeScript errors for non-standard HTML tags.
 declare global {
   namespace JSX {
-    // FIX: Correctly extend React's intrinsic elements to avoid overwriting them.
-    // This adds support for the <lord-icon> custom element while preserving
-    // built-in types for standard HTML tags like <div>, <p>, etc., resolving
-    // numerous JSX-related TypeScript errors across the application.
-    interface IntrinsicElements extends React.JSX.IntrinsicElements {
+    // FIX: Correctly augment React's intrinsic elements to avoid overwriting them.
+    // By redeclaring the interface, TypeScript's declaration merging combines this with
+    // React's default types. The previous 'extends' clause was causing an override.
+    interface IntrinsicElements {
       'lord-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         src?: string;
         trigger?: string;
@@ -50,7 +48,6 @@ export interface Experience {
   date: string;
   isCurrent?: boolean;
   responsibilities: string[];
-  startDate?: Timestamp; // For ordering in Firestore
 }
 
 export interface Education {

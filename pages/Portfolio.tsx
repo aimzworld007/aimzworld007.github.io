@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { db } from '../firebase';
-import { collection, doc, getDoc, getDocs, query, orderBy } from 'firebase/firestore';
 import type { PersonalData, Experience, Education, Certification, Skill, PortfolioProject, Service } from '../types';
 // FIX: Added '.ts' extension to the types import to ensure the custom element type definitions are loaded correctly.
 import '../types.ts';
 
-// Import constants as fallback data
+// Data is now sourced directly and statically from the constants file.
+// This removes all backend dependencies and makes the app a pure frontend experience.
 import { 
     personalData as fallbackPersonalData, 
     experiences as fallbackExperiences,
@@ -66,7 +65,7 @@ export default function Portfolio() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [isScrollButtonVisible, setScrollButtonVisible] = useState(false);
     const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
-    const [portfolioData, setPortfolioData] = useState<PortfolioData>(initialData);
+    const { personal, experiences, education, certifications, coreSkills, technicalSkills, projects, services } = initialData;
 
     // Theme and color effects
     useEffect(() => {
@@ -93,57 +92,8 @@ export default function Portfolio() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // PERF: Fetch live data in the background and update the state.
-    // The page renders instantly with fallback data, then gets updated.
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                // Personal Data
-                const personalDoc = await getDoc(doc(db, 'portfolioData', 'personal'));
-                const personal = personalDoc.exists() ? personalDoc.data() as PersonalData : fallbackPersonalData;
-                
-                // Experiences
-                const expQuery = query(collection(db, 'experience'), orderBy('startDate', 'desc'));
-                const expSnapshot = await getDocs(expQuery);
-                const experiences = expSnapshot.empty ? fallbackExperiences : expSnapshot.docs.map(d => ({ id: d.id, ...d.data() } as Experience));
-
-                // Education
-                const eduSnapshot = await getDocs(collection(db, 'education'));
-                const education = eduSnapshot.empty ? fallbackEducation : eduSnapshot.docs.map(d => ({ id: d.id, ...d.data() } as Education));
-                
-                // Certifications
-                const certSnapshot = await getDocs(collection(db, 'certifications'));
-                const certifications = certSnapshot.empty ? fallbackCertifications : certSnapshot.docs.map(d => ({ id: d.id, ...d.data() } as Certification));
-                
-                // Skills
-                const skillsSnapshot = await getDocs(collection(db, 'skills'));
-                const skills = skillsSnapshot.empty ? [...fallbackCoreSkills, ...fallbackTechnicalSkills] : skillsSnapshot.docs.map(d => ({ id: d.id, ...d.data() } as Skill));
-                const coreSkills = skills.filter(s => s.type === 'core');
-                const technicalSkills = skills.filter(s => s.type === 'technical');
-
-                // Projects
-                const projectsSnapshot = await getDocs(collection(db, 'projects'));
-                const projects = projectsSnapshot.empty ? fallbackPortfolioProjects : projectsSnapshot.docs.map(d => ({ id: d.id, ...d.data() } as PortfolioProject));
-                
-                // Services
-                const servicesSnapshot = await getDocs(collection(db, 'services'));
-                const services = servicesSnapshot.empty ? fallbackServices : servicesSnapshot.docs.map(d => ({ id: d.id, ...d.data() } as Service));
-                
-                setPortfolioData({ personal, experiences, education, certifications, coreSkills, technicalSkills, projects, services });
-
-            } catch (error) {
-                console.error("Failed to fetch data from Firestore, using default data.", error);
-                // No need to set data here as it's already initialized with fallback
-            }
-        };
-
-        fetchData();
-    }, []);
-
     const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    const { personal, experiences, education, certifications, coreSkills, technicalSkills, projects, services } = portfolioData;
 
     return (
         <div className="bg-light-background dark:bg-background text-light-text-dark dark:text-text-light font-sans leading-relaxed transition-colors duration-300">
@@ -200,8 +150,8 @@ export default function Portfolio() {
                 <section id="services">
                     <Section title="What I Do" backgroundTitle="Services">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {services.map(service => (
-                                <ServiceCard key={service.id} service={service} />
+                            {services.map((service, index) => (
+                                <ServiceCard key={service.id || index} service={service} />
                             ))}
                         </div>
                     </Section>
@@ -211,8 +161,8 @@ export default function Portfolio() {
                 <section id="experience">
                     <Section title="Experience" backgroundTitle="Career">
                         <Timeline>
-                            {experiences.map((exp) => (
-                                <ExperienceCard key={exp.id} experience={exp} />
+                            {experiences.map((exp, index) => (
+                                <ExperienceCard key={exp.id || index} experience={exp} />
                             ))}
                         </Timeline>
                     </Section>
@@ -223,14 +173,14 @@ export default function Portfolio() {
                     <Section title="Education & Certifications" backgroundTitle="Learning">
                          <h3 className="text-2xl font-bold text-center mb-12 text-light-text-dark dark:text-text-dark">Education</h3>
                         <Timeline>
-                            {education.map((edu) => (
-                                <EducationCard key={edu.id} education={edu} />
+                            {education.map((edu, index) => (
+                                <EducationCard key={edu.id || index} education={edu} />
                             ))}
                         </Timeline>
                          <h3 className="text-2xl font-bold text-center my-12 pt-8 text-light-text-dark dark:text-text-dark">Certifications</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {certifications.map((cert) => (
-                                <CertificationCard key={cert.id} certification={cert} />
+                            {certifications.map((cert, index) => (
+                                <CertificationCard key={cert.id || index} certification={cert} />
                             ))}
                         </div>
                     </Section>
@@ -243,8 +193,8 @@ export default function Portfolio() {
                             <div>
                                 <h3 className="text-2xl font-bold mb-6 text-light-text-dark dark:text-text-dark">Core Competencies</h3>
                                 <div className="space-y-4">
-                                    {coreSkills.map(skill => (
-                                        <SkillProgress key={skill.id} skill={skill} />
+                                    {coreSkills.map((skill, index) => (
+                                        <SkillProgress key={skill.id || index} skill={skill} />
                                     ))}
 
                                 </div>
