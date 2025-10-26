@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface ThemeSwitcherProps {
@@ -13,7 +14,7 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ theme, toggleTheme }) => 
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
       <span className="transition-transform duration-300 ease-in-out group-hover:rotate-[20deg]">
-        <i className={`fa-solid ${theme === 'dark' ? 'fa-sun' : 'fa-moon'} text-2xl`}></i>
+        <i className={`fa-solid ${theme === 'dark' ? 'fa-sun' : 'fa-moon'} text-2xl`} aria-hidden="true"></i>
       </span>
     </button>
   );

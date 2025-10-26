@@ -1,10 +1,12 @@
+
+
 import React from 'react';
 import { PersonalData } from '../types';
 import ThemeSwitcher from './ThemeSwitcher';
 import { navLinks } from '../constants';
 import ThemeCustomizer from './ThemeCustomizer';
 // FIX: Import types.ts for its side-effect of augmenting the global JSX namespace.
-import '../types';
+import '../types.ts';
 
 interface ProfileSidebarProps {
   data: PersonalData;
@@ -60,7 +62,7 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
                 className="lg:hidden text-light-text-medium dark:text-text-medium text-2xl"
                 aria-label="Close sidebar"
             >
-                <i className="fa-solid fa-times"></i>
+                <i className="fa-solid fa-times" aria-hidden="true"></i>
             </button>
         </div>
         
@@ -73,7 +75,7 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
                             className="flex items-center gap-4 text-xl font-semibold hover:text-primary transition-all duration-300 transform hover:translate-x-2"
                             onClick={handleLinkClick}
                         >
-                            <i className={`${link.icon} w-6 text-center text-primary/80`}></i>
+                            <i className={`${link.icon} w-6 text-center text-primary/80`} aria-hidden="true"></i>
                             <span>{link.text}</span>
                         </a>
                     </li>
@@ -83,9 +85,9 @@ export default function ProfileSidebar({ data, isOpen, setIsOpen, theme, toggleT
         
         <div className="mt-8">
           <div className="flex justify-center space-x-4">
-            <a href={data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-brands fa-linkedin-in text-lg"></i></a>
-            <a href={data.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-brands fa-github text-lg"></i></a>
-            <a href={data.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-brands fa-facebook-f text-lg"></i></a>
+            <a href={data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-brands fa-linkedin-in text-lg" aria-hidden="true"></i></a>
+            <a href={data.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-brands fa-github text-lg" aria-hidden="true"></i></a>
+            <a href={data.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 flex items-center justify-center rounded-full bg-light-background dark:bg-background text-light-text-medium dark:text-text-medium hover:text-primary transition-colors"><i className="fa-brands fa-facebook-f text-lg" aria-hidden="true"></i></a>
           </div>
         </div>
         

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { PortfolioProject } from '../types';
 
@@ -68,7 +69,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onClick }) => {
             <span className="font-semibold text-primary">{project.category}</span>
             <div className="font-semibold text-primary hover:text-primary-hover transition-colors flex items-center gap-2">
                 <span>{project.liveUrl ? 'View Live' : 'Details'}</span>
-                <i className={`fa-solid ${project.liveUrl ? 'fa-arrow-up-right-from-square' : 'fa-arrow-right'} text-xs`}></i>
+                <i className={`fa-solid ${project.liveUrl ? 'fa-arrow-up-right-from-square' : 'fa-arrow-right'} text-xs`} aria-hidden="true"></i>
             </div>
         </div>
       </div>

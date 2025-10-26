@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { personalData, navLinks } from '../constants';
 
@@ -48,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = () => {
           {navLinks.map(link => (
             <li key={link.href}>
               <a href={link.href} onClick={handleSmoothScroll} className={`flex items-center gap-2 font-semibold transition-colors text-sm ${activeSection === link.href.substring(1) ? 'text-primary' : 'text-light-text-medium dark:text-text-medium hover:text-primary'}`}>
-                <i className={`${link.icon} text-base`}></i>
+                <i className={`${link.icon} text-base`} aria-hidden="true"></i>
                 <span>{link.text}</span>
               </a>
             </li>

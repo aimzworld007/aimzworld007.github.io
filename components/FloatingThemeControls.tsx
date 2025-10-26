@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ThemeSwitcher from './ThemeSwitcher';
 import ThemeCustomizer from './ThemeCustomizer';
@@ -22,7 +23,7 @@ const FloatingThemeControls: React.FC<FloatingThemeControlsProps> = ({ theme, to
         aria-pressed={isHighContrast}
       >
         <span className="transition-transform duration-300 ease-in-out group-hover:rotate-[20deg]">
-          <i className="fa-solid fa-universal-access text-2xl"></i>
+          <i className="fa-solid fa-universal-access text-2xl" aria-hidden="true"></i>
         </span>
       </button>
       <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />

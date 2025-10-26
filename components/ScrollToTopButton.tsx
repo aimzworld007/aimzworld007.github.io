@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface ScrollToTopButtonProps {
@@ -13,8 +14,10 @@ const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = ({ isVisible, onClic
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
       aria-label="Scroll to top"
+      aria-hidden={!isVisible}
+      tabIndex={isVisible ? 0 : -1}
     >
-      <i className="fa-solid fa-arrow-up text-xl"></i>
+      <i className="fa-solid fa-arrow-up text-xl" aria-hidden="true"></i>
     </button>
   );
 };

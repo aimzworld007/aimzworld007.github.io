@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { personalData } from '../constants';
 
@@ -12,7 +13,7 @@ const githubStats = {
 
 const StatItem: React.FC<{ icon: string; value: number; label: string }> = ({ icon, value, label }) => (
   <div className="text-center">
-    <i className={`fa-solid ${icon} text-2xl text-primary mb-2`}></i>
+    <i className={`fa-solid ${icon} text-2xl text-primary mb-2`} aria-hidden="true"></i>
     <p className="text-3xl font-extrabold text-light-text-dark dark:text-text-dark">{value}</p>
     <p className="text-sm text-light-text-medium dark:text-text-medium font-medium">{label}</p>
   </div>
@@ -25,7 +26,7 @@ const GithubStats: React.FC = () => {
     <div className="bg-light-card-background dark:bg-card-background p-8 rounded-xl shadow-card border border-light-border dark:border-border h-full flex flex-col justify-between">
       <div>
         <div className="flex items-center mb-6">
-          <i className="fa-brands fa-github text-4xl text-light-text-dark dark:text-text-dark mr-4"></i>
+          <i className="fa-brands fa-github text-4xl text-light-text-dark dark:text-text-dark mr-4" aria-hidden="true"></i>
           <div>
             <h4 className="text-xl font-bold text-light-text-dark dark:text-text-dark">@{githubUsername}</h4>
             <p className="text-sm text-light-text-medium dark:text-text-medium">Activity & Stats</p>
@@ -47,7 +48,7 @@ const GithubStats: React.FC = () => {
         className="group w-full inline-flex items-center justify-center px-6 py-3 bg-primary text-text-dark font-bold rounded-lg hover:bg-primary-hover transition-all duration-300 shadow-lg dark:shadow-glow"
       >
         View GitHub Profile
-        <i className="fa-solid fa-arrow-up-right-from-square text-sm ml-3"></i>
+        <i className="fa-solid fa-arrow-up-right-from-square text-sm ml-3" aria-hidden="true"></i>
       </a>
     </div>
   );

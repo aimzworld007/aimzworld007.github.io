@@ -3,16 +3,17 @@
 // Our `declare global` block below can then correctly augment this interface
 // using declaration merging, adding support for custom elements like `<lord-icon>`
 // without overwriting the standard HTML element types (like 'div', 'p', etc.).
-import * as React from 'react';
+import React from 'react';
 
 // Define a global namespace for custom JSX elements like <lord-icon>
 // This prevents TypeScript errors for non-standard HTML tags.
-// FIX: The global JSX namespace augmentation was incorrectly using a type alias, which overwrote React's intrinsic element types instead of merging with them.
-// This has been changed to use an interface, which correctly merges with React's existing
+// FIX: The global JSX namespace augmentation was incorrectly using a `type` alias, which overwrote React's intrinsic element types instead of merging with them.
+// This has been changed to use an `interface`, which correctly merges with React's existing
 // IntrinsicElements interface, ensuring that standard HTML tags are recognized by TypeScript.
 declare global {
   namespace JSX {
-    // Augmenting React's intrinsic elements to add support for the 'lord-icon' custom element.
+    // FIX: Replaced `type` alias with `interface` to correctly merge with React's intrinsic element types.
+    // This resolves the issue where standard tags like 'div' were not being recognized.
     interface IntrinsicElements {
       'lord-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         src?: string;

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { themeColors } from '../constants';
 
@@ -35,7 +36,7 @@ const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ currentPrimaryColor, 
         aria-label="Choose theme color"
       >
         <span className="transition-transform duration-300 ease-in-out group-hover:rotate-[20deg]">
-          <i className="fa-solid fa-palette text-2xl"></i>
+          <i className="fa-solid fa-palette text-2xl" aria-hidden="true"></i>
         </span>
       </button>
 
@@ -55,7 +56,7 @@ const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({ currentPrimaryColor, 
                 }}
               >
                 {currentPrimaryColor === color.hsl && (
-                  <i className="fa-solid fa-check text-white text-sm"></i>
+                  <i className="fa-solid fa-check text-white text-sm" aria-hidden="true"></i>
                 )}
               </button>
             ))}

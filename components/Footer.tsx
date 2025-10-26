@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { personalData } from '../constants';
 
@@ -8,7 +9,7 @@ const TooltipIcon: React.FC<{ href: string; label: string; iconClass: string }> 
   return (
     <div className="relative group">
       <a href={href} aria-label={label} className="block w-12 h-12 flex items-center justify-center hover:text-primary transition-colors" {...linkProps}>
-        <i className={`${iconClass} text-2xl`}></i>
+        <i className={`${iconClass} text-2xl`} aria-hidden="true"></i>
       </a>
       <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-light-text-dark dark:bg-card-background text-light-background dark:text-text-dark text-xs font-semibold rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-10">
         {label}
