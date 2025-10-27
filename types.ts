@@ -7,12 +7,11 @@ import React from 'react';
 // This prevents TypeScript errors for non-standard HTML tags.
 declare global {
   namespace JSX {
-    // FIX: Corrected JSX type augmentation. The previous attempt at declaration merging
-    // was not working correctly in this project's setup and was replacing the original
-    // IntrinsicElements interface. By extending React.JSX.IntrinsicElements, we explicitly
-    // include all standard HTML element types and add our custom 'lord-icon' element,
-    // resolving all JSX-related compilation errors.
-    interface IntrinsicElements extends React.JSX.IntrinsicElements {
+    // FIX: Reverted to standard declaration merging for JSX.IntrinsicElements. The previous 'extends React.JSX.IntrinsicElements' 
+    // approach was not working correctly in this project's setup and was replacing, rather than augmenting, the list of intrinsic elements.
+    // This caused all standard HTML tags (like 'div') to be unrecognized. Standard interface merging correctly adds the custom 'lord-icon'
+    // type without removing the built-in ones, fixing all JSX-related type errors across the application.
+    interface IntrinsicElements {
       'lord-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         src?: string;
         trigger?: string;
