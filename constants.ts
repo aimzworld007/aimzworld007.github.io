@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { PersonalData, Experience, Education, Certification, Skill, PortfolioProject, Service, ThemeColor } from './types';
 
@@ -45,12 +46,24 @@ export const experiences: Experience[] = [
     title: "PRO & Document Controller",
     company: "Habat Al Rimal Typing",
     location: "Sharjah, U.A.E",
-    date: "March 2023 - Present",
+    date: "May 2025 - Present",
     isCurrent: true,
     responsibilities: [
       "Managed UAE government applications (ICP, MOHRE, DED, Tas-heel, Emirates ID)",
       "Handled documentation workflows, visa processing, and direct customer service",
       "Provided support in IATA-approved flight ticket booking systems",
+    ]
+  },
+  {
+    title: "Administration Manager / PRO",
+    company: "Al Rashidya Gas Trading",
+    location: "Dubai, U.A.E",
+    date: "July 2023 - May 2025",
+    responsibilities: [
+       "Managed all government relations and documentation for company licensing and permits",
+       "Liaised with various UAE government departments (MOHRE, DED, Immigration, Labor)",
+       "Processed employee visas, permits, and documentation requirements",
+       "Handled company compliance matters and ensured regulatory adherence",
     ]
   },
   {
@@ -63,18 +76,6 @@ export const experiences: Experience[] = [
       "Managed document retrieval and distribution for internal departments",
       "Processed legal documents and government forms with accuracy",
       "Implemented document scanning and digital archiving procedures",
-    ]
-  },
-  {
-    title: "Administration Manager / PRO",
-    company: "Al Rashidya Gas Trading",
-    location: "Dubai, U.A.E",
-    date: "Jan 2019 - Jun 2021",
-    responsibilities: [
-       "Managed all government relations and documentation for company licensing and permits",
-       "Liaised with various UAE government departments (MOHRE, DED, Immigration, Labor)",
-       "Processed employee visas, permits, and documentation requirements",
-       "Handled company compliance matters and ensured regulatory adherence",
     ]
   },
   {
@@ -175,17 +176,17 @@ export const education: Education[] = [
   {
     degree: "M.Sc. Geography & Environment",
     institution: "National University of Bangladesh",
-    details: "CGPA: 2.97/4.00"
+    details: "Session: 2017-2018 • CGPA: 2.97/4.00"
   },
   {
     degree: "B.Sc. Geography & Environment",
     institution: "National University of Bangladesh",
-    details: "CGPA: 3.02/4.00 – 1st Class"
+    details: "Session: 2013-2017 • CGPA: 3.02/4.00 – 1st Class"
   },
   {
     degree: "1-Year ICT Diploma",
     institution: "Islami Bank Institute of Technology",
-    details: "Chittagong"
+    details: "Session: 2015-2016 • Chittagong"
   }
 ];
 
